@@ -1,0 +1,134 @@
+@import "src/shared/styles";
+
+
+.header__search{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 50px 13px;
+
+    text-align: center;
+
+    background-image: url("/images/headers/header-bg_1.png");
+}
+
+ // search text
+.header__title-text{
+    @include font-style(600,  1.25rem, 1.875rem,$pure-white)
+}
+
+.header__title-text-gray{
+    @include font-style(600, 1rem, 1.375rem, $description-light);
+    
+    margin: 0 0 2rem;
+
+}
+
+.header__search-text{
+    @include font-style(400, .875rem, 1.5rem, $pure-white);
+
+    margin: 1rem 0 2rem;
+}
+
+.header__bottom-text{
+    @include font-style(500, .875rem, 1.5rem, $pure-white);
+
+    margin: 0 0 3rem;
+
+}
+
+ // search input
+
+.header__search-line input{
+width: 100%;
+height: 44px;
+}
+
+.header__search-line {
+align-items: center;
+width: 100%;
+
+text-align: left;
+}
+
+.search{
+    width: 100%;
+}
+
+.search__input {
+    position: relative;
+}
+
+.search__input img {
+        position: absolute;
+        top: 50%; /* Вертикальная позиция на середине контейнера */
+        left: 20px; /* Позиция изображения */
+        
+        transform: translateY(-50%); /* Центрирование по вертикали */
+}
+
+.search__input input {
+    @include font-style(500, 1rem, 1.75rem, $description-dark);
+
+    box-sizing: border-box; /* Чтобы отступ не увеличивал ширину */
+
+    padding-left: 50px; /* Отступ для ввода текста, чтобы избежать наложения */
+
+    border-radius: 8px;
+   
+}
+
+
+
+  @media(min-width:#{$br-tablet}px) {
+    .header__title-text{
+        @include font-style(700, 2.25rem, 3.25rem, $pure-white);
+    }
+    
+    .header__title-text-gray{
+        @include font-style(500, 1.125rem, 1.875rem, $description-light);
+
+        letter-spacing: -1.3px;
+    }
+
+    .header__search{
+        padding: 98px 45px 70px;
+    }
+
+    .header__search-line input{
+        width: 100%;
+        height: 60px;
+    }
+
+    .header__search-line {
+        align-items: center;
+
+        width: 600px;
+
+        text-align: left;
+    }
+
+    .header__search-text{
+        margin: .5rem 0 2rem;
+
+        letter-spacing: -1px;
+    }
+
+    .header__bottom-text{
+        margin: 0 0 3.4rem;
+
+        letter-spacing: -.2px;
+    }
+  } 
+
+  @media(min-width:#{$br-tablet}px){
+ 
+  }
+
+  @media(min-width:#{$br-desktop}px){
+    .header__search {
+        padding: 98px 45px 95px;
+    }
+
+   }
