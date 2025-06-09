@@ -15,13 +15,11 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Popup from 'src/widgets/mainHeader/popUp/popup/popup.vue';
-import PopupButton from 'src/widgets/mainHeader/popUp/popupButton/popupButton.vue';
+import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import burger from 'src/widgets/mainHeader/burger/ui/burger.vue';
 
 export default defineComponent({
   components: {
-    PopupButton,
     Popup,
     burger,
   },

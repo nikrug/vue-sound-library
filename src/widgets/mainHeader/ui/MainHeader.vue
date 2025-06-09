@@ -24,29 +24,9 @@ import './style.scss';
 
 import { navMenu } from '../config/navMenu';
 import { ref } from 'vue';
-import Popup from 'src/widgets/mainHeader/popUp/popup/popup.vue';
+import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import HeaderLogo from 'src/widgets/mainHeader/headerLogo/ui/HeaderLogo.vue';
 import HeaderDropDown from 'src/widgets/mainHeader/headerDropdown/ui/headerDropdown.vue'
-const posts = ref([
-  /* ... */
-])
-
-const postFontSize = ref(1)
-// Определяем реактивную ссылку для попапа
-const submit =ref(0);
-const popup = ref<InstanceType<typeof Popup> | null>(null);
-const awesome =ref(false);
-function warn(message: any, event: { preventDefault: () => void; }) {
-  // теперь есть доступ к нативному событию
-  if (event) {
-    event.preventDefault()
-  }
-  alert(message)
-}
-const ok =ref(true);
-
-
-
 </script>
 
 <style>

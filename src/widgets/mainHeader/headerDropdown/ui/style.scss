@@ -54,7 +54,7 @@
 
 }
 
-@media (min-width:1034px) {
+@media (min-width:1029px) {
   .dropdown-list {
       list-style: none; // Убираем маркеры списка
       padding: 20px 0 0 100px; // Убираем внутренние отступы
@@ -65,6 +65,12 @@
       padding: 10px 0; // Отступ для элементов списка
       cursor: pointer; // Указатель на курсоре
   }
+  .dropdown {
+
+    height: 70vh;
+
+    }
+
 }
 
 @media (min-width:1290px) {
@@ -74,4 +80,9 @@
     .burger {
         display: none; // Скрываем бургер при ширине экрана более 1288px
     }
+  .dropdown-list {
+      list-style: none; // Убираем маркеры списка
+      padding: 40px 0 0 140px; // Убираем внутренние отступы
+      margin: 0; // Убираем внешние отступы
+  }
 }

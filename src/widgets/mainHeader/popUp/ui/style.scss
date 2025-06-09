@@ -382,27 +382,6 @@
 
      }
     
-     .modal__attach-block {
-      display: flex;
-      gap: 1rem;
-      align-items: start;
-      justify-content: start;
-  
-      white-space: nowrap; /* Предотвращает перенос строк */
-    }
-    
-    .modal__attach-block img {
-      display: inline-block; /* Изображение как блочный элемент в строке */
-  
-      vertical-align: middle; /* Выравнивание по центру по вертикали */
-    }
-    
-    .modal__attach-block p {
-      display: inline-block; /* Текст как блочный элемент в строке */
-      margin-left: -5px; /* Отступ слева от изображения */
-      
-      vertical-align: middle; /* Выравнивание по центру по вертикали */
-    }
     
     .modal__email-message-text{
       @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-light));

@@ -1,11 +1,9 @@
 import MainHeaderComponent from './ui/MainHeader.vue';
-import Popup from 'src/widgets/mainHeader/popUp/popup/popup.vue'
-import PopupButton from 'src/widgets/mainHeader/popUp/popupButton/popupButton.vue';
+import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue'
 
 export {
   MainHeaderComponent,
   Popup,
-  PopupButton
   
 };
 
