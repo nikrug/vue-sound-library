@@ -64,6 +64,7 @@
     text-align: start;
     @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-dark));
   }
+  
   .popup-overlay {
     position: fixed;
     z-index: 2001;
