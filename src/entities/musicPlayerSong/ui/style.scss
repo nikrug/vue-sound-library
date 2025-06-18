@@ -68,13 +68,12 @@ text-align: left;
 
     border-bottom: 1px solid $blue-saturat;
 
- 
+    gap:19px;
     
 }
 
 .music-player__player-text-box{
   flex-direction: column;
-    margin-left:1.125rem;
 
     text-align: left;
 }
@@ -265,7 +264,9 @@ path {
     .show-tablet{
       display: flex;
     }
-
+    .song-name{
+     width:189px;
+    }
     .music-player__player-song{
       gap: 2.5rem;
       align-items: flex-start;

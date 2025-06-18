@@ -18,7 +18,7 @@
                     <CategoryItem categoryName="Horror" imageSrc="/images/brouse-by-category/brouse_by_category_3.png"/>
                 </div>
     
-
+                <a href="/" class="categoryes__see-all-text">See all categoryes</a>
     </div>
 
 </template>

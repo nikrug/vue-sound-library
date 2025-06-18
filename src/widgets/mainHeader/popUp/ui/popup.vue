@@ -120,7 +120,7 @@
     padding: 2rem 2.5rem;
     border-radius: 24px;
     width: 480px;
-    height: fit-content;
+    height: 691px;
   }
     .close-button {
     background: transparent;

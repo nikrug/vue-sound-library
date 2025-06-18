@@ -7,29 +7,30 @@
     </div>
     <div class="swiper">
         <div class="swiper-wrapper">
+            
             <div class="swiper-slide">
-                <slider castomerName="Edward Sann" castomerPosition=" Head of Video editor at Netflix" quoteText="WavesCo was a great choice for our team for film production, the quality is amazingly great." imageSrc="/images/experiens/customer_1.svg"/>
+                <slider castomerName="Anne Joyce" castomerPosition="Video editor at Dude Perfect" quoteText="The sounds from WavesCo is great and it really helps our team to save time and production costs." imageSrc="/images/experiens/customer_1.svg"/>
             </div>
             <div class="swiper-slide">
-                <slider castomerName="Anne Joyce" castomerPosition="Video editor at Dude Perfect" quoteText="The sounds from WavesCo is great and it really helps our team to save time and production costs." imageSrc="/images/experiens/customer_2.svg"/>
+                <slider castomerName="Edward Sann" castomerPosition=" Head of Video editor at Netflix" quoteText="WavesCo was a great choice for our team for film production, the quality is amazingly great." imageSrc="/images/experiens/customer_2.svg"/>
             </div>
             <div class="swiper-slide">
                  <slider castomerName="Ronn D." castomerPosition="Video Editor at PewDiePie" quoteText="Perfect way to get best quality sound effects for youtube videos. Thanks to WavesCo team." imageSrc="/images/experiens/customer_3.svg"/>
             </div>
             <div class="swiper-slide">
-                <slider castomerName="Edward Sann" castomerPosition=" Head of Video editor at Netflix" quoteText="WavesCo was a great choice for our team for film production, the quality is amazingly great." imageSrc="/images/experiens/customer_1.svg"/>
+                <slider castomerName="Anne Joyce" castomerPosition="Video editor at Dude Perfect" quoteText="The sounds from WavesCo is great and it really helps our team to save time and production costs." imageSrc="/images/experiens/customer_1.svg"/>
             </div>
             <div class="swiper-slide">
-                <slider castomerName="Anne Joyce" castomerPosition="Video editor at Dude Perfect" quoteText="The sounds from WavesCo is great and it really helps our team to save time and production costs." imageSrc="/images/experiens/customer_2.svg"/>
+                <slider castomerName="Edward Sann" castomerPosition=" Head of Video editor at Netflix" quoteText="WavesCo was a great choice for our team for film production, the quality is amazingly great." imageSrc="/images/experiens/customer_2.svg"/>
             </div>
             <div class="swiper-slide">
                 <slider castomerName="Ronn D." castomerPosition="Video Editor at PewDiePie" quoteText="Perfect way to get best quality sound effects for youtube videos. Thanks to WavesCo team." imageSrc="/images/experiens/customer_3.svg"/>
             </div>
             <div class="swiper-slide">
-                <slider castomerName="Edward Sann" castomerPosition=" Head of Video editor at Netflix" quoteText="WavesCo was a great choice for our team for film production, the quality is amazingly great." imageSrc="/images/experiens/customer_1.svg"/>
+                <slider castomerName="Anne Joyce" castomerPosition="Video editor at Dude Perfect" quoteText="The sounds from WavesCo is great and it really helps our team to save time and production costs." imageSrc="/images/experiens/customer_1.svg"/>
             </div>
             <div class="swiper-slide">
-                <slider castomerName="Anne Joyce" castomerPosition="Video editor at Dude Perfect" quoteText="The sounds from WavesCo is great and it really helps our team to save time and production costs." imageSrc="/images/experiens/customer_2.svg"/>
+                <slider castomerName="Edward Sann" castomerPosition=" Head of Video editor at Netflix" quoteText="WavesCo was a great choice for our team for film production, the quality is amazingly great." imageSrc="/images/experiens/customer_2.svg"/>
             </div>
             <div class="swiper-slide">
                 <slider castomerName="Ronn D." castomerPosition="Video Editor at PewDiePie" quoteText="Perfect way to get best quality sound effects for youtube videos. Thanks to WavesCo team." imageSrc="/images/experiens/customer_3.svg"/>
@@ -102,11 +103,7 @@ onMounted(() => {
     
     }
     
-    .swiper{
-        max-width: 1900px;
-        margin: auto;
-    }
-    
+c
     .swiper-backface-hidden .swiper-slide {
         display: flex;
     
@@ -119,7 +116,6 @@ onMounted(() => {
         opacity: var(--swiper-pagination-bullet-opacity, 1);
         background: #020D37 !important; /* Замените на нужный вам цвет */
     }
-
     
     @media(min-width:#{$br-tablet}px) {
        .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
@@ -127,12 +123,22 @@ onMounted(() => {
         margin:  1rem 0 0.8rem;
     
     }
+        .swiper{
+        max-width: 768px;
+        margin: auto;
+    }
+    
     }
     
     @media(min-width:#{$br-desktop}px){
         .show-experiens-desctop{
             display: block;
         }
+
+    .swiper{
+        max-width: 975px;
+        margin: auto;
+    }
 
         
       }

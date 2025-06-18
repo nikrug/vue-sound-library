@@ -7,16 +7,16 @@
             <img  class="play-pause-button" src="/images/music-img/play-button.svg">
         </button>
         </div>
-        <div class="music-player__player-text-box no-wrap">
+        <div class="music-player__player-text-box song-name no-wrap">
                 <div class="music-player__song-name-text">Sound name</div>
                 <div class="music-player__time-text">0:12</div>
         </div>
 
-        <div class="music-player__player-text-box show-tablet">
+        <div class="music-player__player-text-box song-description show-tablet">
                 <div class="music-player__tab-text music-player__max-width">Confused excited crowd slight panic and distress</div>
         </div>
 
-        <div class="music-player__player-text-box show pre">
+        <div class="music-player__player-text-box song-janre show pre">
                 <div class="music-player__tab-text">Shocking, jumpscare</div>
         </div>
             
@@ -54,6 +54,30 @@
 .my-svg {
   cursor: pointer; /* Указатель при наведении */
 }
+
+.song-description{
+  width: 251px;
+}
+
+.song-name{
+  width:129px;
+}
+
+.song-janre{
+  width:212px;
+  align-self: anchor-center;
+}
+
+
+ @media(min-width:#{$br-desktop}px){
+
+    .song-name{
+     width:189px;
+    }
+    
+  }
+
+
 </style>
 
 <script setup lang="ts">

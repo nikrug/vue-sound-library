@@ -10,6 +10,8 @@
 
 .why-us__title-text-block{
 text-align: center;
+display: grid;
+gap: 17px;
 }
 
 // .why-us__text-box{
@@ -17,18 +19,14 @@ text-align: center;
 // }
 
 .why-us__text-block{
-    max-width: 16.2rem;
-    margin: 1rem 0 2rem 1rem;
-    margin-top: 1.25rem;
+    gap:4px;
+    max-width: 16rem;
+    display: grid;
 }
 
  // Text
 .why-us__title-text{
     @include font-style(600, 1.25rem, 1.875rem, $dark-blue );
-
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    
 }
 
 .why-us__yellow-text{
@@ -38,12 +36,13 @@ text-align: center;
 .why-us__label-text{
     @include font-style(600, 1rem, 1.375rem, $dark-blue );
 
-    margin: 0.9rem 0 0;
+    letter-spacing: -1px;
 }
 
 
 .why-us__description-text{
-    @include font-style(500, .875rem, 1.5rem, $description-dark )
+    @include font-style(500, .875rem, 1.5rem, $description-dark );
+    letter-spacing: -.9px;
 }
 
 @media(min-width:#{$br-tablet}px) {
@@ -64,6 +63,8 @@ text-align: center;
     .why-us__title-text-block{
         width: 29.125rem;
         margin-bottom: 0.7rem;
+        display: grid;
+        gap:17px;
     }
 
     .why-us__label-text{
@@ -92,7 +93,9 @@ text-align: center;
         justify-content: start;
         max-width: 1900px;
         margin: auto;
-        padding: 5.7rem 6.25rem 4.5rem
+        padding: 130px 100px 96px;
+        gap:75px;
+
 
     }
 
@@ -110,13 +113,13 @@ text-align: center;
     }
 
         .why-us__text-block{
-            width: 23.0625rem;
+            width: 16.0625rem;
         
         }
 
         .why-us__text-box{
-            gap:70px;
-            row-gap: 25px;
+            gap: 110px;
+            row-gap: 53px;
         }
 
   }

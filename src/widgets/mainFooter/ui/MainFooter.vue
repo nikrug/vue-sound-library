@@ -12,7 +12,7 @@
                     <div v-for="section in footerBodyList" :key="section.title">
                         <div class="footer__column">{{ section.title }}
                           <div  v-for="item in section.items" :key="item.label">
-                              <q-btn class='footer__q-btn'
+                              <q-btn class='footer__q-btn footer__text'
                                   stretch
                                   flat 
                                   :label="item.label"

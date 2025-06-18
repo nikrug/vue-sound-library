@@ -3,7 +3,7 @@
     <q-toolbar class="header ">
           <HeaderLogo/>
       <q-space />
-      <q-btn class="visible-line"
+      <q-btn class="visible-line header__nav-text"
         v-for="link in navMenu"
         stretch 
         flat
@@ -38,7 +38,7 @@ import HeaderDropDown from 'src/widgets/mainHeader/headerDropdown/ui/headerDropd
   }
 
 
-  @media (min-width: 1288px) {
+  @media (min-width: 1244px) {
     .visible{
 
     display: inline;

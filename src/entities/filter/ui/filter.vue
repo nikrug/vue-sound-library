@@ -17,9 +17,9 @@
           <p class="fiter__text">Duration</p>
           <SwiperSlider></SwiperSlider>
           <select class="filter__all-category-button fiter__category-text">
-              <option class="zxzx">All categories</option>
-              <option class="zxzxx">z,z,z</option>
-              <option class="zxzxxx">z,z,z</option>
+              <option >All categories</option>
+              <option >z,z,z</option>
+              <option >z,z,z</option>
           </select>
           <div class="music__input">
             <input class="music-player__input" type="checkbox" name="subscribe">

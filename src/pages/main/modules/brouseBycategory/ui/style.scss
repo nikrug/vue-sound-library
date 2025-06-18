@@ -29,7 +29,9 @@
 }
 
 .categoryes__see-all-text{
-    @include font-style(600, .875rem, 1.5rem, $deep-blue )
+    @include font-style(600, .875rem, 1.5rem, $deep-blue );
+
+    letter-spacing:-1px;
 }
 
 .categoryes__see-all-text:hover{
@@ -79,6 +81,7 @@
     }
 
     .categoryes__see-all-text{
-        @include font-style(600, .975rem, 1.5rem, $deep-blue )
+        @include font-style(600, .875rem, 1.5rem, $deep-blue );
+        letter-spacing:-1px;
     }
 }

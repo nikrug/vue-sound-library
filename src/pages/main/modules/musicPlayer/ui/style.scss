@@ -49,6 +49,7 @@ text-align: left;
   .tab-btn{
     cursor: pointer;
     background: inherit;
+    letter-spacing: -1px;
   }
 
 
@@ -79,8 +80,6 @@ text-align: left;
 
 .music-link-text{
   @include font-style(600, .85rem, 1.5rem,  $deep-blue);
-
-  letter-spacing: -.7px;
 }
 
 .music-link-text:hover{
@@ -93,8 +92,7 @@ text-align: left;
   display: flex;
   gap: .8rem;
   max-width: 160px;
-  height: 25px;
-  margin-top: .5rem;
+  height: 32px;
   margin-right: auto;
   overflow-x: auto;
  
@@ -224,7 +222,7 @@ path {
       gap: 2.5rem;
       align-items: flex-start;
 
-      padding: 0.9rem 0.9rem 0.9rem 0.5rem;
+      padding: 0.9rem .9rem .9rem 1.3rem;
       
   }
 

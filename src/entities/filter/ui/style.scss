@@ -95,7 +95,7 @@
 select {
   padding-right: 20px; /* Добавляем отступ, чтобы стрелка не налезала на текст */
 
-  background: url('/public/images/music-img/arrow-selected.svg') no-repeat; /* Добавляем свою стрелку */
+  background: url('/images/music-img/arrow-selected.svg') no-repeat; /* Добавляем свою стрелку */
   background-position: calc(100% - 25px) center; /* Подвигаем стрелку от правого края */
 
   appearance: none; /* Отключаем стандартный стиль для остальных браузеров */

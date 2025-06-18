@@ -20,6 +20,10 @@
         <div class="music-player__tab-content active">
                 <MusicPlayerSong/>
                 <MusicPlayerSong/>
+                <MusicPlayerSong/>
+                <MusicPlayerSong/>
+                <MusicPlayerSong/>
+                <MusicPlayerSong/>
         </div>
         <div class="music-player__tab-content">
                 <MusicPlayerSong/>
@@ -58,6 +62,7 @@
                 <MusicPlayerSong/>
             </div>
         </div>
+        <a href="/" class="music-link-text">See all sound effects</a>
       </div>
 </template>
 

@@ -61,7 +61,6 @@
     .popup__text{
       @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-light));
       margin-top: 0.5rem;
-      margin-bottom: 2.7rem;
   
     }
 
@@ -322,7 +321,6 @@
       .popup__text{
         @include font-styles('Poppins',400, 1.25rem, 2rem, var(--description-dark));
         margin-top: 0.5rem;
-        margin-bottom: 2rem;
     
       }
     

@@ -38,10 +38,18 @@
   /* Это правило применится ко всем блокам */
   .footer__column {
     grid-column: span 1; /* Каждый блок занимает одну ячейку */
-    @include font-styles('Poppins',400, .875rem, 1.0625rem, white);
     padding-left: 1rem;
+      @include font-styles('Poppins',500, .875rem, 1.0625rem, white);
   }
-  
+
+  .footer__text{
+    @include font-styles('Poppins',500, .875rem, 1.0625rem, gray);
+  }
+
+    .footer__text:hover{
+    @include font-styles('Poppins',500, .875rem, 1.0625rem, white);
+  }
+
   /* Блоки, начиная с третьего, размещаются в первой колонне */
   .footer__column:nth-child(n+3) {
     grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
@@ -92,7 +100,7 @@
   @media(min-width:768px) {
     .footer__body {
       grid-template-columns: repeat(3, 1fr); /* Первоначальная настройка для мобильного */
-      margin-left: 6rem;
+      margin-left: 1rem;
     }
     .footer__column:nth-child(n+3) {
       grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
@@ -112,7 +120,6 @@
   @media(min-width:1224px){
     
     .footer__body {
-      grid-template-columns: repeat(3, 1fr); /* Четыре колонки для десктопа */
       margin-left: 0;
       white-space: normal;
     }
@@ -146,7 +153,7 @@
   .footer__column {
     grid-column: span 1; /* Каждый блок занимает одну ячейку */
     @include font-styles('Poppins',400, 1rem, 1.0625rem, rgb(255, 255, 255));
-    padding: 5rem  0;
+    padding: 3rem  0;
   }
   
   .footer__img-box-text{
