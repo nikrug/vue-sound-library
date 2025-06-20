@@ -5,8 +5,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.525rem 1rem 1.125rem;
+    padding: 50px 16px 50px 16px;
+    gap: 47px;
 }
+
 
 .why-us__title-text-block{
 text-align: center;
@@ -14,9 +16,10 @@ display: grid;
 gap: 17px;
 }
 
-// .why-us__text-box{
-
-// }
+.why-us__text-box{
+    display: grid;
+    gap:30px;
+}
 
 .why-us__text-block{
     gap:4px;
@@ -48,6 +51,7 @@ gap: 17px;
 @media(min-width:#{$br-tablet}px) {
     .why-us{
         padding: 3.3rem 1rem 1.825rem;
+        gap: 41px;
     }
 
     .why-us__text-box{

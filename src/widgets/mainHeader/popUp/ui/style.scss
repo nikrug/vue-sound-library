@@ -309,6 +309,9 @@
   
   
   @media(min-width:#{$br-tablet}px){
+    .popup-overlay {
+        background-color: #030b27;
+    }
 
     .popup {
 
@@ -388,5 +391,7 @@
     }
 
       @media(min-width:#{$br-desktop}px){
-
+      .popup-overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
     }

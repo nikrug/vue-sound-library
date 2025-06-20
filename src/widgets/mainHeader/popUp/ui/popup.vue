@@ -109,7 +109,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #030b27;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,6 +133,13 @@
     top: -15px;
     left: 191px;
   }
+
+  }
+  @media (min-width:#{$br-desktop}px) {
+  .popup-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
 
   }
   </style>

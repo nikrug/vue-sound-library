@@ -12,7 +12,7 @@
 .categoryes__img {
     width: 100%;  /* Занимает всю ширину родителя */
     height: 70px; /* Занимает всю высоту родителя */
-
+    object-fit: cover;
     border-radius: .5rem; 
 
     cursor: pointer;
