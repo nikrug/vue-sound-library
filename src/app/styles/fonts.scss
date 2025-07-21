@@ -14,6 +14,13 @@
 }
 
 @font-face {
+   font-weight: 400; /* Обычный вес */
+   font-family: Nekst; /* Название шрифта */
+   font-style: normal; /* Обычный стиль */
+   src: url('@fonts/Nekst/Nekst-Regular.ttf') format('truetype'); 
+ }
+
+@font-face {
    font-weight: 700; /* Обычный вес */
    font-family: Quicksand; /* Название шрифта */
    font-style: normal; /* Обычный стиль */

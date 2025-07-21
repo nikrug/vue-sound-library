@@ -2,23 +2,27 @@ import { ROUTES } from '@shared/lib/routes';
 
 export const navMenu = [
   {
-    link: '/home',
-    label: 'Home',
+    link: "/",
+    label: 'Меню',
   },
   {
-    link: '/Best for Youtube',
-    label: 'Best for Youtube',
+    link: ROUTES.DELIVERY,
+    label: 'Доставка',
   },
   {
-    link: '/Category',
-    label: 'Category',
+    link: ROUTES.STOCK,
+    label: 'Акции',
   },
   {
-    link: '/Upgrade',
-    label: 'Upgrade',
+    link: ROUTES.ABOUT,
+    label: 'О компании',
   },
   {
+    link: ROUTES.CONTACTS,
+    label: 'Контакты',
+  },
+    {
     link: '/FAQ',
-    label: 'FAQ',
+    label: 'Отследить заказ',
   },
 ];

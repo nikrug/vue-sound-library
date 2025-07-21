@@ -3,13 +3,23 @@
     <burger :isOpen="isOpen" @toggle="toggleDropdown" />
     <div class="dropdown" :class="{ show: isOpen }">
             <ul class="dropdown-list">
-                <a href="/">Home </a>
-                <a href="/">About</a>
-                <a href="/">Services</a>
-                <a href="/">Projects</a>
+                <a href="/">Доставка </a>
+                <a href="/">Акции</a>
+                <a href="/">О компании</a>
+                <a href="/">Контакты</a>
+                <a href="/">Отследить заказ</a>
+                <a href="/">Личный кабинет</a>
+                <a href="/">Корзина</a>
                 <Popup></Popup>
             </ul>
-          </div>
+            <div class="dropdown-footer">
+              <div class="dropdown__footer-label">+7 3822 99 02 55</div>
+              <div class="dropdown__footer-text">
+                Бесплатная доставка<br>
+                 по Томску от 400 ₽
+              </div>
+            </div>
+    </div>
   </div>
 </template>
 
@@ -40,4 +50,19 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import './style.scss';
+
+
+.dropdown-footer{
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.dropdown__footer-label{
+  color:orange;
+  font-size: 18px;
+}
+.dropdown__footer-text{
+  color:black;
+}
 </style>

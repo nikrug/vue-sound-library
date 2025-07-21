@@ -29,7 +29,7 @@
     width: 30px;
     height:2.4px;
     border-radius: 13px;
-    background-color:  #eee;
+    background-color: #009B3D;
     margin: 6px 0;
     transition: 0.3s;
   }

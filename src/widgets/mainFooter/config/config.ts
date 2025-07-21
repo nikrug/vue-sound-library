@@ -4,67 +4,28 @@ import { ROUTES } from '@shared/lib/routes';
 
 export const footerBodyList = [
     {
-      title: 'Product',
-      items: [
-        {
-          label: 'Browse sounds',
-          link: '/',
-        },
-        {
-          label: 'Pricing',
-          link: '/',
-        },
-        {
-          label: 'FAQ',
-          link: '/',
-        },
-        {
-          label: 'Affilate',
-          link: '/',
-        }
-  
-      ]
+      link: "/",
+      label: 'Меню',
     },
     {
-      title: 'Company',
-      items: [
-        {
-          label: 'Blog',
-          link: '/',
-        },
-        {
-          label: 'About Us',
-          link: '/',
-        },
-        {
-          label: 'Help',
-          link: '/',
-        },
-        {
-          label: 'Career',
-          link: '/',
-        }
-      ]
-    }, {
-      title: 'Social Media',
-      items: [
-        {
-          label: 'Twitter',
-          link: '/'
-        },
-        {
-          label: 'Instagram',
-          link: '/'
-        },
-        {
-          label: 'YouTube',
-          link: '/'
-        },
-        {
-          label: 'Facebook',
-          link: '/'
-        },
-      ]
+      link: ROUTES.DELIVERY,
+      label: 'Доставка',
+    },
+    {
+      link: ROUTES.STOCK,
+      label: 'Акции',
+    },
+    {
+      link: ROUTES.ABOUT,
+      label: 'О компании',
+    },
+    {
+      link: ROUTES.CONTACTS,
+      label: 'Контакты',
+    },
+      {
+      link: '/FAQ',
+      label: 'Отследить заказ',
     },
   ]
   

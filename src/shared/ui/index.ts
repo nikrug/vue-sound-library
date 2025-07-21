@@ -3,11 +3,13 @@ import UiModal from '@shared/ui/uiModal/UiModal.vue';
 
 import CFormField from './formFields/FormField.vue';
 import MainLoader from './mainLoader/MainLoader.vue';
-import i18n from '@widgets/mainHeader/headerLang/HeaderLang';
-
+import inputText from './inputText/inputText.vue';
+import inputCheckbox from './inputCheckbox/inputCheckbox.vue';
 export {
   UiButton,
   MainLoader,
   UiModal,
-  CFormField
+  CFormField,
+  inputText,
+  inputCheckbox
 }

@@ -5,6 +5,10 @@ import { RouteRecordRaw } from 'vue-router';
 import MainLayout from '../layouts/MainLayout.vue';
 
 import { FormPage } from 'src/pages/form';
+import  Delivery  from 'src/pages/delivery/ui/delivery.vue';
+import  Stock  from 'src/pages/stock/ui/stock.vue';
+import  Contacts  from 'src/pages/contacts/ui/contascts.vue';
+import  About  from 'src/pages/about/ui/about.vue';
 import { IndexPage } from 'src/pages/main';
 import { ErrorNotFound } from 'src/pages/notFound';
 import { PPostsDetail } from 'src/pages/post';
@@ -34,6 +38,26 @@ const routes: RouteRecordRaw[] = [
         path: ROUTES.FORM,
         component: FormPage,
         meta: { title: `${DEFAULT_TITLE}: Form` },
+      },
+      {
+        path: ROUTES.DELIVERY,
+        component:Delivery,
+        meta: { title: `${DEFAULT_TITLE}: DELIVERY` },
+      },
+      {
+        path: ROUTES.STOCK,
+        component:Stock,
+        meta: { title: `${DEFAULT_TITLE}: STOCK` },
+      },
+      {
+        path: ROUTES.CONTACTS,
+        component:Contacts,
+        meta: { title: `${DEFAULT_TITLE}: CONTACTS` },
+      },
+      {
+        path: ROUTES.ABOUT,
+        component:About,
+        meta: { title: `${DEFAULT_TITLE}: ABOUT` },
       },
     ],
   },

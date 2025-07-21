@@ -1,28 +1,90 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
-    <div>
-      <div style="font-size: 30vh">
-        404
+  <q-layout view="lHh Lpr lFf">
+    <MainHeaderComponent />
+    <q-page-container>
+      <div class="notFound">
+        <div class="notFound__block">
+            <div class="notFound__block-text">
+              <div class="notFound__label">404</div>
+              <div class="notFound__text-box">
+                <div class="notFound__title">Страница не найдена</div>
+                <div class="notFound__subtitle">Воспользуйтесь меню, чтобы заказать доставку<br>
+                   свежих и вкусных блюд от ПиццеРио</div>
+              </div>
+              <a href="/">
+              <button class="notFound__button">Перейти в меню</button>
+              </a>
+            </div>
+            <div class="notFound__block-img">
+              <img class="notFound__img" src="/images/not-found/notFound.png">
+            </div>
+        </div>
       </div>
-
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
-
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        :to="ROUTES.MAIN"
-        label="Go Home"
-        no-caps
-      />
-    </div>
-  </div>
+    </q-page-container>
+    <MainFooterComponent />
+  </q-layout>
 </template>
-
 <script setup lang="ts">
-
-import { ROUTES } from '@shared/lib/routes';
+import { MainHeaderComponent } from '@widgets/mainHeader';
+import { MainFooterComponent } from '@widgets/mainFooter';
 </script>
+
+<style lang="scss">
+.notFound{
+  background-image: url("/images/menu-item/pattern.png");
+  background-color: #198f30;
+  padding: 150px 250px 250px ;
+}
+.notFound__button{
+  background-color: #FF991F;
+  color: white;
+  padding: 12px 36px;
+  border-radius: 10px;
+}
+
+.notFound__button:hover{
+  background-color: #E17B00;
+}
+
+.notFound__block{
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap:5rem;
+}
+
+.notFound__block-img{
+  margin-top: 50px;
+  width: 510px;
+  height: 410px;
+}
+
+.notFound__block-text{
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap:3rem;
+}
+
+.notFound__text-box{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+
+.notFound__label{
+  font-size: 48px;
+  color: white;
+}
+
+.notFound__title{
+  font-size: 36px;
+  color: white;
+}
+
+.notFound__subtitle{
+  font-size: 28px;
+  color: white;
+}
+</style>

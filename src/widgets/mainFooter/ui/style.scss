@@ -3,7 +3,7 @@
 .footer {
     padding: 1px;
   
-    background-color: #020D37;
+    background-color: #198F30;
     
     &__container {
       display: grid;
@@ -17,16 +17,6 @@
     }
   
     &__body {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Первоначальная настройка для мобильного */
-      // gap: 36px;
-  
-      // row-gap: 36px;
-      row-gap: 2.3rem;
-  
-      // white-space: nowrap;
-   
-      text-overflow: ellipsis;
     }
   }
   
@@ -39,15 +29,17 @@
   .footer__column {
     grid-column: span 1; /* Каждый блок занимает одну ячейку */
     padding-left: 1rem;
-      @include font-styles('Poppins',500, .875rem, 1.0625rem, white);
+    font-size: 16px;
+    display: flex;
+    gap: 1rem;
   }
 
   .footer__text{
-    @include font-styles('Poppins',500, .875rem, 1.0625rem, gray);
+    @include font-styles('Nekst',500, .875rem, 1.0625rem, white);
   }
 
     .footer__text:hover{
-    @include font-styles('Poppins',500, .875rem, 1.0625rem, white);
+    @include font-styles('Nekst',500, .875rem, 1.0625rem, white);
   }
 
   /* Блоки, начиная с третьего, размещаются в первой колонне */
@@ -93,7 +85,7 @@
     border:3px solid var(--footer-bk);
   
   
-    @include font-styles('Poppins',400, .875rem, 1.0625rem, white);
+    @include font-styles('Nekst',400, .875rem, 1.0625rem, white);
   }
   
   
@@ -135,8 +127,9 @@
     }
   
     .footer__logo-top{
-      display: grid;
-      grid-template-columns: 45% 68%;
+        display: flex;
+        gap: 15rem;
+        margin: auto;
     }
   
     .footer__img-box{
@@ -152,12 +145,18 @@
     }
   .footer__column {
     grid-column: span 1; /* Каждый блок занимает одну ячейку */
-    @include font-styles('Poppins',400, 1rem, 1.0625rem, rgb(255, 255, 255));
-    padding: 3rem  0;
+    @include font-styles('Nekst',400, 1rem, 1.0625rem, white);
+        row-gap: 3rem;
+        padding: 1.5rem 0;
+        gap: 3rem;
+        align-content: baseline;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
   }
   
   .footer__img-box-text{
-    @include font-styles('Poppins',400, 1.125rem, 1.375rem, white);
+    @include font-styles('Nekst',400, 1.125rem, 1.375rem, white);
     padding: 0 0.3rem 5rem 1rem;
   }
   

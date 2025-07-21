@@ -13,14 +13,39 @@
         </form>
         <div class="header__search-text">Try keyword: happy, funny, natural, horror, jumpscare and more</div>
     </div>
+
+
     <div class="header__bottom-text">
         650.654 Available Sounds. Library Updated Weekly.
         <a class="header__bottom-text" href="">See popular sounds</a>
     </div>
 </div>
+    <MenuItem menuName="Пепперони" 
+    menuDescription="Состав: колбаса пепперони, огурцы маринованные, сыр, перец халапеньо, томатный соус, дрожжевое тесто.(В 100 гр.: 330 ккал/1382 кДж)" 
+    imageSrc="/images/menu-item/Peperoni.jpg">
+    </MenuItem>
 
+    <MenuItem menuName="Дженнифер" 
+    menuDescription="Состав: копченая курица, творожный сыр, кабачки, грибы свежие, помидоры, сыр, соус сырный, соус пикантный, дрожжевое тесто.
+    (В 100 гр: 244 Ккал/1020 кДж)" 
+    imageSrc="/images/menu-item/Jeniffer.jpg">
+    </MenuItem>
+
+    <MenuItem menuName="Мичиган" menuDescription="Состав: маринованная говядина, грибы свежие, копченая индейка, помидоры,сыр, соус тар-тар, дрожжевое тесто.
+    (В 100 гр.: 314 ккал/1314 кДж)" imageSrc="/images/menu-item/Michigan.png"></MenuItem>
+
+    <MenuItem menuName="Джорджия" menuDescription="Состав: кальмары, помидоры, сыр, оливки, соус бешамель с пастой из морепродуктов, соус унаги, дрожжевое тесто.
+    (В 100 гр.: 238 ккал/997 кДж)" imageSrc="/images/menu-item/Jorjia.jpg"></MenuItem>
+
+    <MenuItem menuName="Манхетен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто.
+    (В 100 гр.: 304 ккал/1270 кДж)" imageSrc="/images/menu-item/Manhattan.jpg"></MenuItem>
+
+    <MenuItem></MenuItem>
 </template>
 
+<script setup lang="ts">
+    import MenuItem from "@entities/menuItem/ui/menuItem.vue";
+</script>
 
 <style lang="scss" scoped>
 @import './style.scss';

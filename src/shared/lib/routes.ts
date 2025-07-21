@@ -6,4 +6,8 @@ export const ROUTES = {
     EDIT: (id: string | number) => `/post/${id}/edit`,
   },
   FORM: '/form',
+  DELIVERY: '/delivery',
+  STOCK: '/stock',
+  CONTACTS:'/contacts',
+  ABOUT: '/about',
 };

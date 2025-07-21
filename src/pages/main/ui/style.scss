@@ -5,3 +5,65 @@
     @extend %main;
   }
 }
+
+.menu-list{
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0 auto;
+  max-width: 1338px;
+}
+
+.menu-container{
+  display: flex;
+  flex-wrap:wrap;
+  gap: 0px;
+}
+
+.menu-label{
+  text-align: left;
+  font-size: 48px;
+  color: white;
+}
+
+.menu{
+  background-image: url("/images/menu-item/pattern.png");
+  background-color: #198f30;
+}
+
+
+
+  @media(min-width:#{$br-tablet}px){
+  .menu-container{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 40px;
+  }
+
+  .menu-list{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 1338px;
+}
+
+  }
+  @media(min-width:#{$br-desktop}px){
+  .menu-container{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 40px;
+    width: 1300px;
+  }
+
+  .menu-list{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 1338px;
+}
+
+  }
+

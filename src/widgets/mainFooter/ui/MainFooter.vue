@@ -7,19 +7,17 @@
                     <FooterLogo/>
                 
             </div>
+
             <div class="footer__body">
-                
-                    <div v-for="section in footerBodyList" :key="section.title">
-                        <div class="footer__column">{{ section.title }}
-                          <div  v-for="item in section.items" :key="item.label">
-                              <q-btn class='footer__q-btn footer__text'
-                                  stretch
-                                  flat 
-                                  :label="item.label"
-                                  :to="item.link"
-                              />
-                          </div>
-                    </div>
+                <div class="footer__column">
+                      <q-btn class="footer__q-btn footer__text"
+                            v-for="link in footerBodyList"
+                            stretch 
+                            flat
+                            :label="link.label"
+                            :key="link.link"
+                            :to="link.link"  
+                        />
                 </div>
             </div>
         </div>

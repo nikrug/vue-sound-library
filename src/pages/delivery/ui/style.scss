@@ -1,0 +1,163 @@
+@import "src/shared/styles";
+
+.delivery{
+  background-image: url("/images/menu-item/pattern.png");
+  background-color: #198f30;
+  padding: 50px 200px;
+}
+
+.delivery__pay-block{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap:0px
+}
+
+.delivery__item{
+    border-radius: 0px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px
+}
+
+.delivery__img-block{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.delivery__way-order{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 0px;
+}
+
+.delivery__row-block{
+        flex-direction: column;
+        gap: 0;
+}
+
+
+.delivery__order-block{
+    display:flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+
+.delivery__list{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.delivery__label{
+    color:white;
+    font-size: 48px;
+}
+
+.delivery__item-label{
+    font-size: 28px;
+}
+
+.delivery__text-label{
+    font-size: 20px;
+}
+
+.delivery__text-white{
+    color:white;
+}
+
+.delivery__text-orange{
+    color:#FF991F;
+    width: 400;
+}
+
+@media(min-width:#{$br-tablet}px) {
+    .delivery__row-block{
+        flex-direction: column;
+        gap: 0;
+    }
+    .delivery__list{
+        max-width: 1300px;
+        margin: 0;
+    }
+    .delivery{
+            padding: 50px 10px;
+        }
+    }
+    
+@media(min-width:#{$br-desktop}px){
+    .delivery__row-block{
+        display:flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .delivery__list{
+        max-width: 1300px;
+        margin: auto;
+    }
+.delivery{
+  background-image: url("/images/menu-item/pattern.png");
+  background-color: #198f30;
+  padding: 50px 200px;
+}
+
+.delivery__pay-block{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px
+}
+
+.delivery__item{
+    border-radius: 10px;
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px
+}
+
+.delivery__img-block{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.delivery__way-order{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    background-color: white;
+    padding: 30px;
+    width: 620px;
+    border-radius: 10px;
+}
+
+.delivery__row-block{
+        flex-direction: row;
+        gap: 20px;
+}
+
+
+.delivery__order-block{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.delivery__list{
+    display: flex;
+
+    gap: 3rem;
+}
+
+
+        
+}
