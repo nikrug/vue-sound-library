@@ -19,9 +19,9 @@
                     <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg" alt="Пицца 3">
                 </div>
             </div>
+                    <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"><</div>
             <div class="swiper-button-next">></div>
-            <div class="swiper-pagination"></div>
         </div> <!-- Закрываем about__slider -->
         </div>
     <div class="about__block">
@@ -76,15 +76,14 @@ import '/node_modules/swiper/swiper-bundle.min.js';
           pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-                renderBullet: function (index: number, className: string): string {
-                // Массив изображений для пагинации
-                const images = [
-                        '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 1
-                        '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 2
-                        '/images/menu-item/Jeniffer.jpg'  // Изображение для слайда 3
-                ];
-                return `<span class="${className}"><img src="${images[index]}" alt="Slide ${index + 1}" /></span>`;
-                },
+                        renderBullet: function (index: number, className: string): string {
+                        const images = [
+                                '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 1
+                                '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 2
+                                '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 3
+                        ];
+                        return `<span class="swiper-pagination-bullets ${className} "><img src="${images[index]}" alt="Slide ${index + 1}" /></span>`;
+                        }
           },
           navigation: {
             nextEl: '.swiper-button-next',
@@ -116,8 +115,84 @@ import '/node_modules/swiper/swiper-bundle.min.js';
 
 <style lang="scss" scoped>
 @import './style.scss';
+@import '/node_modules/swiper/swiper-bundle.min.css';
+.paginationr-img {
+  width: 40px; /* Установите нужную ширину */
+  height: 40px; /* Установите нужную высоту */
+  display: inline-block; /* Обеспечьте правильное отображение */
+  overflow: hidden; /* Скрываем переполнение */
+}
+.swiper-pagination-bullets img{
+height: 100px;
+    width: 300px;
+}
+.swiper-horizontal > .swiper-pagination-bullets{
+    bottom: var(--swiper-pagination-bottom, 8px);
+    top: var(--swiper-pagination-top, auto);
+    left: 10px;
+    width: 300px;
+}
+.swiper-pagination-bullet .pagination-img .swiper-pagination-bullet-active{
+        height: 100px;
+        width: 100px;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 1rem var(--swiper-pagination-bullet-horizontal-gap, 14px);
+    height: 100px;
+}
+.swiper-paginationr-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 18px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 18px));
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 100%);
+    background: var(--swiper-pagination-bullet-inactive-color, #ff0000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
+}
+.swiper-paginationr-clickable .swiper-paginationr-bullet {
+    cursor: pointer;
+        width: 20px;
+    height: 20px;
+}
+.swiper-container {
+  width: 100%;
+  height: 300px;
+}
+.swiper span{
+height: 100px;
+width: 100px;
+border-radius: 10px;
+}
+.swiper-pagination-bullet-active {
+  background-color: red;
+}
+.swiper-pagination-bullet{
+        width: 100px;
+        height: 100px;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
 
-.swiper-pagination .swiper-pagination-clickable .swiper-pagination-bullets .swiper-pagination-horizontal .swiper-pagination-bullet {
+  /* Центрирование содержимого слайда */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination-bullet {
+  background: #d4d4d4;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #007bff;
+}
+.pagination-img img {
+  width: 100px; /* Применяем максимальную ширину для изображений */
+  height: auto; /* Сохраняем пропорции */
+}
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets .swiper-pagination-horizontal.swiper-pagination-bullet {
     width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 60px));
     height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 60px));
     border-radius: 10px;
@@ -137,6 +212,13 @@ import '/node_modules/swiper/swiper-bundle.min.js';
     background: #a3a3a3 !important;
     border: 2px solid orange !important;
 }
+.swiper-pagination-custom.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullet,.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px)
+--swiper-pagination-bullet-horizontal-gap is not defined
+;
+    height: 30px !important;
+    width: 30px !important;
+}
 
 //BLOX
 .about{
@@ -145,6 +227,7 @@ import '/node_modules/swiper/swiper-bundle.min.js';
                 padding:50px 0px;
                 display: flex;
                 flex-direction: column;
+                min-height: 100vh;
 }
 .about__block{
         max-width: 100%;
@@ -165,6 +248,8 @@ import '/node_modules/swiper/swiper-bundle.min.js';
 }
 .swiper{
         max-width: 600px;
+        display: flex;
+        flex-direction: column;
 }
 .about__text-block{
         display: flex;

@@ -1,0 +1,56 @@
+<script setup>
+const props = defineProps({
+  ButtonText: {
+    type: String,
+    default: "Пароль",
+  },
+  ButtonStyle: {
+    type: String,
+    default: "customButton",
+  },
+
+});
+</script>
+
+<template>
+    <button :class="ButtonStyle">
+        <slot></slot>
+        {{ ButtonText }}
+    </button>
+</template>
+<style>
+.customButton{
+    padding: 14px 34px;
+    display: flex;
+    background:#FF991F;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.customButton:hover{
+    background:#E17B00;
+}
+
+.customButton__reverse{
+    display: flex;
+    padding: 14px 34px;
+    border-radius: 10px;
+    color:#FF991F;
+    border:1px solid #FF991F;
+    background:#ffffff;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; 
+}
+
+.customButton__reverse:hover{
+    background:#E17B00;
+    color: white;
+    border:1ps solid #E17B00;
+}
+</style>

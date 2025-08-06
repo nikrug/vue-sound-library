@@ -2,7 +2,7 @@
   <div :class="customClass" @click="Popup = !Popup">
     <img src="/images/headers/icon LK.svg">
   </div>
-  <Transition name="v-faid">
+
     <div v-show="Popup" class="popup-overlay" @mousedown="Popup = !Popup">
       <form > 
         <div class="popup-content" @mousedown.stop>
@@ -40,7 +40,7 @@
         </div>
       </form>
     </div>
-  </Transition>
+
               <div v-show="forgetPassword" class="popup-overlay">
                 <div class="popup-content">
                             <div class="popup__close">

@@ -18,6 +18,10 @@ export const navMenu = [
     label: 'О компании',
   },
   {
+    link: ROUTES.CAREER,
+    label: 'Карьера',
+  },
+  {
     link: ROUTES.CONTACTS,
     label: 'Контакты',
   },

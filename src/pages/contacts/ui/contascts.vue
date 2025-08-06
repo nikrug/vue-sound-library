@@ -35,10 +35,11 @@
     padding:40px 0;
     display: flex;
     flex-direction: column;
+    min-height:100vh;
 }
 
 .contacts__list{
-    max-width: 1300px;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -58,7 +59,7 @@
 }
 
 .contacts__list{
-    max-width: 1300px;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -68,16 +69,16 @@
   }
   @media(min-width:#{$br-desktop}px){
     .contacts__list{
-    max-width: 1300px;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 3rem auto ;
     gap: 2rem;
 }
 .contacts{
     background-image: url("/images/menu-item/pattern.png");
     background-color: #198f30;
-    padding:40px 120px;
+
     display: flex;
     flex-direction: column;
     gap: 2rem;

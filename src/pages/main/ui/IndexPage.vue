@@ -26,9 +26,9 @@
         </div>
         <div class="swiper-button-prev"><</div>
         <div class="swiper-button-next">></div>
-        <div class="swiper-pagination"></div>
         
       </div>
+      <div class="swiper-pagination"></div>
     <div class="menu-list">
       <div class="menu-label" id="Pizza">Пицца</div>
       <div class="menu-container">
@@ -390,14 +390,17 @@
 .option-info-flex{
   display: flex;
 }
+
 .swiper{
     width: 350px;
+    border-radius: 10px;
 }
+
 .swiper-img{
     width: 350px;
     height: 400px;
-    border-radius: 20px;
-    margin: 100px auto 30px;
+    border-radius: 10px;
+
 }
 
 .swiper-button-next,
@@ -412,8 +415,8 @@
   .swiper-img{
     width: 750px;
     height: 400px;
-    border-radius: 20px;
-    margin: 100px auto 30px;
+    border-radius: 10px;
+   
 }
 
 .swiper-button-next,
@@ -430,14 +433,14 @@
 @media(min-width:1200px){
 .swiper{
     width: 1280px;
-
+    border-radius: 10px;
 }
 
 .swiper-img{
     width: 1280px;
     height: 590px;
     border-radius: 10px;
-    margin: 100px auto 30px;
+
 }
 
 .swiper-button-next,

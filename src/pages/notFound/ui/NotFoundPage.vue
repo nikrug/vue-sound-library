@@ -12,7 +12,7 @@
                    свежих и вкусных блюд от ПиццеРио</div>
               </div>
               <a href="/">
-              <button class="notFound__button">Перейти в меню</button>
+              <customButton ButtonText="Перейти в меню" ></customButton>
               </a>
             </div>
             <div class="notFound__block-img">
@@ -27,6 +27,7 @@
 <script setup lang="ts">
 import { MainHeaderComponent } from '@widgets/mainHeader';
 import { MainFooterComponent } from '@widgets/mainFooter';
+import { customButton } from '@shared/ui';
 </script>
 
 <style lang="scss">
@@ -34,17 +35,13 @@ import { MainFooterComponent } from '@widgets/mainFooter';
   background-image: url("/images/menu-item/pattern.png");
   background-color: #198f30;
   padding: 150px 250px 250px ;
+  height: 100vh;
 }
 .notFound__button{
-  background-color: #FF991F;
-  color: white;
-  padding: 12px 36px;
-  border-radius: 10px;
+  padding: 12px 36px;   
+   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.notFound__button:hover{
-  background-color: #E17B00;
-}
 
 .notFound__block{
   max-width: 1300px;

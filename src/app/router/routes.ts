@@ -9,6 +9,7 @@ import  Delivery  from 'src/pages/delivery/ui/delivery.vue';
 import  Stock  from 'src/pages/stock/ui/stock.vue';
 import  Contacts  from 'src/pages/contacts/ui/contascts.vue';
 import  About  from 'src/pages/about/ui/about.vue';
+import  Career  from 'src/pages/career/ui/career.vue';
 import { IndexPage } from 'src/pages/main';
 import { ErrorNotFound } from 'src/pages/notFound';
 import { PPostsDetail } from 'src/pages/post';
@@ -60,6 +61,11 @@ const routes: RouteRecordRaw[] = [
         meta: { title: `${DEFAULT_TITLE}: ABOUT` },
       },
     ],
+  },
+  {
+    path: ROUTES.CAREER,
+    component: Career,
+    meta: { title: `${DEFAULT_TITLE}: CAREER` },
   },
   {
     path: '/:catchAll(.*)*',

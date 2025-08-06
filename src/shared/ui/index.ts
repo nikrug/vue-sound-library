@@ -5,7 +5,9 @@ import CFormField from './formFields/FormField.vue';
 import MainLoader from './mainLoader/MainLoader.vue';
 import inputText from './inputText/inputText.vue';
 import inputCheckbox from './inputCheckbox/inputCheckbox.vue';
+import customButton from './customButton/customButton.vue';
 export {
+  customButton,
   UiButton,
   MainLoader,
   UiModal,

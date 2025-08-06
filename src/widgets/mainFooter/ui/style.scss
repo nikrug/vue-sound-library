@@ -17,12 +17,15 @@
     }
   
     &__body {
+      display: flex;
+      flex-direction: column;
+      
     }
   }
   
   .footer__logo-top{
-    display: block;
-  
+    display: flex;
+    margin: 0;
   }
   
   /* Это правило применится ко всем блокам */
@@ -30,7 +33,10 @@
     grid-column: span 1; /* Каждый блок занимает одну ячейку */
     padding-left: 1rem;
     font-size: 16px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    justify-content: left;
+    justify-items: left;
     gap: 1rem;
   }
 
@@ -42,10 +48,7 @@
     @include font-styles('Nekst',500, .875rem, 1.0625rem, white);
   }
 
-  /* Блоки, начиная с третьего, размещаются в первой колонне */
-  .footer__column:nth-child(n+3) {
-    grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
-  }
+
   
   .footer__img-block{
     display: flex;
@@ -73,7 +76,26 @@
     padding: 1rem 0;
  
   }
-  
+
+  .footer__number-text{
+    color: white;
+    font-size: 16px;
+  }
+
+  .footer__number{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+    gap:1rem;
+    padding: 2.3rem;
+  }
+  .footer__logo-top{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+
   .footer__img-box-text{
     display: flex;
     flex-direction: row;
@@ -88,14 +110,30 @@
     @include font-styles('Nekst',400, .875rem, 1.0625rem, white);
   }
   
-  
+
   @media(min-width:768px) {
-    .footer__body {
-      grid-template-columns: repeat(3, 1fr); /* Первоначальная настройка для мобильного */
-      margin-left: 1rem;
+    .footer__q-btn{
+      padding:0;
+ 
     }
-    .footer__column:nth-child(n+3) {
-      grid-column: 1; /* Размещаем все последующие блоки в первой колонне */
+    .footer__body {
+      flex-direction: row;
+    }
+    .footer__column {
+      grid-column: span 1; /* Каждый блок занимает одну ячейку */
+      padding-left: 1rem;
+      font-size: 16px;
+      padding: 3rem .7rem;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      justify-content: center;
+      gap: 0;
+    }
+    .footer__logo-top{
+        display: flex;
+        gap: 0;
+        flex-direction: row;
+        margin: auto;
     }
   
     .footer__img-block{
@@ -107,11 +145,26 @@
   
       border-bottom: none;
     }
+    .footer__number{
+      padding: 3rem 0;
+      align-items: end;
+      text-align: end;
+
+    }
   } 
       
   @media(min-width:1224px){
-    
+    .footer__number{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: right;
+      justify-content: end;
+      gap:1rem;
+      padding: 2.3rem 0;
+    }
     .footer__body {
+      flex-direction: column;
       margin-left: 0;
       white-space: normal;
     }
@@ -122,13 +175,14 @@
     }
   
     .footer__container{
-      max-width: 1900px;
+      max-width: 1280px;
       margin: auto;
     }
   
     .footer__logo-top{
         display: flex;
-        gap: 15rem;
+        gap: 17rem;
+        max-width: 1280px;
         margin: auto;
     }
   
@@ -147,8 +201,8 @@
     grid-column: span 1; /* Каждый блок занимает одну ячейку */
     @include font-styles('Nekst',400, 1rem, 1.0625rem, white);
         row-gap: 3rem;
-        padding: 1.5rem 0;
-        gap: 3rem;
+        padding: 2.5rem 0;
+        gap: 0rem;
         align-content: baseline;
         display: flex;
         flex-direction: row;

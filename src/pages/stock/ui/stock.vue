@@ -50,8 +50,9 @@ import StockCard from  '@entities/stockCard/ui/stockCard.vue';
 @import './style.scss';
 
 .stock__page{
-    max-width: 1300px;
-    margin: auto;
+    max-width: 1280px;
+    margin:2rem auto;
+    gap:3rem;
 }
 
 .stock__item-label{
@@ -74,7 +75,8 @@ import StockCard from  '@entities/stockCard/ui/stockCard.vue';
 
 .stock__label{
     font-size:48px;
-    color:white
+    color:white;
+    margin-bottom:2rem;
 }
 
 </style>

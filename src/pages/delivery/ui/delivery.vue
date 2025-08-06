@@ -183,12 +183,13 @@
     font-size: 16px;
 }
     .delivery__list{
-        max-width: 1300px;
+        max-width: 1280px;
         margin: 0;
     }
 
     .delivery{
             padding: 50px 0px;
+            min-height: 100vh;
     }
     @media(min-width:#{$br-tablet}px) {
     .delivery__way-block{
@@ -198,7 +199,7 @@
         
     }
     .delivery__list{
-        max-width: 1300px;
+        max-width: 1280px;
         margin: 0;
     }
     .delivery{
@@ -219,8 +220,8 @@
         margin: auto;
     }
     .delivery__list{
-        max-width: 1300px;
-        margin: auto;
+        max-width: 1280px;
+        margin:2rem auto;
     }
         
       }

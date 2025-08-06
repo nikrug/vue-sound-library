@@ -9,9 +9,9 @@
 .menu-list{
   display: flex;
   flex-direction: column;
-  padding: 0px;
+  padding: 0 ;
   margin: 0 auto;
-  max-width: 1338px;
+  max-width: 1280px;
 }
 
 .menu-container{
@@ -23,12 +23,15 @@
 .menu-label{
   text-align: left;
   font-size: 48px;
+  font-weight: 600;
   color: white;
+  margin: 4rem 1rem 2rem;
 }
 
 .menu{
   background-image: url("/images/menu-item/pattern.png");
   background-color: #198f30;
+  padding: 100px 0;
 }
 
 
@@ -43,26 +46,32 @@
   .menu-list{
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 10px;
   margin: 0 auto;
-  max-width: 1338px;
+  max-width: 1280px;
+}
+.menu-label{
+  margin: 4rem 0 2rem;
 }
 
   }
   @media(min-width:#{$br-desktop}px){
+    body{
+  height: 100vh;
+}
   .menu-container{
     display: flex;
     flex-wrap:wrap;
-    gap: 40px;
-    width: 1300px;
+    gap: 45px;
+    width: 1280px;
   }
 
   .menu-list{
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 0 0 50px 0;
   margin: 0 auto;
-  max-width: 1338px;
+  max-width: 1280px;
 }
 
   }
