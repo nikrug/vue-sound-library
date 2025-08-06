@@ -25,7 +25,7 @@
           <div class="carrer__welcome">
             <div class="carrer__welcome-label">Карьера в ПиццеРио </div>
             <div class="carrer__welcome-card-block">
-              <img src="/images/carrer/svg 01.svg"></img>
+              <img src="/images/carrer/greetings-sign.svg"></img>
               <div class="carrer__welcome-text-block">
                 <div class="carrer__welcome-text">
                   Мы не просто пиццерия, для многих томичей мы стали настоящей легендой,
@@ -40,17 +40,17 @@
           </div>
 
           <video class="carrer__video"  controls>
-            <source src="/images/carrer/6rhvt0j4koe1t2cye0zgh1r3908y0j37.mp4" type="video/mp4">
+            <source src="/images/carrer/video1.mp4" type="video/mp4">
           </video>
 
           <video class="carrer__video"  controls>
-            <source src="/images/carrer/unhtaadw2u3vxfs83py2iolri9uk64lb.mp4" type="video/mp4">
+            <source src="/images/carrer/video2.mp4" type="video/mp4">
           </video>
 
           <div class="carrer__slider">
             <div class="carrer__slider-img-block">
-              <img class="carrer__slider-img" src="/images/carrer/Vector 4 (Stroke).svg">
-              <img src="/images/carrer/img.svg">
+              <img class="carrer__slider-img" src="/images/carrer/pointer-down-desktop.svg">
+              <img src="/images/carrer/carrer-logo-desktop.svg">
             </div>
             <div class="swiper">
                   <div class="swiper-wrapper">
@@ -139,8 +139,8 @@
         </div>
         </div>
         <div class="carrer__head-hunter">
-          <img src="/images/carrer/svg 02.svg">
-          <img class="carrer__head-hunter-img" src="/images/carrer/Vector 3 (Stroke).svg">
+          <img src="/images/carrer/join-sign.svg">
+          <img class="carrer__head-hunter-img" src="/images/carrer/pointer-up-desktop.svg">
           <div class="carrer__head-hunter-text-block">
             <div>тут: </div>
             <img src="/images/carrer/hh.ru__min_ 2.svg">
