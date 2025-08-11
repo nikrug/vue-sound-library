@@ -143,7 +143,9 @@
           <img class="carrer__head-hunter-img" src="/images/carrer/pointer-up-desktop.svg">
           <div class="carrer__head-hunter-text-block">
             <div>тут: </div>
-            <img src="/images/carrer/hh.ru__min_ 2.svg">
+            <a href="https://tomsk.hh.ru/">
+              <img src="/images/carrer/hh.ru__min_ 2.svg"></img>
+            </a>
           </div>
         </div>
         </div>

@@ -3,14 +3,16 @@
     <burger :isOpen="isOpen" @toggle="toggleDropdown" />
     <div class="dropdown" :class="{ show: isOpen }">
       <ul class="dropdown-list">
-        <a href="/">Доставка </a>
-        <a href="/">Акции</a>
-        <a href="/">О компании</a>
-        <a href="/">Контакты</a>
-        <a href="/">Отследить заказ</a>
-        <a href="/">Личный кабинет</a>
-        <a href="/">Корзина</a>
-        <Popup></Popup>
+      <q-btn class="dropdown-link"
+        v-for="link in navMenu"
+        stretch 
+        flat
+        :label="link.label"
+        :key="link.link"
+        :to="link.link"
+        
+      />
+      <Popup></Popup>
       </ul>
       <div class="dropdown-footer">
         <div class="dropdown__footer-label">+7 3822 99 02 55</div>
@@ -23,29 +25,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import burger from 'src/widgets/mainHeader/burger/ui/burger.vue';
+import { navMenu } from 'src/widgets/mainHeader/config/navMenu';
+const isOpen = ref(false);
 
-export default defineComponent({
-  components: {
-    Popup,
-    burger,
-  },
-  setup() {
-    const isOpen = ref(false);
-
-    const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
-    };
-
-    return {
-      isOpen,
-      toggleDropdown,
-    };
-  },
-});
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -63,7 +52,21 @@ export default defineComponent({
   color: orange;
   font-size: 18px;
 }
-
+.q-btn{
+  text-align: left;
+  align-items: left;
+}
+.text-center {
+    text-align: left !important;
+}
+span{
+  text-align: left;
+}
+.dropdown-link{
+  color: black;
+  font-size: large;
+  text-align: left;
+}
 .dropdown__footer-text {
   color: black;
 }

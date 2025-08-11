@@ -52,6 +52,8 @@ import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownm
   .header__orange-text{
     color:#FF991F;
     font-size:18px;
+    white-space: nowrap;
+    font-weight: 700;
   }
 
   .header__text{

@@ -4,28 +4,27 @@
         <div class="swiper-wrapper">
             
             <div class="swiper-slide">
-                <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
-                
+                <img class="swiper-img" src="/images/menu-item/add-banner.png">
             </div>
             <div class="swiper-slide">
-                <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                <img class="swiper-img" src="/images/menu-item/add-banner.png">
             </div>
             <div class="swiper-slide">
-                <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                <img class="swiper-img" src="/images/menu-item/add-banner.png">
             </div>
             <div class="swiper-slide">
-                <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                <img class="swiper-img" src="/images/menu-item/add-banner.png">
             </div>
             <div class="swiper-slide">
-                <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                <img class="swiper-img" src="/images/menu-item/add-banner.png">
             </div>
             <div class="swiper-slide">
-                <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                <img class="swiper-img" src="/images/menu-item/add-banner.png">
             </div>
             
         </div>
-        <div class="swiper-button-prev"><</div>
-        <div class="swiper-button-next">></div>
+        <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left (1).svg"></div>
+        <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
         
       </div>
       <div class="swiper-pagination"></div>
@@ -76,11 +75,11 @@
           </template>
         </MenuItem>
 
-        <MenuItem menuName="Манхетен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто."
+        <MenuItem menuName="Манхеттен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто."
         menuWeight="(В 100 гр.: 304 ккал/1270 кДж)" imageSrc="/images/menu-item/Manhattan.jpg" SpicyimageSrc="/images/menu-item/Exclamation Mark.svg">
                     <massWeight  title="Манхетен"/>
                     <template v-slot:additional-info>
-                      <massWeight CustomInfoClass="option-info-flex"  CustomClass="option-none" ButtonBlockClass="option-none" title="Манхетен"/>
+                      <massWeight CustomInfoClass="option-info-flex"  CustomClass="option-none" ButtonBlockClass="option-none" title="Манхеттен"/>
                     </template>
         </MenuItem>
 
@@ -101,19 +100,19 @@
           </template>
         </MenuItem>
 
-        <MenuItem menuName="Манхетен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто."
+        <MenuItem menuName="Манхеттен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто."
         menuWeight="(В 100 гр.: 304 ккал/1270 кДж)" imageSrc="/images/menu-item/Manhattan.jpg">
           <massWeight  title="Манхетен"/>
           <template v-slot:additional-info>
-            <massWeight CustomInfoClass="option-info-flex"  CustomClass="option-none" ButtonBlockClass="option-none" title="Манхетен"/>
+            <massWeight CustomInfoClass="option-info-flex"  CustomClass="option-none" ButtonBlockClass="option-none" title="Манхеттен"/>
           </template>
         </MenuItem>
 
-        <MenuItem menuName="Манхетен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто."
+        <MenuItem menuName="Манхеттен" menuDescription="Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто."
         menuWeight="(В 100 гр.: 304 ккал/1270 кДж)" imageSrc="/images/menu-item/Manhattan.jpg"  SpicyimageSrc="/images/menu-item/Exclamation Mark.svg">
           <massWeight  title="Манхетен"/>
           <template v-slot:additional-info>
-            <massWeight CustomInfoClass="option-info-flex"  CustomClass="option-none" ButtonBlockClass="option-none" title="Манхетен"/>
+            <massWeight CustomInfoClass="option-info-flex"  CustomClass="option-none" ButtonBlockClass="option-none" title="Манхеттен"/>
           </template>
         </MenuItem>
 
@@ -446,7 +445,7 @@
 .swiper-button-next,
 .swiper-button-prev {
   display: flex;
-
+  transition: background-color 0.3s ease;
   color:  #333333; /* Цвет стрелок */
   background-color: white;
   border-radius: 30px;

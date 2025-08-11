@@ -197,6 +197,9 @@ export default {
       width: auto;
       background-color: #FF991F;
       border-radius: 10px;
+      width: 140px;
+      gap:1rem;
+
     }
     .visible{
 

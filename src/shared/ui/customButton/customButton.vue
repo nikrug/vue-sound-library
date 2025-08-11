@@ -28,7 +28,7 @@ const props = defineProps({
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .customButton:hover{
@@ -45,7 +45,7 @@ const props = defineProps({
     font-size: 16px;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; 
+   transition: background-color 0.3s ease;
 }
 
 .customButton__reverse:hover{

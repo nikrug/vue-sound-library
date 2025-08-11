@@ -3,32 +3,35 @@
   <div class="about-list">
     <div class="about__title">О компании</div>
     <div class="about__slider">
-        <div class="about__text-block-column">
+        <div class="about__text-block-img">
             <div class="about__label">«ПиццеРио» — вкусные и разнообразные блюда по демократичным ценам!</div>
             <div class="about__text">Нашей кухне присущ интернациональный вкус — именно у нас вы можете попробовать традиционные блюда Северной и Центральной Америки!</div>
         </div>  
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg" alt="Пицца 1">
+                    <img class="swiper-img" src="/images/about/swiper-img.png" alt="Пицца 1">
                 </div>
                 <div class="swiper-slide">
-                    <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg" alt="Пицца 2">
+                    <img class="swiper-img" src="/images/about/swiper-img.png" alt="Пицца 2">
                 </div>
                 <div class="swiper-slide">
-                    <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg" alt="Пицца 3">
+                    <img class="swiper-img" src="/images/about/swiper-img.png" alt="Пицца 3">
                 </div>
             </div>
                     <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"><</div>
-            <div class="swiper-button-next">></div>
+            <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left (1).svg"></div>
+            <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
         </div> <!-- Закрываем about__slider -->
         </div>
     <div class="about__block">
         <div class="about__text-block">
             <div class="about__text-box">
                 <div class="about__label-production">О продукции</div>
-                <div class="about__text-production">В нашем ресторане продаётся самая лучшая американская пицца! Наша пицца отличается пышным слоем дрожжевого теста и щедрым слоем начинки.<br> В американской пицце тесто — полноценный участник блюда, и при выборе начинки нужно считаться с его вкусом.<br> Обильный слой начинки представлен большим количеством ингредиентов, что придаёт пицце больший вес, делает её насыщенной и позволяет дольше сохранять тепло и вкусовые качества.</div>
+                <div class="about__text-production">В нашем ресторане продаётся самая<br>лучшая американская пицца!</div>
+                <div class="about__text-production">Наша пицца отличается пышным слоем дрожжевого теста и щедрым слоем<br>  начинки.</div>
+                <div class="about__text-production">В американской пицце тесто — полноценный участник блюда, и при выборе начинки нужно считаться с его вкусом.</div>
+                <div class="about__text-production"> Обильный слой начинки представлен большим количеством ингредиентов, что придаёт пицце больший вес, делает её насыщенной и позволяет дольше сохранять тепло и вкусовые качества.</div> 
             </div>
             <div class="about__text-block-column">
                 <div class="about__text-box">
@@ -78,11 +81,11 @@ import '/node_modules/swiper/swiper-bundle.min.js';
                 clickable: true,
                         renderBullet: function (index: number, className: string): string {
                         const images = [
-                                '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 1
-                                '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 2
-                                '/images/menu-item/Jeniffer.jpg', // Изображение для слайда 3
+                                '/images/about/swiper-img.png', // Изображение для слайда 1
+                                '/images/about/swiper-img.png', // Изображение для слайда 2
+                                '/images/about/swiper-img.png', // Изображение для слайда 3
                         ];
-                        return `<span class="swiper-pagination-bullets ${className} "><img src="${images[index]}" alt="Slide ${index + 1}" /></span>`;
+                        return `<span class="swiper-pagination-bullets  ${className} "><img  src="${images[index]}" alt="Slide ${index + 1}" /></span>`;
                         }
           },
           navigation: {
@@ -117,8 +120,8 @@ import '/node_modules/swiper/swiper-bundle.min.js';
 @import './style.scss';
 @import '/node_modules/swiper/swiper-bundle.min.css';
 .paginationr-img {
-  width: 40px; /* Установите нужную ширину */
-  height: 40px; /* Установите нужную высоту */
+  width: 40px ; /* Установите нужную ширину */
+  height: 40px ; /* Установите нужную высоту */
   display: inline-block; /* Обеспечьте правильное отображение */
   overflow: hidden; /* Скрываем переполнение */
 }
@@ -127,7 +130,7 @@ height: 100px;
     width: 300px;
 }
 .swiper-horizontal > .swiper-pagination-bullets{
-    bottom: var(--swiper-pagination-bottom, 8px);
+    bottom: var(--swiper-pagination-bottom, 8px) ;
     top: var(--swiper-pagination-top, auto);
     left: 10px;
     width: 300px;
@@ -141,7 +144,7 @@ height: 100px;
     height: 100px;
 }
 .swiper-paginationr-bullet {
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 18px));
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 18px)) ;
     height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 18px));
     display: inline-block;
     border-radius: var(--swiper-pagination-bullet-border-radius, 100%);
@@ -172,7 +175,7 @@ border-radius: 10px;
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+
 
   /* Центрирование содержимого слайда */
   display: flex;
@@ -186,15 +189,30 @@ border-radius: 10px;
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #007bff;
+  display: flex;
+  transition: background-color 0.3s ease;
+  color:  #333333; /* Цвет стрелок */
+  background-color: white;
+  border-radius: 30px;
+  width: 48px; /* Ширина кнопок */
+  height: 48px; /* Высота кнопок */
+  z-index: 10; /* Обеспечение правильного наложения */
+  font-weight: 700;
 }
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #FF991F;
+}
+
+
 .pagination-img img {
   width: 100px; /* Применяем максимальную ширину для изображений */
   height: auto; /* Сохраняем пропорции */
 }
 .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets .swiper-pagination-horizontal.swiper-pagination-bullet {
     width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 60px));
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 60px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 60px)) ;
     border-radius: 10px;
     background: var(--swiper-pagination-bullet-inactive-color, #000);
 }
@@ -236,6 +254,10 @@ border-radius: 10px;
         border-radius:0;
         padding:12px;
 }
+.about-list{
+    max-width: 1280px;
+    margin: auto;
+}
 
 .about__slider{
         max-width: 1280px;
@@ -247,9 +269,15 @@ border-radius: 10px;
         overflow: hidden;
 }
 .swiper{
-        max-width: 600px;
+        width: 800px;
+        height: 446px;
         display: flex;
         flex-direction: column;
+        margin-top: 2rem;
+        
+}
+.swiper-img{
+  max-height: 400px;
 }
 .about__text-block{
         display: flex;
@@ -257,11 +285,20 @@ border-radius: 10px;
         gap:1rem;
 
 }
+.about__text-block-img{
+        display: flex;
+        flex-direction: column;
+        gap:1.5rem;
+        width: 100%;
+        padding:  0 0 0 2rem;
+        justify-content: none;
+}
 
 .about__text-block-column{
         display: flex;
         flex-direction: column;
         gap:1.5rem;
+        max-width: 1980px;
 }
 
 .about__text-box{
@@ -276,6 +313,7 @@ border-radius: 10px;
 .about__title{
  font-size:48px;
  color:white;
+ padding: 0 2rem  0;
 }
 
 .about__label{
@@ -287,7 +325,7 @@ border-radius: 10px;
 }
 
 .about__text-production{
-        font-size: 28px;
+        font-size: 16px;
 }
 .about__label-production{
         font-size: 36px;
@@ -302,6 +340,17 @@ border-radius: 10px;
         background-color:inherit;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+}
+.about__text-block-img{
+        display: flex;
+        flex-direction: column;
+        gap:1.5rem;
+        max-width: 1980px;
+        padding: 2rem;
+        justify-content: center;
+}
+.about__text-production{
+        font-size: 16px;
 }
         .about__block{
         max-width: 1280px;
@@ -329,6 +378,11 @@ border-radius: 10px;
                 flex-direction: column;
         }
 }
+.about__title{
+ font-size:48px;
+ color:white;
+ padding: 0 2rem  0;
+}
 }
 
 @media(min-width:#{$br-desktop}px) {
@@ -341,6 +395,18 @@ border-radius: 10px;
         color:black;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+}
+.about__text-production{
+        font-size: 28px;
+}
+.about__text-block-img{
+        display: flex;
+        flex-direction: column;
+        gap:1.5rem;
+        max-width: 380px;
+        max-height: 440px;
+        padding: 0;
+        justify-content: end;
 }
 .about{
     background-image: url("/images/menu-item/pattern.png");
@@ -356,7 +422,7 @@ border-radius: 10px;
         background-color: white;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        padding:12px;
+        padding:42px;
 }
 
 .about__slider{
@@ -374,6 +440,7 @@ border-radius: 10px;
         display: flex;
         flex-direction: column;
         gap:1.5rem;
+        max-width: 580px;
 }
 
 .about__text-box{
@@ -388,6 +455,7 @@ border-radius: 10px;
 .about__title{
  font-size:48px;
  color:white;
+ padding: 0;
 }
 
 .about__label{

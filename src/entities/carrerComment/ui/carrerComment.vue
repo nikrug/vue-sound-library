@@ -104,7 +104,7 @@ display: none;
         position: absolute;
         left: -45px;
         bottom: 0;
-        background-image: url(/images/carrer/Rectangle.svg);
+        background-image: url(/images/carrer/comment-corner.svg);
         height: 50px;
         width: 50px;
         background-size: cover; /* Заполнение псевдоэлемента изображением */
@@ -132,7 +132,7 @@ display: none;
         right: -45px;
          transform: scaleX(-1);
         bottom: 0;
-        background-image: url(/images/carrer/Rectangle.svg);
+        background-image: url(/images/carrer/comment-corner.svg);
         height: 50px;
         width: 50px;
         background-size: cover; /* Заполнение псевдоэлемента изображением */

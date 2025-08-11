@@ -259,7 +259,7 @@ export default {
 
 
 .menu__item-button{
-    padding:14px 36px;
+    padding: 16px 40px;
     gap:12px;
     border-radius:10px;
     background-color:#FF991F;
@@ -274,9 +274,11 @@ export default {
 .menu__button-block{
     display:flex;
     justify-content:space-between;
+    align-items: center;
 }
 
 .menu__price{
-    font-size:28px
+    font-size:24px;
+    font-weight: 700;
 }
 </style>
