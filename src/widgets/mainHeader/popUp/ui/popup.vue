@@ -25,7 +25,7 @@
             <inputCheckbox inputCheckboxLabel="Запомнить меня на сайте"></inputCheckbox>
             <div class="popup__forget-button-block">
               <div class="popup__text-forget-label"  @click="Popup = !Popup, forgetPassword=!forgetPassword">Забыли пароль?</div>
-              <button type="submit" class="popup__button">Войти</button>
+              <customButton ButtonText="Войти"></customButton>
             </div>
           </div>
 
@@ -34,7 +34,7 @@
             <inputText inputType="password" PasswordButton="show-button"></inputText>
             <inputText inputType="password" PasswordButton="show-button" inputPlaceholder="Повторно введите пароль" inputTextLabel="Повторите пароль"></inputText>
             <inputCheckbox inputCheckboxLabel="Я согласен на обработку персональных данных"></inputCheckbox>
-            <button type="submit" class="popup__button">Зарегистрироваться</button>
+            <customButton ButtonText="Зарегистрироваться"></customButton>
           </div>
           
         </div>
@@ -52,13 +52,14 @@
                             <div class="popup__forget-button-block">
                               
                               <div class="popup__text-forget-label"  @click="Popup = !Popup, forgetPassword=!forgetPassword">Войти</div>
-                              <button type="submit" class="popup__button">Восстановить пароль</button>
+                              <customButton ButtonText="Восстановить пароль"></customButton>
                             </div>
                 </div>
             </div>
 </template>
 
   <script setup lang="ts">
+  import { customButton } from '@shared/ui';
   import { inputText } from '@shared/ui';
   import { inputCheckbox } from '@shared/ui';
 import {  ref } from 'vue';
@@ -114,7 +115,8 @@ const regist = ref(false);
   display: flex;
   flex-direction: row;
   align-items: center;
-    justify-content: space-between;
+  justify-content: space-between;
+  margin: 2rem 0 0 0;
 }
 .popup__text-forget{
   padding: 15px 0px;

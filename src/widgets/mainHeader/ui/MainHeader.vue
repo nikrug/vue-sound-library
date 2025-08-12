@@ -2,16 +2,13 @@
   <q-toolbar class="header">
           <HeaderLogo/>
       <q-space />
-      <q-btn class="visible-line header__nav-text"
-        v-for="link in navMenu"
-        stretch 
-        flat
-        :label="link.label"
-        :key="link.link"
-        :to="link.link"
-        
-      />
-
+      <q-btn v-show="menuItems" class="visible-line-tablet header__nav-text" stretch flat label="Меню" key="Меню" link="/" to="/"/>
+      <q-btn v-show="menuItems" class="visible-line-tablet header__nav-text" stretch flat label="Доставка" key="Доставка" link="/delivery" to="/delivery"/>
+      <q-btn  class="visible-line header__nav-text" stretch flat label="Акции" key="Акции" link="/stock" to="/stock"/>
+      <q-btn class="visible-line header__nav-text" stretch flat label="О компании" key="О компании" link="/about" to="/about"/>
+      <q-btn class="visible-line header__nav-text" stretch flat label="Карьера" key="Карьера" link="/career" to="/career"/>
+      <q-btn class="visible-line header__nav-text" stretch flat label="Контакты" key="Контакты" link="/contacts" to="/contacts"/>
+      <q-btn v-show="menuItems" class="visible-line-tablet header__nav-text" stretch flat label="Отследить заказ" key="Отследить заказ" link="/notFound" to="/notFound"/>
       <Popup customClass="visible"></Popup>
       <q-space />
 
@@ -34,7 +31,7 @@ import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import HeaderLogo from 'src/widgets/mainHeader/headerLogo/ui/HeaderLogo.vue';
 import HeaderDropDown from 'src/widgets/mainHeader/headerDropdown/ui/headerDropdown.vue'
 import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownmenu.vue'
-
+import menuItems from 'src/widgets/mainHeader/headerDropdown/ui/headerDropdown.vue';
 </script>
 
 <style>
@@ -48,7 +45,9 @@ import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownm
   .visible-line{
     display: none;
   }
-
+.visible-line-tablet{
+  display: none;
+}
   .header__orange-text{
     color:#FF991F;
     font-size:18px;
@@ -64,13 +63,21 @@ import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownm
   .header__info-text-block{
     text-align: end;
   }
+  @media (min-width: 768px) {
+    .visible-line-tablet{
+    display: flex;
+    }
 
+  }
   @media (min-width: 1244px) {
     .visible{
 
     display: inline;
 
   }
+  .visible-line-tablet{
+  display: flex;
+}
     .visible-line{
     display: flex;
   }

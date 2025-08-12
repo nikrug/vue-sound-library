@@ -4,7 +4,7 @@
         <div class="delivery__list">
         <div class="delivery__label">Доставка и оплата</div>
         <div class="delivery__pay-block">
-            <div class="delivery__item">
+            <div class="delivery__item-top">
                 <div class="delivery__item-label">Доставка</div>
                 <div class="delivery__pay-label">
                 Доставка на дом или в офис по городу Томску осуществляется бесплатно и в течение 1 часа. 
@@ -18,7 +18,7 @@
                 <div class="delivery__text delivery__text-orange">Доставка заказов начинается с 9:00 утра! </div>
             </div>
 
-            <div class="delivery__item">
+            <div class="delivery__item-top">
                 <div class="delivery__item-label">Оплата</div>
                 <div class="delivery__pay-label">
                     Оплата производится при получении заказа наличными, либо банковской картой, в рублях.
@@ -28,7 +28,7 @@
                 <div class="delivery__text-label ">Минимальная стоимость заказа</div>
                 <div class="delivery__text">По городу от 400 руб.</div>
             </div>
-            <div class="delivery__item">
+            <div class="delivery__item-top">
                 <div class="delivery__text-label ">Принимаем к оплате банковские карты</div>
                 <div class="delivery__img-block">
                     <img src="/images/delivery/mir 1.png" alt="Picky Picks">

@@ -23,7 +23,7 @@
             </div>
             
         </div>
-        <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left (1).svg"></div>
+        <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left.svg"></div>
         <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
         
       </div>
@@ -435,6 +435,10 @@
     border-radius: 10px;
 }
 
+.swiper-pagination{
+  display: none;
+}
+
 .swiper-img{
     width: 1280px;
     height: 590px;
@@ -442,6 +446,23 @@
 
 }
 
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+}
+.swiper{
+      width: 100%;
+  max-width: 1360px;
+  min-width: 1200px;
+    border-radius: 10px;
+    justify-items: center;
+}
 .swiper-button-next,
 .swiper-button-prev {
   display: flex;

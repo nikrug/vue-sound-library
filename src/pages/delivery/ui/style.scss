@@ -9,11 +9,21 @@
 .delivery__pay-block{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap:0px
+    gap: 10px;
+    padding: 20px;
 }
 
 .delivery__item{
     border-radius: 0px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px
+}
+
+.delivery__item-top{
+    border-radius: 10px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -59,6 +69,7 @@
 .delivery__label{
     color:white;
     font-size: 48px;
+    padding-left: 20px;
 }
 
 .delivery__item-label{
@@ -91,6 +102,19 @@
             padding: 50px 10px;
         }
     }
+    .delivery__item-top{
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px
+}
+.delivery__label{
+    color:white;
+    font-size: 48px;
+    padding-left: 20px;
+}
     
 @media(min-width:#{$br-desktop}px){
     .delivery__row-block{
@@ -111,7 +135,8 @@
 .delivery__pay-block{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:20px
+    gap:20px;
+    padding:0;
 }
 
 .delivery__item{
@@ -121,7 +146,16 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px
+    padding: 20px;
+}
+
+.delivery__item-top{
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
 }
 
 .delivery__img-block{
@@ -152,7 +186,11 @@
     gap: 20px;
 }
 
-
+.delivery__label{
+    color:white;
+    font-size: 48px;
+    padding-left: 0;
+}
 .delivery__list{
     display: flex;
 

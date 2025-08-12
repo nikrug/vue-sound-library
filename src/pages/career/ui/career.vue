@@ -54,30 +54,28 @@
             </div>
             <div class="swiper">
                   <div class="swiper-wrapper">
-                      
-                      <div class="swiper-slide">
-                          <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
-                          
+                      <div class="swiper-slide slider-card-info">
+                          <carrerStory></carrerStory>   
                       </div>
-                      <div class="swiper-slide">
-                          <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                      <div class="swiper-slide slider-card-info">
+                          <carrerStory></carrerStory>   
                       </div>
-                      <div class="swiper-slide">
-                          <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                      <div class="swiper-slide slider-card-info">
+                          <carrerStory></carrerStory>   
                       </div>
-                      <div class="swiper-slide">
-                          <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                      <div class="swiper-slide slider-card-info">
+                          <carrerStory></carrerStory>   
                       </div>
-                      <div class="swiper-slide">
-                          <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                      <div class="swiper-slide slider-card-info">
+                          <carrerStory></carrerStory>   
                       </div>
-                      <div class="swiper-slide">
-                          <img class="swiper-img" src="/images/menu-item/Jeniffer.jpg">
+                      <div class="swiper-slide slider-card-info">
+                          <carrerStory></carrerStory>   
                       </div>
                       
                   </div>
-                  <div class="swiper-button-prev"><</div>
-                  <div class="swiper-button-next">></div>
+                  <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left.svg"></div>
+                  <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
                   <div class="swiper-pagination"></div>
             </div>
             </div>
@@ -156,7 +154,7 @@
 </template>
 <script setup lang="ts">
 import { MainFooterComponent } from '@widgets/mainFooter';
-
+import carrerStory from '@entities/carrerStory/ui/carrerStory.vue';
 import { customButton } from '@shared/ui';
 import { carrerComment } from '@entities/carrerComment';
   import { ref, onMounted } from 'vue';
@@ -213,6 +211,7 @@ import { carrerComment } from '@entities/carrerComment';
   font-size: 12px;
 
 }
+
 .carrer{
   background-image: url("/images/menu-item/pattern.png");
   background-color: #198f30;
@@ -226,6 +225,7 @@ import { carrerComment } from '@entities/carrerComment';
   max-width: 1280px;
 
 }
+
 .carrer__video{
   display: flex;
   max-width: 1280px;
@@ -339,13 +339,14 @@ import { carrerComment } from '@entities/carrerComment';
 .swiper{
     width: 350px;
     border-radius: 10px;
+    height: 100%;
+    margin: none;
 }
 
-.swiper-img{
-    width: 350px;
-    height: 400px;
-    border-radius: 10px;
 
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
 }
 
 .swiper-button-next,
@@ -354,6 +355,7 @@ import { carrerComment } from '@entities/carrerComment';
 }
 
 @media(min-width:780px){
+
   .carrer{
   background-image: url("/images/menu-item/pattern.png");
   background-color: #198f30;
@@ -365,18 +367,12 @@ import { carrerComment } from '@entities/carrerComment';
 .button-tablet{
   display:block;
 }
-.carrer__slider-img{
-  display: flex;
-}
+
   .swiper{
     width: 750px;
 }
-  .swiper-img{
-    width: 750px;
-    height: 400px;
-    border-radius: 10px;
-   
-}
+
+
 .button-desctop{
   display: none;
 }
@@ -390,6 +386,7 @@ import { carrerComment } from '@entities/carrerComment';
   font-size: 16px;
 
 }
+
 .carrer__head-hunter-img{
   display: flex;
 }
@@ -405,12 +402,32 @@ import { carrerComment } from '@entities/carrerComment';
 }
 
 @media(min-width:1200px){
+
 .button-desctop{
   display: block;
 }
+
+.slider-card-info{
+    overflow: hidden;
+  border-radius: 10px;
+  width: 1280px; /* Ширина кнопок */
+
+}
+
+.swiper {
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+}
 .swiper{
-    width: 1280px;
+    width: 1420px;
     border-radius: 10px;
+    justify-items: center;
 }
 .carrer__slider-img{
   display: flex;
@@ -424,12 +441,7 @@ import { carrerComment } from '@entities/carrerComment';
 .button-tablet{
   display:block;
 }
-.swiper-img{
-    width: 1280px;
-    height: 590px;
-    border-radius: 10px;
 
-}
 .carrer__welcome-text-block{
   font-size: 28px;
 
@@ -445,11 +457,13 @@ import { carrerComment } from '@entities/carrerComment';
   height: 48px; /* Высота кнопок */
   z-index: 10; /* Обеспечение правильного наложения */
   font-weight: 700;
+  transition: background-color 0.3s ease;
 }
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   background-color: #FF991F;
 }
+
 }
 </style>

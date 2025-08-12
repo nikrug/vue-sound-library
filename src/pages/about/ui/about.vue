@@ -20,7 +20,7 @@
                 </div>
             </div>
                     <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left (1).svg"></div>
+            <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left.svg"></div>
             <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
         </div> <!-- Закрываем about__slider -->
         </div>
@@ -129,6 +129,11 @@ import '/node_modules/swiper/swiper-bundle.min.js';
 height: 100px;
     width: 300px;
 }
+
+span.swiper-pagination-bullets.swiper-pagination-bullet.swiper-pagination-bullet-active {
+        height: 100px;
+        width: 100px;
+}
 .swiper-horizontal > .swiper-pagination-bullets{
     bottom: var(--swiper-pagination-bottom, 8px) ;
     top: var(--swiper-pagination-top, auto);
@@ -140,12 +145,12 @@ height: 100px;
         width: 100px;
 }
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 1rem var(--swiper-pagination-bullet-horizontal-gap, 14px);
+    margin: 1rem var(--swiper-pagination-bullet-horizontal-gap, 24px);
     height: 100px;
 }
 .swiper-paginationr-bullet {
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 18px)) ;
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 18px));
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 28px)) ;
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 28px));
     display: inline-block;
     border-radius: var(--swiper-pagination-bullet-border-radius, 100%);
     background: var(--swiper-pagination-bullet-inactive-color, #ff0000);
@@ -198,6 +203,7 @@ border-radius: 10px;
   height: 48px; /* Высота кнопок */
   z-index: 10; /* Обеспечение правильного наложения */
   font-weight: 700;
+  display: none;
 }
 
 .swiper-button-next:hover,
@@ -274,7 +280,7 @@ border-radius: 10px;
         display: flex;
         flex-direction: column;
         margin-top: 2rem;
-        
+        border-radius: 20px;
 }
 .swiper-img{
   max-height: 400px;
@@ -383,6 +389,10 @@ border-radius: 10px;
  color:white;
  padding: 0 2rem  0;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
 }
 
 @media(min-width:#{$br-desktop}px) {
@@ -395,6 +405,11 @@ border-radius: 10px;
         color:black;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+        
+}
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex;
 }
 .about__text-production{
         font-size: 28px;
