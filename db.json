@@ -1,0 +1,77 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "/images/menu-item/Beri-peki.jpg",
+      "author": "Автор 1"
+    },
+    {
+      "id": 2,
+      "title": "/images/menu-item/Beri-peki.jpg",
+      "author": "Автор 2"
+    },
+    {
+      "id": 3,
+      "title": "/images/menu-item/Beri-peki.jpg",
+      "author": "Автор 3"
+    }
+  ],
+   "pizzas": [
+    {
+      "id": 1,
+      "name": "Дженнифер",
+      "description": "Состав: копченая курица, творожный сыр, кабачки, грибы свежие, помидоры, сыр, соус сырный, соус пикантный, дрожжевое тесто.",
+      "weight": "(100 гр: 244 Ккал/1020 кДж)",
+      "imageSrc": "/images/menu-item/Michigan.png",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg"
+    },
+    {
+      "id": 2,
+      "name": "Арканзас",
+      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
+      "weight": "(100 гр: 300 Ккал/1250 кДж)",
+      "imageSrc": "/images/menu-item/Michigan.png",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg"
+    },
+    {
+      "id": 3,
+      "name": "Мичиган",
+      "description": "Состав: маринованная говядина, грибы свежие, копченая индейка, помидоры, сыр, соус тар-тар, дрожжевое тесто.",
+      "weight": "(100 гр: 244 Ккал/1020 кДж)",
+      "imageSrc": "/images/menu-item/Michigan.png",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg"
+    },
+    {
+      "id": 4,
+      "name": "Пепперони",
+      "description": "Состав: колбаса пепперони, огурцы маринованные, сыр, перец халапеньо, томатный соус, дрожжевое тесто.",
+      "weight": "(100 гр.: 330 Ккал/1382 кДж)",
+      "imageSrc": "/images/menu-item/Peperoni.jpg",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg"
+    },
+    {
+      "id": 5,
+      "name": "Джорджия",
+      "description": "Состав: кальмары, помидоры, сыр, оливки, соус бешамель с пастой из морепродуктов, соус унаги, дрожжевое тесто.",
+      "weight": "(100 гр.: 238 Ккал/997 кДж)",
+      "imageSrc": "/images/menu-item/Jorjia.jpg",
+      "spicyImageSrc": ""
+    },
+    {
+      "id": 6,
+      "name": "Мичиган",
+      "description": "Состав: маринованная говядина, грибы свежие, копченая индейка, помидоры, сыр, соус тар-тар, дрожжевое тесто.",
+      "weight": "(100 гр: 244 Ккал/1020 кДж)",
+      "imageSrc": "/images/menu-item/Michigan.png",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg"
+    },
+    {
+      "id": 7,
+      "name": "Мичиган",
+      "description": "Состав: маринованная говядина, грибы свежие, копченая индейка, помидоры, сыр, соус тар-тар, дрожжевое тесто.",
+      "weight": "(100 гр: 244 Ккал/1020 кДж)",
+      "imageSrc": "/images/menu-item/Michigan.png",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg"
+    }
+  ]
+}

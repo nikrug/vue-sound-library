@@ -6,24 +6,43 @@
         <div class="about__text-block-img">
             <div class="about__label">«ПиццеРио» — вкусные и разнообразные блюда по демократичным ценам!</div>
             <div class="about__text">Нашей кухне присущ интернациональный вкус — именно у нас вы можете попробовать традиционные блюда Северной и Центральной Америки!</div>
-        </div>  
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img class="swiper-img" src="/images/about/swiper-img.png" alt="Пицца 1">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-img" src="/images/about/swiper-img.png" alt="Пицца 2">
-                </div>
-                <div class="swiper-slide">
-                    <img class="swiper-img" src="/images/about/swiper-img.png" alt="Пицца 3">
-                </div>
-            </div>
-                    <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left.svg"></div>
-            <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
-        </div> <!-- Закрываем about__slider -->
+                
         </div>
+        <div class="about__swiper-block"> 
+        <swiper 
+        :spaceBetween="10"
+        :navigation="true"
+        :thumbs="{ swiper: thumbsSwiper }"
+        :modules="modules"
+        :loop="true"
+        class="swiper-top"
+        >
+        <swiper-slide class="swiper-slide-top"><img src="/images/about/cake.jpg" /></swiper-slide>
+        <swiper-slide class="swiper-slide-top"><img src="/images/about/vase.jpg" /></swiper-slide>
+        <swiper-slide class="swiper-slide-top"><img src="/images/about/desert.png" /></swiper-slide>
+        <swiper-slide class="swiper-slide-top"><img src="/images/about/beri-peki.jpg" /></swiper-slide>
+        <swiper-slide class="swiper-slide-top"><img src="/images/about/pizza.png" /></swiper-slide>
+        </swiper>
+        
+        <swiper
+        @swiper="setThumbsSwiper"
+        :spaceBetween="10"
+        :slidesPerView="5"
+        :freeMode="true"
+        :loop="true"
+        :watchSlidesProgress="true"
+        :modules="modules"
+        class="swiper-bottom"
+        >
+        <swiper-slide><img class="swiper-slide-bottom" src="/images/about/cake.jpg" /></swiper-slide>
+        <swiper-slide><img class="swiper-slide-bottom" src="/images/about/vase.jpg" /></swiper-slide>
+        <swiper-slide><img class="swiper-slide-bottom" src="/images/about/desert.png" /></swiper-slide>
+        <swiper-slide><img class="swiper-slide-bottom" src="/images/about/beri-peki.jpg" /></swiper-slide>
+        <swiper-slide><img class="swiper-slide-bottom" src="/images/about/pizza.png" /></swiper-slide>
+        </swiper>
+        </div>
+
+        </div> 
     <div class="about__block">
         <div class="about__text-block">
             <div class="about__text-box">
@@ -59,435 +78,46 @@
             <img src="/images/about/desert.png" alt="Десерт">
         </div>
     </div>
-</div> <!-- Закрываем about -->
+</div> 
 </div>
 </template>
 
-<script setup lang="ts">
-  import MenuItem from "@entities/menuItem/ui/menuItem.vue";
-  import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
-  import { ref, onMounted } from 'vue';
-import { Navigation, Pagination } from 'swiper/modules'
-import '/node_modules/swiper/swiper-bundle.min.js';
-    onMounted(() => {
-      const Swiper = (window as any).Swiper;
+<script>
+import { ref } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import './style.scss';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
-      if (Swiper) {
-        const swiper = new Swiper('.swiper', {
-          modules: [Pagination, Navigation],
-          loop: true,
-          pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                        renderBullet: function (index: number, className: string): string {
-                        const images = [
-                                '/images/about/swiper-img.png', // Изображение для слайда 1
-                                '/images/about/swiper-img.png', // Изображение для слайда 2
-                                '/images/about/swiper-img.png', // Изображение для слайда 3
-                        ];
-                        return `<span class="swiper-pagination-bullets  ${className} "><img  src="${images[index]}" alt="Slide ${index + 1}" /></span>`;
-                        }
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-            
-          },
-          breakpoints: {
-            1244: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-            },
-            768: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-            },
-            320: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-            },
-          },
-        });
-      } else {
-        console.error('Swiper not loaded');
-      }
-    });
-  
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const thumbsSwiper = ref(null);
 
+    const setThumbsSwiper = (swiper) => {
+      thumbsSwiper.value = swiper;
+      console.log('Thumbs swiper instance: ', swiper); // Логируем экземпляр
+    };
+
+    return {
+      thumbsSwiper,
+      setThumbsSwiper,
+      modules: [FreeMode, Navigation, Thumbs],
+    };
+  },
+};
 </script>
+
 
 <style lang="scss" scoped>
 @import './style.scss';
 @import '/node_modules/swiper/swiper-bundle.min.css';
-.paginationr-img {
-  width: 40px ; /* Установите нужную ширину */
-  height: 40px ; /* Установите нужную высоту */
-  display: inline-block; /* Обеспечьте правильное отображение */
-  overflow: hidden; /* Скрываем переполнение */
-}
-.swiper-pagination-bullets img{
-height: 100px;
-    width: 300px;
-}
-
-span.swiper-pagination-bullets.swiper-pagination-bullet.swiper-pagination-bullet-active {
-        height: 100px;
-        width: 100px;
-}
-.swiper-horizontal > .swiper-pagination-bullets{
-    bottom: var(--swiper-pagination-bottom, 8px) ;
-    top: var(--swiper-pagination-top, auto);
-    left: 10px;
-    width: 300px;
-}
-.swiper-pagination-bullet .pagination-img .swiper-pagination-bullet-active{
-        height: 100px;
-        width: 100px;
-}
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 1rem var(--swiper-pagination-bullet-horizontal-gap, 24px);
-    height: 100px;
-}
-.swiper-paginationr-bullet {
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 28px)) ;
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 28px));
-    display: inline-block;
-    border-radius: var(--swiper-pagination-bullet-border-radius, 100%);
-    background: var(--swiper-pagination-bullet-inactive-color, #ff0000);
-    opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
-}
-.swiper-paginationr-clickable .swiper-paginationr-bullet {
-    cursor: pointer;
-        width: 20px;
-    height: 20px;
-}
-.swiper-container {
-  width: 100%;
-  height: 300px;
-}
-.swiper span{
-height: 100px;
-width: 100px;
-border-radius: 10px;
-}
-.swiper-pagination-bullet-active {
-  background-color: red;
-}
-.swiper-pagination-bullet{
-        width: 100px;
-        height: 100px;
-}
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-
-
-  /* Центрирование содержимого слайда */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-pagination-bullet {
-  background: #d4d4d4;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  display: flex;
-  transition: background-color 0.3s ease;
-  color:  #333333; /* Цвет стрелок */
-  background-color: white;
-  border-radius: 30px;
-  width: 48px; /* Ширина кнопок */
-  height: 48px; /* Высота кнопок */
-  z-index: 10; /* Обеспечение правильного наложения */
-  font-weight: 700;
-  display: none;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: #FF991F;
-}
-
-
-.pagination-img img {
-  width: 100px; /* Применяем максимальную ширину для изображений */
-  height: auto; /* Сохраняем пропорции */
-}
-.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets .swiper-pagination-horizontal.swiper-pagination-bullet {
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 60px));
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 60px)) ;
-    border-radius: 10px;
-    background: var(--swiper-pagination-bullet-inactive-color, #000);
-}
-
-.swiper-pagination .swiper-pagination-clickable .swiper-pagination-bullets .swiper-pagination-horizontal .swiper-pagination-bullet-active {
-    opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background: #a3a3a3;
-    border: 2px solid orange;
-}
-.swiper-pagination .swiper-pagination-clickable .swiper-pagination-bullets .swiper-pagination-horizontal .swiper-pagination-bullet {
-    background: var(--swiper-pagination-bullet-inactive-color, #000) !important;
-}
-
-.swiper-pagination .swiper-pagination-clickable .swiper-pagination-bullets .swiper-pagination-horizontal .swiper-pagination-bullet-active {
-    background: #a3a3a3 !important;
-    border: 2px solid orange !important;
-}
-.swiper-pagination-custom.swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullet,.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullet {
-    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px)
---swiper-pagination-bullet-horizontal-gap is not defined
-;
-    height: 30px !important;
-    width: 30px !important;
-}
-
-//BLOX
-.about{
-                background-image: url("/images/menu-item/pattern.png");
-                background-color: #198f30;
-                padding:50px 0px;
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-}
-.about__block{
-        max-width: 100%;
-        margin: 0;
-        background-color: white;
-        border-radius:0;
-        padding:12px;
-}
-.about-list{
-    max-width: 1280px;
-    margin: auto;
-}
-
-.about__slider{
-        max-width: 1280px;
-        margin:auto ;
-        color:white;
-        display: flex;
-        flex-direction: column;
-        background-color:inherit;
-        overflow: hidden;
-}
-.swiper{
-        width: 800px;
-        height: 446px;
-        display: flex;
-        flex-direction: column;
-        margin-top: 2rem;
-        border-radius: 20px;
-}
-.swiper-img{
-  max-height: 400px;
-}
-.about__text-block{
-        display: flex;
-        flex-direction: column;
-        gap:1rem;
-
-}
-.about__text-block-img{
-        display: flex;
-        flex-direction: column;
-        gap:1.5rem;
-        width: 100%;
-        padding:  0 0 0 2rem;
-        justify-content: none;
-}
-
-.about__text-block-column{
-        display: flex;
-        flex-direction: column;
-        gap:1.5rem;
-        max-width: 1980px;
-}
-
-.about__text-box{
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        gap: 1rem;
-}
-
-//TEXT
-
-.about__title{
- font-size:48px;
- color:white;
- padding: 0 2rem  0;
-}
-
-.about__label{
-        font-size: 28px;
-}
-
-.about__text{
-        font-size: 16px;
-}
-
-.about__text-production{
-        font-size: 16px;
-}
-.about__label-production{
-        font-size: 36px;
-}
-@media(min-width:#{$br-tablet}px) {
-        .about__slider{
-        max-width: 1280px;
-        color:white;
-        margin:auto ;
-        display: flex;
-        flex-direction: column;
-        background-color:inherit;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-}
-.about__text-block-img{
-        display: flex;
-        flex-direction: column;
-        gap:1.5rem;
-        max-width: 1980px;
-        padding: 2rem;
-        justify-content: center;
-}
-.about__text-production{
-        font-size: 16px;
-}
-        .about__block{
-        max-width: 1280px;
-        margin: auto;
-        background-color: white;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        padding:12px;
-}
-
-        .about__text-block{
-        display: flex;
-        flex-direction: column;
-        gap:1rem;
-
-        .about__block{
-                margin: 0;
-                width: 100%;
-        }   
-        .about{
-                background-image: url("/images/menu-item/pattern.png");
-                background-color: #198f30;
-                padding:50px 200px;
-                display: flex;
-                flex-direction: column;
-        }
-}
-.about__title{
- font-size:48px;
- color:white;
- padding: 0 2rem  0;
-}
-.swiper-button-next,
-.swiper-button-prev {
-  display: none;
-}
-}
-
-@media(min-width:#{$br-desktop}px) {
-.about__slider{
-        max-width: 1280px;
-        margin:auto ;
-        display: flex;
-        flex-direction: row-reverse;
-        background-color: white;
-        color:black;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        
-}
-.swiper-button-next,
-.swiper-button-prev {
-  display: flex;
-}
-.about__text-production{
-        font-size: 28px;
-}
-.about__text-block-img{
-        display: flex;
-        flex-direction: column;
-        gap:1.5rem;
-        max-width: 380px;
-        max-height: 440px;
-        padding: 0;
-        justify-content: end;
-}
-.about{
-    background-image: url("/images/menu-item/pattern.png");
-    background-color: #198f30;
-    padding:50px 200px;
-    display: flex;
-    flex-direction: column;
-}
-
-.about__block{
-        max-width: 1280px;
-        margin: auto;
-        background-color: white;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        padding:42px;
-}
-
-.about__slider{
-
-}
-
-.about__text-block{
-        display: flex;
-        flex-direction:row;
-        gap:1rem;
-
-}
-
-.about__text-block-column{
-        display: flex;
-        flex-direction: column;
-        gap:1.5rem;
-        max-width: 580px;
-}
-
-.about__text-box{
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        gap: 1rem;
-}
-
-//TEXT
-
-.about__title{
- font-size:48px;
- color:white;
- padding: 0;
-}
-
-.about__label{
-        font-size: 28px;
-}
-
-.about__text{
-        font-size: 16px;
-}
-
-.about__text-production{
-        font-size: 28px;
-}
-.about__label-production{
-        font-size: 36px;
-}
-}
 </style>
 
 

@@ -3,36 +3,46 @@
         <div class="stock__page">
         <div class="stock__label">Акции</div>
         <div class="stock-list">
-            <StockCard>
+            <StockCard stock-name="Возьми с собой" stock-description="Закажи круг пиццы с собой  и получи скидку 10%*" stock-description2="*скидка аннулируется при употреблении в зале продукции, приобретённой по акции.">
                     <div class="stock__item-label-green">в зале</div>
                     <div class="stock__item-label-green">только навынос</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard  stock-name="Забери Сам!" stock-description="Вы можете забрать ваш заказ сами. При самовывозе на все блюда действуют цены торгового зала. На круг пиццы скидка 10%* Предупредите диспетчера доставки с какого  адреса вам удобнее забрать заказ (ул.Красноармейская, 31; ул.Красноармейская, 135; ул.Говорова, 19в; ул.Сергея Лазо, 7).
+                " stock-description2="* скидка аннулируется при употреблении в зале продукции, приобретённой по акции">
                     <div class="stock__item-label">доставка</div>
                     <div class="stock__item-label">только навынос</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard  stock-name="Pepsi 1 л в подарок" stock-description="Закажи большой или два малых круга при заказе в одном чеке пиццы в зале — получи Pepsi 1 литр в подарок." stock-description2=""> 
                     <div class="stock__item-label-green">в зале</div>
                     <div class="stock__item-label-green">при заказе в одном чеке</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard stock-name="Дарим большой круг пиццы!" stock-description="Дважды в месяц - 15 и 30 числа проводим розыгрыш большого круга пиццы среди заказавших и оплативших доставку по QR-коду. Курьер при расчёте генерирует на терминале безналичного расчёта QR-код, вы оплачиваете заказ через телефон автоматически становитесь участником розыгрыша. Победителя выбираем рандомно среди выбравших данный способ оплаты за последние две недели. Результат выкладываем в нашу группу https://vk.com/pizzeriotomsk В случае победы выбираете любой большой круг пиццы из нашего меню."  stock-description2="">
                     <div class="stock__item-label">доставка</div>
                     <div class="stock__item-label">розыгрыш</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard stock-name="Подарок Имениннику!" stock-description="В честь вашего дня рождения «ПиццеРио» приготовила для Вас подарок. Все именинники, сделавшие заказ в торговом зале, обязательно получат в честь праздника презент.
+                В день наступления торжественной даты вы можете получить презент только при заказе в зале «ПиццеРио». Нужно лишь только сообщить кассиру о вашем празднике." stock-description2="">
                     <div class="stock__item-label-green">в зале</div>
                     <div class="stock__item-label-green">только навынос</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard stock-name="Скидка в День Рождения!" stock-description="В течение 3-х дней до и после вашего дня рождения вы получаете скидку только при заказе на доставку в размере 15%. Сообщите диспетчеру о вашем празднике, и покажите подтверждающий документ (оригинал паспорта, свидетельство о рождении или водительское удостоверение) курьеру. 
+При оформлении заказа через сайт рекомендуем выбрать оплату наличными или картой курьеру, чтобы мы могли вам назначить скидку. При оплате онлайн скидка для именинника не назначается. "  stock-description2="">
                     <div class="stock__item-label">доставка</div>
                     <div class="stock__item-label">оплата наличными</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard stock-name="Горящий TEN" stock-description="По будням (с понедельника по пятницу) на заказы принятыев период с 13:00 до 16:00 действует скидка 10% на всё меню доставки. Скидка не применяется к заказам, оформленным в акционный период, ко времени после 16:00, а также к заказам, оформленным заранее, до начала действия скидки — до 13:00! В праздничные дни акция не действует. При оформлении заказа через сайт рекомендуем выбрать оплату наличными или картой курьеру, чтобы мы могли вам назначить скидку. При оплате онлайн скидка не назначается."  stock-description2="">
                     <div class="stock__item-label">доставка</div>
                     <div class="stock__item-label">только в будние дни</div>
                     <div class="stock__item-label">оплата наличными</div>
             </StockCard>
-            <StockCard>
+
+            <StockCard  stock-name="Комбо в стиле Кантри" stock-description="При заказе 3 больших пицц + большой круг Кантри в подарок."  stock-description2="">
                     <div class="stock__item-label">доставка</div>
             </StockCard>
         </div> 
@@ -48,36 +58,5 @@ import StockCard from  '@entities/stockCard/ui/stockCard.vue';
 
 <style lang="scss" scoped>
 @import './style.scss';
-
-.stock__page{
-    max-width: 1280px;
-    margin:2rem auto;
-    gap:3rem;
-}
-
-.stock__item-label{
-    display:flex;
-    flex-direction:row;
-    padding:5px;
-    background-color:#FBE7CE;
-    color:#FF991F;
-    border-radius:10px;
-}
-
-.stock__item-label-green{
-    display:flex;
-    flex-direction:row;
-    padding:5px;
-    background-color:#CDE5D2;
-    color:#009B3D;
-    border-radius:10px;
-}
-
-.stock__label{
-    font-size:48px;
-    color:white;
-    margin-bottom:2rem;
-}
-
 </style>
 

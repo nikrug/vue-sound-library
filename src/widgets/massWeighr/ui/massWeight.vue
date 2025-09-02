@@ -10,10 +10,7 @@
         {{ option.label }}
       </button>
     </div>
-    <div :class="ButtonBlockClass"> 
-                <button class="menu__item-button">В корзину</button>
-                <div class="menu__price">{{ totalPrice }} ₽</div>
-    </div>
+
     <div :class="CustomInfoClass">
         <div class="options-info-text"
         v-for="option in weightOptions"
@@ -24,11 +21,13 @@
         </div>
         {{ option.price }} ₽
     </div>
+
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "PizzaWeightSelector",
   props: {
@@ -50,9 +49,10 @@ export default {
     },
 
   },
-  data() {
+data() {
     return {
       selectedWeight: null,
+      pizzaCount: 1, // Add a counter for the number of pizzas
       totalPrice: 0,
     };
   },
@@ -69,7 +69,18 @@ export default {
             { label: '690 г.', value: 'medium', price: 545  },
             { label: '1330 г.', value: 'large', price: 1065 },
           ];
+        case "Арканзас2":
+          return [
+            { label: '690 г.', value: 'medium', price: 545  },
+            { label: '1330 г.', value: 'large', price: 1065 },
+          ];
         case "Мичиган":
+            return [
+            { label: '680 г.', value: 'medium', price: 550 },
+            { label: '1360 г.', value: 'large', price: 995 },
+        ];
+
+        case "Мичиган2":
             return [
             { label: '680 г.', value: 'medium', price: 550 },
             { label: '1360 г.', value: 'large', price: 995 },
@@ -81,13 +92,31 @@ export default {
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
+        case "Пепперони2":
+            return [
+            { label: '690 г.', value: 'medium', price: 550 },
+            { label: '1330 г.', value: 'large', price: 995 },
+        ];
+
         case "Джорджия":
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
+        case "Джорджия2":
+            return [
+            { label: '690 г.', value: 'medium', price: 550 },
+            { label: '1330 г.', value: 'large', price: 995 },
+        ];
+
         case "Манхетен":
+            return [
+            { label: '690 г.', value: 'medium', price: 550 },
+            { label: '1330 г.', value: 'large', price: 975 },
+        ];
+
+        case "Манхетен2":
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },
@@ -197,88 +226,22 @@ export default {
     }
   },
   methods: {
+
     selectWeight(value, price) {
       this.selectedWeight = value;
       this.totalPrice = price;
+
+      // Emit событие для обновления цены, включая название пиццы
+      this.$emit('update-price', { title: this.title, price });
     },
+     updatePrice({ title, price }) {
+      this.menuPrices[title] = price;
+    }
+    
   },
 };
 </script>
 
 <style lang="scss">
-.menu__option{
-  width: 100%;
-  padding:24px
-}
-.option-none{
-    display: none;
-    padding: 0px;
-    margin-top: 20px;
-}
-
-.options-info{
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 16px;
-  
-}
-.options-info-text{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-}
-
-
-.options {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  background-color: #efefef;
-  padding: 4px;
-  height: 40px;
-  border-radius: 12px;
-  width: 100%;
-}
-
-.option-button {
-  width: 100%;
-  border: none;
-  background-color: #efefef;
-  color: #9b9b9b;
-  transition: background-color 0.3s;
-  border-radius: 8px;
-    font-size: 16px;
-}
-
-.option-button.active {
-  background-color: #ffffff; /* Цвет для активной кнопки */
-  color: rgb(0, 0, 0); /* Цвет текста для активной кнопки */
-}
-
-
-.menu__item-button{
-    padding: 16px 40px;
-    gap:12px;
-    border-radius:10px;
-    background-color:#FF991F;
-    color:white;
-    cursor: pointer;
-}
-
-.menu__item-button:hover{
-    background-color:#E17B00;
-}
-
-.menu__button-block{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-}
-
-.menu__price{
-    font-size:24px;
-    font-weight: 700;
-}
+@import "./style";
 </style>

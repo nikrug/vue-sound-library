@@ -1,1 +1,63 @@
 @import "src/shared/styles";
+
+.contacts__label{
+    color:white;
+    font-size: 48px;
+    max-width: 100px;
+}
+
+.contacts{
+    background-image: url("/images/menu-item/pattern.png");
+    background-color: #198f30;
+    padding:40px 0;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+}
+
+.contacts__list{
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 2rem;
+}
+
+
+
+  @media(min-width:#{$br-tablet}px){
+
+.contacts{
+
+    padding:40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem
+}
+
+.contacts__list{
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 2rem;
+}
+
+  }
+  @media(min-width:#{$br-desktop}px){
+    .contacts__list{
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem auto ;
+    gap: 2rem;
+}
+.contacts{
+    background-image: url("/images/menu-item/pattern.png");
+    background-color: #198f30;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+  }

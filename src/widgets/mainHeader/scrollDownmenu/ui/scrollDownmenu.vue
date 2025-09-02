@@ -1,19 +1,19 @@
 <template>
 
-    <div class="scrollDownmenu">
-        <div class="scrollDownmenu__list">
+    <div :class="CustomClass" >
+        <div :class="LinkClass" >
             <img class="scrollDownmenu__logo" src="/images/drop-down-menu/dropdown-logo.svg">
-            <a href="#Pizza" @click="scrollToElement('Pizza')">Пицца </a>
-            <a href="#Beri-Peki" @click="scrollToElement('Beri-Peki')">Заготовка пиццы «Бери-пеки»</a>
-            <a href="#Snacks"  @click="scrollToElement('Snacks')">Закуски</a>
-            <a href="#Mexican" @click="scrollToElement('Mexican')">Мексиканские блюда</a>
-            <a href="#Salat" @click="scrollToElement('Salat')">Салаты</a>
+            <a href="#Pizza" @click="handleClick('Pizza')">Пицца </a>
+            <a href="#Beri-Peki" @click="handleClick('Beri-Peki')">Заготовка пиццы «Бери-пеки»</a>
+            <a href="#Snacks"  @click="handleClick('Snacks')">Закуски</a>
+            <a href="#Mexican" @click="handleClick('Mexican')">Мексиканские блюда</a>
+            <a href="#Salat" @click="handleClick('Salat') ">Салаты</a>
             <a href="/">Супы</a>
             <a href="/">Напитки</a>
             <a href="/">Десерты</a>
             <a href="/">Другое</a>
             
-            <button  class="scrollDownmenu__card-button">
+            <button :class="ButtonClass"  >
               <img src="/images/drop-down-menu/icon-basket.svg">
               Корзина
             </button>
@@ -24,201 +24,128 @@
 </template>
 
 
-<script>
-window.addEventListener('scroll', function() {
-    const scrollDownmenu__list = document.querySelector('.scrollDownmenu__list');
-    const scrollPosition = window.scrollY;
+<script setup lang="ts">
+import { onMounted, onBeforeUnmount } from 'vue';
 
-    if (scrollPosition > 100) {
-        scrollDownmenu__list.classList.add('active');
-    } else {
-        scrollDownmenu__list.classList.remove('active');
-    }
-});
-window.addEventListener('scroll', function() {
-    const scrollDownmenu__list = document.querySelector('.scrollDownmenu__logo');
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition > 100) {
-        scrollDownmenu__list.classList.add('active');
-    } else {
-        scrollDownmenu__list.classList.remove('active');
-    }
-});
-export default {
-  mounted() {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-      // Задержка на случай, если элемент загружается асинхронно
-      setTimeout(() => {
-        this.scrollToElement(hash);
-      }, 100); // Настройте задержку по мере необходимости
-    }
+const props = defineProps({
+  CustomClass: {
+    type: String,
+    default: "scrollDownmenu",
   },
-  methods: {
-    scrollToElement(elementId) {
-      const element = document.getElementById(elementId);
-      if (element) {
-        const headerOffset = 150; // Замените на нужное вам смещение
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - headerOffset;
+  
+  ButtonClass:{
+    type: String,
+    default: "scrollDownmenu__card-button",
+  },
+  LinkClass: {
+    type: String,
+    default: "scrollDownmenu__list",
+  },
+    // Новый проп для передачи дополнительного действия
+  onLinkClick: {
+    type: Function,
+    default: () => {}
+  }
+});
 
-        this.smoothScrollTo(offsetPosition);
-      }
-    },
-    smoothScrollTo(target) {
-      const startPosition = window.scrollY;
-      const distance = target - startPosition;
-      const duration = 600; // Продолжительность анимации в мс
-      let startTime = null;
+// Функция для плавной прокрутки
+const smoothScrollTo = (target: number): void => {
+  const startPosition = window.scrollY;
+  const distance = target - startPosition;
+  const duration = 600; // Продолжительность анимации в мс
+  let startTime: number | null = null;
 
-      const animation = (currentTime) => {
-        if (!startTime) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
+  const animation = (currentTime: number) => {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
 
-        // Ease-in-out функция
-        const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    // Ease-in-out функция
+    const ease = (t: number) => (t < 0.5) ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
-        window.scrollTo(0, startPosition + distance * ease(progress));
+    window.scrollTo(0, startPosition + distance * ease(progress));
 
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
-      };
-
+    if (timeElapsed < duration) {
       requestAnimationFrame(animation);
     }
+  };
+
+  requestAnimationFrame(animation);
+};
+
+// Функция для прокрутки к элементу
+const scrollToElement = (elementId: string): void => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    const headerOffset = 150; // Замените на нужное вам смещение
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    smoothScrollTo(offsetPosition);
   }
-}
+};
+
+// Обработчик клика
+const handleClick = (sectionId: string): void => {
+  scrollToElement(sectionId);
+  
+  // Выполняем дополнительное действие, если оно передано в пропсах
+  if (props.onLinkClick) {
+    props.onLinkClick();
+  }
+};
+
+// Обработчик прокрутки
+const handleScroll = (): void => {
+  const scrollPosition = window.scrollY;
+  const scrollDownmenuList = document.querySelector('.scrollDownmenu__list') as HTMLElement;
+  const scrollDownmenuLogo = document.querySelector('.scrollDownmenu__logo') as HTMLElement;
+
+  if (scrollPosition > 100) {
+    scrollDownmenuList.classList.add('active');
+    scrollDownmenuLogo.classList.add('active');
+  } else {
+    scrollDownmenuList.classList.remove('active');
+    scrollDownmenuLogo.classList.remove('active');
+  }
+};
+
+// Привязываем обработчик события
+window.addEventListener('scroll', handleScroll);
+
+// Обработка монтирования компонента
+onMounted(() => {
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    // Задержка на случай, если элемент загружается асинхронно
+    setTimeout(() => {
+      scrollToElement(hash);
+    }, 100); // Настройте задержку по мере необходимости
+  }
+});
+
+// Убираем обработчик при размонтировании
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
-<style>
 
-.scrollDownmenu__list{
+<style lang="scss" scoped>
+@import './style.scss';
+.dropdownl{
+    gap: 1rem;
     display: flex;
-    flex-direction: row;
-    position: absolute;
-    gap: .5rem;
-    padding: 1rem;
-    z-index: 100;
-    overflow-y: scroll;
-    align-items: center;
-    width: 100%;
+    flex-wrap: wrap;
+    margin: 1rem;
 }
-
-.scrollDownmenu__list.active {
-  position: fixed;
-  top:0;
-  background-color: white;
-  color:rgb(0, 0, 0);
-}
-
-.scrollDownmenu__list.active a{
-  color:black;
-}
-.scrollDownmenu__list a{
-  color:white;
-  white-space: nowrap;
-  padding: 7px 14px;
-  border-radius: 18px;
-  transition: background 0.2s ease;
-}
-
-.scrollDownmenu__list a:hover{
-  background: rgba(240, 240, 240, 0.51);
-  transition: background 0.2s ease;
-
-  white-space: nowrap;
-}
-
-
-.scrollDownmenu__card-button{
-  position: fixed;
-  justify-content: center;
-  gap: 0.5rem;
-  display: inline-flex;
-  bottom:10px;
-  right:10px;
-  left: 10px;
-  color:white;
-  padding: 14px;
-  background-color: #FF991F;
-  border-radius: 10px;
-}
-
-.scrollDownmenu__logo{
-    display: none;
-}
-
-.scrollDownmenu__logo.active{
-    display: none;
-}
-
-  .visible{
-    display: none;
-  }
-  .visible-line{
-    display: none;
-  }
-
-  .header__orange-text{
-    color:#FF991F;
-    font-size:18px;
-  }
-
-  .header__text{
-    color:black;
-    font-size:12px;
-  }
-
-  .header__info-text-block{
-    text-align: end;
-  }
-
-  @media (min-width: 768px) {
-    .scrollDownmenu__card-button{
-      position: fixed;
-      bottom:10px;
-      right:10px;
-      left: auto;
-      width: 200px;
-    }
-  }
-
-  @media (min-width: 1244px) {
-    .scrollDownmenu__logo.active{
-    display: block;
-    }   
-    .scrollDownmenu__card-button{
-      position: static;
-      color:white;
-      padding: 10px;
-      width: auto;
-      background-color: #FF991F;
-      border-radius: 10px;
-      width: 140px;
-      gap:1rem;
-
-    }
-    .visible{
-
-    display: inline;
-
-  }
-    .visible-line{
-    display: flex;
-  }
-  .scrollDownmenu__list{
-    display: flex;
-    flex-direction: row;
-   
-    padding: 1rem;
-    overflow: auto;
-    position: absolute;
-    justify-content: center;
+.dropdownl a{
+  background-color: #F0F0F0;
+  border-radius: 20px;
+  padding: 7px 12px;
   
 }
-
-  }
+.cardbutton-none{
+  display: none;
+}
 </style>

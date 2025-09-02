@@ -25,7 +25,11 @@
           <div class="carrer__welcome">
             <div class="carrer__welcome-label">Карьера в ПиццеРио </div>
             <div class="carrer__welcome-card-block">
-              <img src="/images/carrer/greetings-sign.svg"></img>
+              <picture>
+                <source media="(min-width: 1300px)" srcset="/images/carrer/greetings-sign.svg">
+                <source media="(min-width: 1268px)" srcset="/images/carrer/greetings-sign-tablet.svg">
+                <img  src="/images/carrer/greetings-sign.svg" >
+              </picture>
               <div class="carrer__welcome-text-block">
                 <div class="carrer__welcome-text">
                   Мы не просто пиццерия, для многих томичей мы стали настоящей легендой,
@@ -38,7 +42,6 @@
               </div>
             </div>
           </div>
-
           <video class="carrer__video"  controls>
             <source src="/images/carrer/video1.mp4" type="video/mp4">
           </video>
@@ -46,38 +49,37 @@
           <video class="carrer__video"  controls>
             <source src="/images/carrer/video2.mp4" type="video/mp4">
           </video>
-
           <div class="carrer__slider">
             <div class="carrer__slider-img-block">
               <img class="carrer__slider-img" src="/images/carrer/pointer-down-desktop.svg">
               <img src="/images/carrer/carrer-logo-desktop.svg">
             </div>
-            <div class="swiper">
-                  <div class="swiper-wrapper">
-                      <div class="swiper-slide slider-card-info">
-                          <carrerStory></carrerStory>   
-                      </div>
-                      <div class="swiper-slide slider-card-info">
-                          <carrerStory></carrerStory>   
-                      </div>
-                      <div class="swiper-slide slider-card-info">
-                          <carrerStory></carrerStory>   
-                      </div>
-                      <div class="swiper-slide slider-card-info">
-                          <carrerStory></carrerStory>   
-                      </div>
-                      <div class="swiper-slide slider-card-info">
-                          <carrerStory></carrerStory>   
-                      </div>
-                      <div class="swiper-slide slider-card-info">
-                          <carrerStory></carrerStory>   
-                      </div>
-                      
-                  </div>
-                  <div class="swiper-button-prev"><img src="/images/menu-item/arrow-left.svg"></div>
-                  <div class="swiper-button-next"><img src="/images/menu-item/arrow-right.svg"></div>
-                  <div class="swiper-pagination"></div>
-            </div>
+
+            <swiper
+              :slidesPerView="1"
+              :spaceBetween="10"
+              :loop="true"
+              :pagination="{
+                clickable: true,
+                el:'.swiper-pagination',
+                type:'bullets'
+              }"
+              :navigation="true"
+              :modules="modules"
+              class="mySwiperr"
+            >
+              <swiper-slide class="swiper-slide"> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide
+              ><swiper-slide> <carrerStory></carrerStory></swiper-slide>
+              <div class="swiper-pagination"></div>
+            </swiper>
+
             </div>
         <div class="carrer__comments">
         <div class="carrer__comments-label">Впечатление о первом дне</div>
@@ -137,8 +139,16 @@
         </div>
         </div>
         <div class="carrer__head-hunter">
-          <img src="/images/carrer/join-sign.svg">
-          <img class="carrer__head-hunter-img" src="/images/carrer/pointer-up-desktop.svg">
+          <picture>
+            <source media="(min-width: 1300px)" srcset="/images/carrer/join-sign.svg">
+            <source media="(min-width: 1268px)" srcset="/images/carrer/join-sign-tablet.svg">
+            <img  src="/images/carrer/join-sign.svg" >
+          </picture>
+          <picture>
+            <source media="(min-width: 1200px)" srcset="images/carrer/pointer-up-desktop.svg">
+            <source media="(min-width: 768px)" srcset="images/carrer/pointer-up-tablet.svg">
+            <img class="carrer__head-hunter-img" src="images/carrer/pointer-up-desktop.svg" alt="Описание изображения">
+          </picture>
           <div class="carrer__head-hunter-text-block">
             <div>тут: </div>
             <a href="https://tomsk.hh.ru/">
@@ -157,313 +167,28 @@ import { MainFooterComponent } from '@widgets/mainFooter';
 import carrerStory from '@entities/carrerStory/ui/carrerStory.vue';
 import { customButton } from '@shared/ui';
 import { carrerComment } from '@entities/carrerComment';
-  import { ref, onMounted } from 'vue';
-  import { Navigation, Pagination } from 'swiper/modules'
-  import '/node_modules/swiper/swiper-bundle.min.js';
-    onMounted(() => {
-      const Swiper = (window as any).Swiper;
 
-      if (Swiper) {
-        const swiper = new Swiper('.swiper', {
-          modules: [Pagination, Navigation],
-          loop: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-            
-          },
-          breakpoints: {
-            1244: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-            },
-            768: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-            },
-            320: {
-              slidesPerView: 1,
-              slidesPerGroup: 1,
-            },
-          },
-        });
-      } else {
-        console.error('Swiper not loaded');
-      }
-    });
-  
+const PopupCarrer=ref(false);
+  import { ref, onMounted } from 'vue';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import 'swiper/css';
+
+  // Экспорируем необходимые компоненты и модули
+  const modules = [Pagination, Navigation];
 
 </script>
 
 <style lang="scss">
 @import '/node_modules/swiper/swiper-bundle.min.css';
-.header__telephone-text{
-  color:#333333;
-  font-size: 18px;
-  font-weight: 700;
-}
-.header__telephone-subtext{
-  color:#9B9B9B;
-  font-size: 12px;
+@import './style.scss';
 
-}
-
-.carrer{
-  background-image: url("/images/menu-item/pattern.png");
-  background-color: #198f30;
-  padding: 150px 50px 50px ;
-}
-.carrer__body{
-  display:flex;
-  flex-direction: column;
-  gap:5rem;
-  margin: auto;
-  max-width: 1280px;
-
-}
-
-.carrer__video{
-  display: flex;
-  max-width: 1280px;
-  padding: 40px;
-  background-color: white;
-  border-radius: 20px;
-}
-
-.carrer__welcome{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  max-width: 1280px;
-  gap: 3rem;
-
-}
-
-.carrer__welcome-label{
-  color:white;
-  font-size: 48px;
-  font-weight: bold;
-}
-
-.carrer__welcome-card-block{
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.carrer__welcome-text-block{
-  display: flex;
-  max-width: 620px;
-  flex-direction: column;
-  color:white;
-  font-size: 16px;
-  font-weight: medium;
-  text-align: left;
-  padding: 1rem;
-  gap: 1rem;
-
-}
-.carrer__slider{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap:3rem;
-}
-.carrer__slider-img-block{
-  display: flex;
-  flex-direction: row;
-}
-.carrer__slider-img{
-  display: none;
-}
-
-.carrer__comments{
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.carrer__comments-label{
-  color: white;
-  font-size: 36px;
-
-}
-
-.carrer__comments-reply{
-  display: flex;
-  align-items: end;
-  justify-content: end;
-
-}
-
-.carrer__comments-add-text{
-  color: white;
-  background-color:#FFFFFF66;
-  border-radius: 16px;
-  padding: 4px;
-  margin: auto;
-  text-align: center;
-  align-self: baseline;
-}
-
-.carrer__head-hunter{
-  display: flex;
-  flex-direction: column;
-  gap:3rem;
-  align-items: center;
-}
-
-.carrer__head-hunter-text-block{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 40px;
-  color: white;
-  font-weight: 500;
-  gap:1rem;
-}
-
-.carrer__head-hunter-img{
-  display: none;
-}
-.button-desctop{
-  display: none;
-}
-.button-tablet{
-  display:none;
-}
-.swiper{
-    width: 350px;
-    border-radius: 10px;
-    height: 100%;
-    margin: none;
-}
-
-
-.swiper-button-next,
-.swiper-button-prev {
-  display: none;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  display: none;
-}
-
-@media(min-width:780px){
-
-  .carrer{
-  background-image: url("/images/menu-item/pattern.png");
-  background-color: #198f30;
-  padding: 150px 50px 50px ;
-}
-.carrer__head-hunter{
-  flex-direction: row;
-}
-.button-tablet{
-  display:block;
-}
-
-  .swiper{
-    width: 750px;
-}
-
-
-.button-desctop{
-  display: none;
-}
-.carrer__welcome-card-block{
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.carrer__welcome-text-block{
-  font-size: 16px;
-
-}
-
-.carrer__head-hunter-img{
-  display: flex;
-}
-.swiper-button-next,
-.swiper-button-prev {
-  color:  #333333; /* Цвет стрелок */
-  background-color: white;
-  border-radius: 30px;
-  width: 48px; /* Ширина кнопок */
-  height: 48px; /* Высота кнопок */
-  z-index: 10; /* Обеспечение правильного наложения */
-}
-}
-
-@media(min-width:1200px){
-
-.button-desctop{
-  display: block;
-}
-
-.slider-card-info{
-    overflow: hidden;
-  border-radius: 10px;
-  width: 1280px; /* Ширина кнопок */
-
-}
-
-.swiper {
-    margin-left: 0;
-    margin-right: 0;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
-    display: block;
-}
-.swiper{
-    width: 1420px;
-    border-radius: 10px;
-    justify-items: center;
-}
-.carrer__slider-img{
-  display: flex;
-}
-.carrer__head-hunter-img{
-  display: flex;
-}
-.carrer__head-hunter{
-  flex-direction: row;
-}
-.button-tablet{
-  display:block;
-}
-
-.carrer__welcome-text-block{
-  font-size: 28px;
-
-}
-.swiper-button-next,
-.swiper-button-prev {
-  display: flex;
-
-  color:  #333333; /* Цвет стрелок */
-  background-color: white;
-  border-radius: 30px;
-  width: 48px; /* Ширина кнопок */
-  height: 48px; /* Высота кнопок */
-  z-index: 10; /* Обеспечение правильного наложения */
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: #FF991F;
-}
-
+.swiper-pagination{
+  position: relative;
+  margin: 10px;
+  --swiper-pagination-color: white;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  --swiper-pagination-bullet-opacity: 1;
 }
 </style>

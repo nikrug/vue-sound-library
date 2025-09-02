@@ -36,12 +36,15 @@ const props = defineProps({
 
 <template>
         <div class="stock__item">
-
             <img  class="stock__item-img" :src="imageSrc">
             <div class="stock__item-description-container">
+              <div class="stock__item-text-block">
                 <div class="stock__item-name">{{stockName}}</div>
-                <div class="stock__item-description">{{ stockDescription}}</div>
-                <div class="stock__item-description">{{ stockDescription2}}</div>
+                <div class="stock__item-description-block">
+                  <div class="stock__item-description">{{ stockDescription}}</div>
+                  <div class="stock__item-description">{{ stockDescription2}}</div>
+                </div>
+              </div>
                 <div class="stock__item-label-block">
                     <slot></slot>
                 </div>
@@ -53,39 +56,13 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import './style.scss';
 
-
-.stock__item{
-    border-radius:10px;
-    background-color:#FAFAFA;
-    overflow: hidden;
-}
-
-.stock__item-img{
-}
-
-.stock__item-description-container{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    padding:20px;
+.stock__item-text-block{
 
 }
-
-.stock__item-label-block{
-    display:flex;
-    flex-direction:row;
-    gap:10px;
-}
-
-.stock__item-label{
-    display:flex;
-    flex-direction:row;
-    padding:5px;
-    background-color:#FBE7CE;
-    color:#FF991F;
-    border-radius:10px;
-}
-.stock__item-name{
-    font-size:28px;
+.stock__item-description-block{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap:1rem;
 }
 </style>

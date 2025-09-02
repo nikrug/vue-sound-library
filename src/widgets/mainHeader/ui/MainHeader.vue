@@ -35,7 +35,9 @@ import menuItems from 'src/widgets/mainHeader/headerDropdown/ui/headerDropdown.v
 </script>
 
 <style>
-
+.q-btn{
+  font-size:12px;
+}
 .display-none{
   display: none;
 }
