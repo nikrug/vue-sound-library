@@ -16,15 +16,27 @@ const props = defineProps({
   },
   stockLabel1: {
     type: String,
+    default:'доставка',
   },
   stockLabel2: {
     type: String,
+    default:'только булние дни',
   },
   stockLabel3: {
     type: String,
+    default:'оплата наличными',
   },
-  stockLabelGreen: {
+  stockLabelClass1: {
     type: String,
+    default:"stock__item-label"
+  },
+    stockLabelClass2: {
+    type: String,
+    default:"stock__item-label"
+  },
+    stockLabelClass3: {
+    type: String,
+    default:"stock__item-label"
   },
   imageSrc: {
     type: String,
@@ -45,8 +57,10 @@ const props = defineProps({
                   <div class="stock__item-description">{{ stockDescription2}}</div>
                 </div>
               </div>
-                <div class="stock__item-label-block">
-                    <slot></slot>
+                <div class="stock__item-label-block ">
+                    <div :class="stockLabelClass1">{{ stockLabel1}}</div>
+                    <div :class="stockLabelClass2">{{ stockLabel2}}</div>
+                    <div :class="stockLabelClass3">{{ stockLabel3}}</div>
                 </div>
             </div>
         </div>

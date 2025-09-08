@@ -1,50 +1,27 @@
 <template>
     <div class="stock">
         <div class="stock__page">
-        <div class="stock__label">Акции</div>
+        <div class="stock__label-block">
+                <div class="stock__label">Акции</div>
+                <div class="stock__sublabel">Акции и скидки не суммируются</div>
+        </div>
+
         <div class="stock-list">
-            <StockCard stock-name="Возьми с собой" stock-description="Закажи круг пиццы с собой  и получи скидку 10%*" stock-description2="*скидка аннулируется при употреблении в зале продукции, приобретённой по акции.">
-                    <div class="stock__item-label-green">в зале</div>
-                    <div class="stock__item-label-green">только навынос</div>
-            </StockCard>
-
-            <StockCard  stock-name="Забери Сам!" stock-description="Вы можете забрать ваш заказ сами. При самовывозе на все блюда действуют цены торгового зала. На круг пиццы скидка 10%* Предупредите диспетчера доставки с какого  адреса вам удобнее забрать заказ (ул.Красноармейская, 31; ул.Красноармейская, 135; ул.Говорова, 19в; ул.Сергея Лазо, 7).
-                " stock-description2="* скидка аннулируется при употреблении в зале продукции, приобретённой по акции">
-                    <div class="stock__item-label">доставка</div>
-                    <div class="stock__item-label">только навынос</div>
-            </StockCard>
-
-            <StockCard  stock-name="Pepsi 1 л в подарок" stock-description="Закажи большой или два малых круга при заказе в одном чеке пиццы в зале — получи Pepsi 1 литр в подарок." stock-description2=""> 
-                    <div class="stock__item-label-green">в зале</div>
-                    <div class="stock__item-label-green">при заказе в одном чеке</div>
-            </StockCard>
-
-            <StockCard stock-name="Дарим большой круг пиццы!" stock-description="Дважды в месяц - 15 и 30 числа проводим розыгрыш большого круга пиццы среди заказавших и оплативших доставку по QR-коду. Курьер при расчёте генерирует на терминале безналичного расчёта QR-код, вы оплачиваете заказ через телефон автоматически становитесь участником розыгрыша. Победителя выбираем рандомно среди выбравших данный способ оплаты за последние две недели. Результат выкладываем в нашу группу https://vk.com/pizzeriotomsk В случае победы выбираете любой большой круг пиццы из нашего меню."  stock-description2="">
-                    <div class="stock__item-label">доставка</div>
-                    <div class="stock__item-label">розыгрыш</div>
-            </StockCard>
-
-            <StockCard stock-name="Подарок Имениннику!" stock-description="В честь вашего дня рождения «ПиццеРио» приготовила для Вас подарок. Все именинники, сделавшие заказ в торговом зале, обязательно получат в честь праздника презент.
-                В день наступления торжественной даты вы можете получить презент только при заказе в зале «ПиццеРио». Нужно лишь только сообщить кассиру о вашем празднике." stock-description2="">
-                    <div class="stock__item-label-green">в зале</div>
-                    <div class="stock__item-label-green">только навынос</div>
-            </StockCard>
-
-            <StockCard stock-name="Скидка в День Рождения!" stock-description="В течение 3-х дней до и после вашего дня рождения вы получаете скидку только при заказе на доставку в размере 15%. Сообщите диспетчеру о вашем празднике, и покажите подтверждающий документ (оригинал паспорта, свидетельство о рождении или водительское удостоверение) курьеру. 
-При оформлении заказа через сайт рекомендуем выбрать оплату наличными или картой курьеру, чтобы мы могли вам назначить скидку. При оплате онлайн скидка для именинника не назначается. "  stock-description2="">
-                    <div class="stock__item-label">доставка</div>
-                    <div class="stock__item-label">оплата наличными</div>
-            </StockCard>
-
-            <StockCard stock-name="Горящий TEN" stock-description="По будням (с понедельника по пятницу) на заказы принятыев период с 13:00 до 16:00 действует скидка 10% на всё меню доставки. Скидка не применяется к заказам, оформленным в акционный период, ко времени после 16:00, а также к заказам, оформленным заранее, до начала действия скидки — до 13:00! В праздничные дни акция не действует. При оформлении заказа через сайт рекомендуем выбрать оплату наличными или картой курьеру, чтобы мы могли вам назначить скидку. При оплате онлайн скидка не назначается."  stock-description2="">
-                    <div class="stock__item-label">доставка</div>
-                    <div class="stock__item-label">только в будние дни</div>
-                    <div class="stock__item-label">оплата наличными</div>
-            </StockCard>
-
-            <StockCard  stock-name="Комбо в стиле Кантри" stock-description="При заказе 3 больших пицц + большой круг Кантри в подарок."  stock-description2="">
-                    <div class="stock__item-label">доставка</div>
-            </StockCard>
+                <StockCard
+                        v-for="stock in stock"
+                        :key="stock.id"
+                        :stock-name="stock.name"
+                        :stock-description="stock.description1"
+                        :stock-description2="stock.description2"
+                        :imageSrc="stock.imageSrc"
+                        :stockLabelClass1="stock.stockLabelClass1"
+                        :stockLabelClass2="stock.stockLabelClass2"
+                        :stockLabelClass3="stock.stockLabelClass3"
+                        :stockLabel1="stock.stockLabel1"
+                        :stockLabel2="stock.stockLabel2"
+                        :stockLabel3="stock.stockLabel3"
+                        >
+                </StockCard>
         </div> 
     </div>
     </div>
@@ -52,11 +29,37 @@
 
 <script setup lang="ts">
 import StockCard from  '@entities/stockCard/ui/stockCard.vue';
+import { getStock } from 'src/widgets/menuBlock/apiService';
+import { ref, onMounted } from 'vue';
+interface Stock {
+  id: number;
+  name: string;
+  description1: string;
+  description2: string;
+  imageSrc: string;
+  stockLabelClass1:string;
+  stockLabelClass2:string;
+  stockLabelClass3:string;
+  stockLabel1:string;
+  stockLabel2:string;
+  stockLabel3:string;
+}
 
-
+// Данные пиццы
+const stock = ref<Stock[]>([]);
+// Получаем данные пиццы при монтировании
+onMounted(async () => {
+  try {
+    const data = await getStock();
+    stock.value = data; // Убедитесь, что data - это массив пицц
+  } catch (error) {
+    console.error('Error fetching stock:', error);
+  }
+});
 </script>
 
 <style lang="scss" scoped>
 @import './style.scss';
+
 </style>
 

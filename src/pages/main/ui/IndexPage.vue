@@ -24,30 +24,6 @@
     ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide>
     <div class="swiper-pagination"></div>
   </swiper>
-  <swiper
-    :slidesPerView="1"
-    :spaceBetween="30"
-    :loop="true"
-    :pagination="{
-      type:'bullets',
-      clickable: true,
-      el:'.swiper-pagination'
-    }"
-    :navigation="true"
-    :modules="modules"
-    class="IndexSwiper"
-  >
-    <swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
-    ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide>
-    <div class="swiper-pagination"></div>
-  </swiper>
     <div class="menu-list">
       <testServer></testServer>
       <menuPizza></menuPizza>
