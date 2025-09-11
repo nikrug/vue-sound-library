@@ -122,7 +122,13 @@ data() {
             { label: '1330 г.', value: 'large', price: 975 },
         ];
 
-        case "Бери-пеки":
+        case "Манхетен3":
+            return [
+            { label: '690 г.', value: 'medium', price: 550 },
+            { label: '1330 г.', value: 'large', price: 975 },
+        ];
+
+        case "Бери-пеки Нью-Джерси":
             return [
             {label: '300 г.', price: 545 },
         ];
@@ -132,7 +138,37 @@ data() {
             {label: '300г', price: 580 },
         ];
 
-        case "Бери-пеки Нью-Джерси":
+        case "Бери-пеки Мичиган2":
+            return [
+            {label: '300г', price: 580 },
+        ];
+
+        case "Бери-пеки Арканзас":
+            return [
+            {label: '300г', price: 495 },
+        ];
+
+        case "Бери-пеки Арканзас2":
+            return [
+            {label: '300г', price: 495 },
+        ];
+
+        case "Бери-пеки Арканзас3":
+            return [
+            {label: '300г', price: 495 },
+        ];
+
+        case "Бери-пеки Манхэттен":
+            return [
+            {label: '300г', price: 495 },
+        ];
+
+        case "Бери-пеки Дженифер":
+            return [
+            {label: '300г', price: 495 },
+        ];
+
+        case "Бери-пеки Дженни":
             return [
             {label: '300г', price: 495 },
         ];
@@ -153,6 +189,12 @@ data() {
         ];
 
         case "Сальса":
+            return [
+            { label: '30г', value: 'medium', price: 10 },
+            { label: '60г', value: 'large', price: 35 },
+        ];
+
+        case "Сальса2":
             return [
             { label: '30г', value: 'medium', price: 10 },
             { label: '60г', value: 'large', price: 35 },
@@ -179,6 +221,30 @@ data() {
 
 
         case "Кесадия":
+            return [
+            { label: '170 г.', value: 'medium', price: 100 },
+            { label: '340 г.', value: 'large', price: 227 },
+        ];
+
+        case "Кесадия2":
+            return [
+            { label: '170 г.', value: 'medium', price: 100 },
+            { label: '340 г.', value: 'large', price: 227 },
+        ];
+        
+        case "Кесадия3":
+            return [
+            { label: '170 г.', value: 'medium', price: 100 },
+            { label: '340 г.', value: 'large', price: 227 },
+        ];
+
+        case "Кесадия4":
+            return [
+            { label: '170 г.', value: 'medium', price: 100 },
+            { label: '340 г.', value: 'large', price: 227 },
+        ];
+
+        case "Кесадия5":
             return [
             { label: '170 г.', value: 'medium', price: 100 },
             { label: '340 г.', value: 'large', price: 227 },

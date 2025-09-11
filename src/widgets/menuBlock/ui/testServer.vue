@@ -9,9 +9,15 @@
         :menuDescription="pizza.description"
         :menuWeight="pizza.weight"
         :imageSrc="pizza.imageSrc"
-        :SpicyimageSrc="pizza.spicyImageSrc">
-        <massWeight @update-price="updatePrice" :title="pizza.name"/>
-        <counter :price="menuPrices[pizza.name]" />
+        :SpicyimageSrc="pizza.spicyImageSrc"
+        :overImage="pizza.overImage">
+        <template v-slot:weight-counter>
+          <div class="menu-options">
+            <massWeight  @update-price="updatePrice" :title="pizza.weightName"/>
+            <counter :price="menuPrices[pizza.weightName]" />
+          </div>
+        </template>
+
         <template v-slot:additional-info>
           <massWeight CustomInfoClass="option-info-flex" CustomClass="option-none" ButtonBlockClass="option-none" :title="pizza.name"/>
         </template>
@@ -24,7 +30,7 @@
 </style>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { getPizzas } from './apiService';
+import { getPizzas } from '../api/apiService';
 import MenuItem from "@entities/menuItem/ui/menuItem.vue";
 import counter from "@widgets/Counter/ui/counter.vue"; 
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
@@ -33,8 +39,10 @@ interface Pizza {
   name: string;
   description: string;
   weight: string;
+  weightName:string;
   imageSrc: string;
   spicyImageSrc: string;
+  overImage:string;
 }
 
 // Данные пиццы

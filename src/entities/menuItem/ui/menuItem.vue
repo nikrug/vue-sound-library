@@ -41,11 +41,13 @@ const props = defineProps({
             <div class="menu__item-name">{{menuName}}
               <img :src="SpicyimageSrc">
             </div>
-            <div class="menu__item-description">{{ menuDescription}}</div>
-            <div class="menu__item-description">{{ menuWeight}}</div>
+            <div class="menu__description-block">
+              <div class="menu__item-description">{{ menuDescription}}</div>
+              <div class="menu__item-description">{{ menuWeight}}</div>
+            </div>
         </div>
         </div>
-        <slot class="menu__option"></slot>
+        <slot name="weight-counter"></slot>
     </div>
     <Transition name="v-faid">   
         <div v-show="Popup" class="menu-popup-overlay"  @mousedown="Popup=!Popup">
@@ -76,4 +78,5 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 @import './style.scss';
+
 </style>

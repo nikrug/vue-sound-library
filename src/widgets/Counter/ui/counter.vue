@@ -1,5 +1,5 @@
 <template>
-  <div class="counter">
+  <div class="counter" >
     <div class="count-text" v-if="count < 1">
       {{ price }} ₽
     </div>

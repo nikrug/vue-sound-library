@@ -24,7 +24,7 @@
   display: block;
   position: relative;
   top:5px;
-    --swiper-pagination-color: white;
+  --swiper-pagination-color: white;
   --swiper-pagination-bullet-inactive-color: #ffffff;
   --swiper-pagination-bullet-inactive-opacity: 0.3;
   --swiper-pagination-bullet-opacity: 1;
@@ -83,7 +83,9 @@
     gap: 45px;
     width: 1280px;
   }
-
+  .swiper-img{
+    width:1360px;
+  }
   .swiper-pagination{
     display: none;
   }

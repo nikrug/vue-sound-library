@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import StockCard from  '@entities/stockCard/ui/stockCard.vue';
-import { getStock } from 'src/widgets/menuBlock/apiService';
+import { getStock } from '@widgets/menuBlock/api/apiService';
 import { ref, onMounted } from 'vue';
 interface Stock {
   id: number;
