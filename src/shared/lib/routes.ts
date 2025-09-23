@@ -11,4 +11,5 @@ export const ROUTES = {
   CONTACTS:'/contacts',
   ABOUT: '/about',
   CAREER: '/career',
+  CARD:'/card',
 };

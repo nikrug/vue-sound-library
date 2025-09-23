@@ -12,11 +12,9 @@
             <a href="/">Напитки</a>
             <a href="/">Десерты</a>
             <a href="/">Другое</a>
-            
-            <button :class="ButtonClass"  >
-              <img src="/images/drop-down-menu/icon-basket.svg">
-              Корзина
-            </button>
+            <router-link :to="{ path: '/card' }" :class="ButtonClass">
+                  <cardButton :cartItems="cartItems" :onRemoveItem="removeFromCart" />
+            </router-link>
         </div>
     </div>
 
@@ -25,8 +23,9 @@
 
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount } from 'vue';
-
+import { onMounted, onBeforeUnmount,ref } from 'vue';
+import routes from '@app/router/routes';
+import cardButton from '@widgets/Card/card-button.vue';
 const props = defineProps({
   CustomClass: {
     type: String,
@@ -47,6 +46,16 @@ const props = defineProps({
     default: () => {}
   }
 });
+
+const cartItems = ref<{ id: number, name: string, price: number, quantity: number,imagesrc:string, }[]>([]);
+
+// Функция удаления элемента из корзины
+const removeFromCart = (id: number) => {
+  const index = cartItems.value.findIndex(item => item.id === id);
+  if (index !== -1) {
+    cartItems.value.splice(index, 1); // Удаляем элемент из массива
+  }
+};
 
 // Функция для плавной прокрутки
 const smoothScrollTo = (target: number): void => {

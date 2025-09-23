@@ -5,7 +5,7 @@
     <div class="dropdown" :class="{ show: isOpen }" >
       <ScrollDownmenu LinkClass="dropdownl" ButtonClass="cardbutton-none" :onLinkClick="toggleDropdown"></ScrollDownmenu>
       <ul class="dropdown-list" >
-        <q-btn class="dropdown-link"
+        <q-btn @click="toggleDropdown" class="dropdown-link"
           v-for="link in navMenu"
           stretch 
           flat

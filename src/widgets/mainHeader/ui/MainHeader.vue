@@ -25,7 +25,6 @@
 <script setup lang="ts">
 import './style.scss';
 
-import { navMenu } from '../config/navMenu';
 import { ref } from 'vue';
 import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import HeaderLogo from 'src/widgets/mainHeader/headerLogo/ui/HeaderLogo.vue';

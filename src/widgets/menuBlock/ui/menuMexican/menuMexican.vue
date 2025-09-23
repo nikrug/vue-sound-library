@@ -1,4 +1,5 @@
 <template>
+      <Card :customclass="'invisible'" :cartItems="cartItemss" :onRemoveItem="removeFromCart"  />
       <div class="menu-label" id="Mexican">Мексиканские блюда</div>
 
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
@@ -15,8 +16,16 @@
           :SpicyimageSrc="Mexican.spicyImageSrc">
           <template v-slot:weight-counter>
             <div class="menu-options">
-              <massWeight @update-price="updatePrice" :CustomClass="Mexican.CustomClass" :title="Mexican.weightName"/>
-              <counter :price="menuPrices[Mexican.weightName]" />
+              <massWeight :CustomClass="Mexican.CustomClass" @update-price="updatePrice" :title="Mexican.weightName">
+                <template v-slot:counter1>
+                  <counter :onAddToCart="() => addToCart(Mexican)" :onDeleteToCart="() => removeFromCartt(Mexican)" :price="menuPricesMexican[Mexican.weightName]" />
+                </template>
+                <template v-slot:counter2>
+                  <counter :onAddToCart="() => addToCart(Mexican)" :onDeleteToCart="() => removeFromCartt(Mexican)" :price="menuPricesMexican[Mexican.weightName]" />
+                </template>
+                
+              </massWeight>
+              
             </div>
           </template>
 
@@ -37,6 +46,7 @@
   import MenuItem from "@entities/menuItem/ui/menuItem.vue";
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref,onMounted } from 'vue';
+  import Card from '@widgets/Card/card.vue';
   interface Mexican {
     id: number;
     name: string;
@@ -49,31 +59,64 @@
     overImage:string;
   }
 
-  const Mexican = ref<Mexican[]>([]);
+ const Mexican = ref<Mexican[]>([]);
+const errorMessage = ref<string | null>(null);
+const cartItemss = ref<{ id: number, name: string, price: number, quantity: number,imagesrc:string, }[]>([]);
+const menuPricesMexican = ref<Record<string, number>>({});
 
-  const menuPrices = ref<Record<string, number>>({ // Используем Record для типизации объекта цен
-    'Дженнифер': 0,
-    'Арканзас': 0,
-    // Добавьте другие пиццы по мере необходимости
-  });
+// Измените функцию обновления цены
+const updatePrice = (payload: { title: string; price: number }) => {
+  menuPricesMexican.value[payload.title] = payload.price;
+};
 
-  const totalPrice = ref<number>(0); // Указываем тип для totalPrice
 
-  const updatePrice = (payload: { title: string; price: number }) => { // Указываем тип для параметра
-    menuPrices.value[payload.title] = payload.price; // Обновляем цену для конкретного наименования
-  };
-  // Сообщение об ошибке
-  const errorMessage = ref<string | null>(null);
+const addToCart = (MexicanItem: Mexican) => {
+  const existingItem = cartItemss.value.find(item => item.id === MexicanItem.id);
+
+  const currentPrice = menuPricesMexican.value[MexicanItem.weightName]; // Используем menuPricesMexican
+
+  if (existingItem) {
+    existingItem.price = currentPrice; // Обновляем цену при необходимости
+    existingItem.quantity++;
+  } else {
+    cartItemss.value.push({
+      id: MexicanItem.id,
+      name: MexicanItem.name,
+      imagesrc: MexicanItem.imageSrc,
+      price: currentPrice, // Берем цену из menuPrices
+      quantity: 1,
+    });
+  }
+};
+// Функция удаления пиццы из корзины
+const removeFromCartt = (MexicanItem: Mexican) => {
+  const existingItem = cartItemss.value.find(item => item.id === MexicanItem.id);
+  
+  if (existingItem) {
+    existingItem.quantity--;
+    // Удаляем элемент из корзины, если количество стало меньше 1
+    if (existingItem.quantity < 1) {
+      cartItemss.value = cartItemss.value.filter(item => item.id !== MexicanItem.id);
+    }
+  }
+};
+// Функция удаления элемента из корзины
+const removeFromCart = (id: number) => {
+  const index = cartItemss.value.findIndex(item => item.id === id);
+  if (index !== -1) {
+    cartItemss.value.splice(index, 1); // Удаляем элемент из массива
+  }
+};
 
 // Получаем данные пиццы при монтировании
 onMounted(async () => {
   try {
     const data = await getMexican();
-    Mexican.value = data; // Убедитесь, что data - это массив пицц
-    errorMessage.value = null; // Сбрасываем сообщение об ошибке
+    Mexican.value = data;
+    errorMessage.value = null;
   } catch (error) {
-    console.error('Error fetching Mexican:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.'; // Устанавливаем сообщение об ошибке
+    console.error('Error fetching Mexicans:', error);
+    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
   }
 });
 </script>

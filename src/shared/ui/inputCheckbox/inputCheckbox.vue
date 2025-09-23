@@ -5,6 +5,10 @@ const props = defineProps({
     type: String,
     default: "Заголовок",
   },
+  inputCheckboxSubLabel: {
+    type: String,
+    default: "",
+  },
 });
 const isChecked = ref(false);
 
@@ -17,7 +21,10 @@ function toggleCheckbox() {
   <div class="input-checkbox__block" @click="toggleCheckbox">
     <input class="input-checkbox" type="checkbox" v-model="isChecked" ref="checkbox">
     <div class="custom-checkbox" ></div>
-    <div class="input-checkbox__label">{{ inputCheckboxLabel }}</div>
+    <div class="input-checkbox__label">
+      <div class="input-checkbox__text">{{ inputCheckboxLabel }}</div>
+      <div class="input-checkbox__sub-text">{{ inputCheckboxSubLabel }}</div>
+    </div>
   </div>
 </template>
 

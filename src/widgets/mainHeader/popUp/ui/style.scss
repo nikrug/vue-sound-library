@@ -29,7 +29,12 @@
   cursor: pointer;
   color: #000000; /* Измените на нужный цвет */
   border-radius: 10px;
+  text-align: center;
   width: 100%;
+}
+
+.popup__logo-button{
+    cursor: pointer;
 }
 .popup__forget-button-block{
   display: flex;
@@ -69,6 +74,7 @@ flex-direction: row;
 }
 .popup__text.active {
   background-color: white; /* Измените на нужный цвет */
+   text-align: center;
 }
 
 .popup__choose-block{
@@ -76,6 +82,7 @@ flex-direction: row;
   border-radius: 10px;
   display: flex;
   padding: 5px;
+  text-align: center;
   margin: 30px 0;
   justify-content: center;
 

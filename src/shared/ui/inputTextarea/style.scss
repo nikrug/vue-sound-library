@@ -1,8 +1,12 @@
 @import "src/shared/styles";
-.input__container{
- position: relative;              /* Создаем относительное положение для контейнера */
-  display: inline-block; 
-  width: 100%;
+.textarea__container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 14px;
+    padding: .3rem;
 }
 
 .input-label{

@@ -3,6 +3,7 @@
   width: 100%;
   padding:24px
 }
+
 .option-none{
     display: none;
     padding: 0px;
@@ -16,13 +17,13 @@
   font-size: 16px;
   
 }
+
 .options-info-text{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
 }
-
 
 .options {
   display: flex;
@@ -49,7 +50,6 @@
   background-color: #ffffff; /* Цвет для активной кнопки */
   color: rgb(0, 0, 0); /* Цвет текста для активной кнопки */
 }
-
 
 .menu__item-button{
     padding: 16px 40px;

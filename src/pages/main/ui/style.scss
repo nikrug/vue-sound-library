@@ -13,7 +13,12 @@
   margin: 0 auto;
   max-width: 1280px;
 }
-
+.swiper-slide{
+      img{
+    overflow: hidden;
+    border-radius: 10px;
+    }
+}
 .IndexSwiper{
   margin-left: auto;
   margin-right: auto;
@@ -85,6 +90,8 @@
   }
   .swiper-img{
     width:1360px;
+    overflow: hidden;
+    border-radius: 10px;
   }
   .swiper-pagination{
     display: none;

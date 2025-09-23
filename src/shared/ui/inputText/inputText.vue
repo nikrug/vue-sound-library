@@ -6,6 +6,10 @@ const props = defineProps({
     type: String,
     default: "Пароль",
   },
+  inputLabel:{
+    type: String,
+    default: "input-label",
+  },
   inputPlaceholder: {
     type: String,
     default: "Введите пароль",
@@ -17,6 +21,10 @@ const props = defineProps({
   inputType: {
     type: String,
     default: "text", // значение по умолчанию
+  },
+  inputSubtext: {
+    type: String,
+    default: "", // значение по умолчанию
   },
 });
 
@@ -32,7 +40,7 @@ const togglePassword = () => {
 
 <template>
   <div class="input">
-    <div class="input-label">{{ inputTextLabel }}</div>
+    <div :class="inputLabel">{{ inputTextLabel }}</div>
     <div class="input__container">
       <input
         :type="showPassword ? '' : inputType" 
@@ -49,8 +57,13 @@ const togglePassword = () => {
                 />
         </div>
     </div>
+    <div class="input-subtext">{{ inputSubtext }}</div>
   </div>
 </template>
 <style lang="scss">
 @import "./style";
+
+.input{
+  width: 100%;
+}
 </style>

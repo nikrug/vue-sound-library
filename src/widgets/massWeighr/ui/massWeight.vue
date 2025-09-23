@@ -1,33 +1,38 @@
 <template>
   <div class="menu__option">
     <div :class="CustomClass">
-      <button class="option-button"
+      <button
+        class="option-button"
         v-for="option in weightOptions"
         :key="option.label"
         :class="{'active': selectedWeight === option.value}"
-        @click="selectWeight(option.value, option.price)"
+        @click="selectWeight(option.value, option.price,option.counter1)"
       >
         {{ option.label }}
       </button>
     </div>
 
+    <!-- Условие для показа нужного слота -->
+    <slot v-if="selectedCounter === 'counter1'" name="counter1"></slot>
+    <slot v-else-if="selectedCounter === 'counter2'" name="counter2"></slot>
+    
     <div :class="CustomInfoClass">
-        <div class="options-info-text"
+      <div
+        class="options-info-text"
         v-for="option in weightOptions"
         :key="option.label"
-        >
+      >
         <div class="options-info-text">
           {{ option.label }}
         </div>
         {{ option.price }} ₽
-    </div>
-
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
+import Counter from '@widgets/Counter/ui/counter.vue';
 export default {
   name: "PizzaWeightSelector",
   props: {
@@ -47,13 +52,14 @@ export default {
       type: String,
       default: "menu__button-block",
     },
-
   },
-data() {
+  data() {
     return {
+      selectedCounter: 'counter1', // По умолчанию показываем counter1
       selectedWeight: null,
-      pizzaCount: 1, // Add a counter for the number of pizzas
+      optionCounts: [],
       totalPrice: 0,
+      currentSlotName: '' // Holds the name of the currently selected slot
     };
   },
   computed: {
@@ -188,6 +194,12 @@ data() {
             {label: '300г', price: 87 },
         ];
 
+        case "Сухарики2":
+            return [
+            {label: '300г', price: 87 },
+        ];
+
+
         case "Сальса":
             return [
             { label: '30г', value: 'medium', price: 10 },
@@ -286,28 +298,32 @@ data() {
     },
   },
   mounted() {
-    // Установка первой цены как активной
     if (this.weightOptions.length > 0) {
-      this.selectWeight(this.weightOptions[0].value, this.weightOptions[0].price);
+      this.selectWeight(this.weightOptions[0].value, this.weightOptions[0].price, this.weightOptions[0].label);
+      this.optionCounts = Array(this.weightOptions.length).fill(0);
     }
   },
   methods: {
-
-    selectWeight(value, price) {
+    selectWeight(value, price, label) {
       this.selectedWeight = value;
       this.totalPrice = price;
 
-      // Emit событие для обновления цены, включая название пиццы
+      // Set the current slot name based on the selected weight option
+      this.selectedCounter = this.selectedCounter === 'counter1' ? 'counter2' : 'counter1';
+      
       this.$emit('update-price', { title: this.title, price });
     },
-     updatePrice({ title, price }) {
-      this.menuPrices[title] = price;
-    }
-    
   },
 };
 </script>
 
 <style lang="scss">
 @import "./style";
+
+.counter {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>

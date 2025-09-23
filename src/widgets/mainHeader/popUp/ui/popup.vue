@@ -1,6 +1,6 @@
 <template>
   <div :class="customClass" @click="Popup = !Popup">
-    <img src="/images/headers/icon LK.svg">
+    <img class="popup__logo-button" src="/images/headers/icon LK.svg">
   </div>
 
     <div v-show="Popup" class="popup-overlay" @mousedown="Popup = !Popup">

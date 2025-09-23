@@ -25,8 +25,9 @@ export const navMenu = [
     link: ROUTES.CONTACTS,
     label: 'Контакты',
   },
-    {
+  {
     link: '/FAQ',
     label: 'Отследить заказ',
   },
+
 ];

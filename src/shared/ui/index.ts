@@ -5,7 +5,9 @@ import CFormField from './formFields/FormField.vue';
 import MainLoader from './mainLoader/MainLoader.vue';
 import inputText from './inputText/inputText.vue';
 import inputCheckbox from './inputCheckbox/inputCheckbox.vue';
+import inputRadiobutton from './inputRadiobutton/inputRadiobutton.vue';
 import customButton from './customButton/customButton.vue';
+import inputTextarea from './inputTextarea/inputTextarea.vue';
 export {
   customButton,
   UiButton,
@@ -13,5 +15,7 @@ export {
   UiModal,
   CFormField,
   inputText,
-  inputCheckbox
+  inputCheckbox,
+  inputRadiobutton,
+  inputTextarea
 }

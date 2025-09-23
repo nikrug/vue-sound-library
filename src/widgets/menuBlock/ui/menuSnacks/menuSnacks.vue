@@ -1,4 +1,5 @@
 <template>
+      <Card :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
       <div class="menu-label" id="Snacks">Закуски</div>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
       <div class="menu-container">
@@ -12,8 +13,16 @@
         :overImage="Snacks.overImage">
         <template v-slot:weight-counter>
           <div class="menu-options">
-            <massWeight @update-price="updatePrice" :CustomClass="Snacks.CustomClass" :title="Snacks.weightName"/>
-            <counter :price="menuPrices[Snacks.weightName]" />
+            <massWeight :CustomClass="Snacks.CustomClass" @update-price="updatePrice" :title="Snacks.weightName">
+              <template v-slot:counter1>
+                <counter :onAddToCart="() => addToCart(Snacks)" :onDeleteToCart="() => removeFromCartt(Snacks)" :price="menuPrices[Snacks.weightName]" />
+              </template>
+              <template v-slot:counter2>
+                <counter :onAddToCart="() => addToCart(Snacks)" :onDeleteToCart="() => removeFromCartt(Snacks)" :price="menuPrices[Snacks.weightName]" />
+              </template>
+              
+            </massWeight>
+            
           </div>
         </template>
         <template v-slot:additional-info>
@@ -21,7 +30,7 @@
         </template>
       </MenuItem>
       </div>
-
+      <cardButton :cartItems="cartItems" :onRemoveItem="removeFromCart"/>
 </template>
 
 <style lang="scss" scoped>
@@ -35,6 +44,7 @@
   import MenuItem from "@entities/menuItem/ui/menuItem.vue";
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref,onMounted } from 'vue';
+  import Card from '@widgets/Card/card.vue';
   interface Snacks {
     id: number;
     name: string;
@@ -46,33 +56,64 @@
     spicyImageSrc: string;
     overImage:string;
   }
+const Snacks = ref<Snacks[]>([]);
+const menuPrices = ref<Record<string, number>>({});
+const errorMessage = ref<string | null>(null);
+const cartItems = ref<{ id: number, name: string, price: number, quantity: number,imagesrc:string, }[]>([]);
 
-  const Snacks = ref<Snacks[]>([]);
+// Функция для обновления цены
+const updatePrice = (payload: { title: string; price: number }) => {
+  menuPrices.value[payload.title] = payload.price;
+};
 
-  const menuPrices = ref<Record<string, number>>({ // Используем Record для типизации объекта цен
-    'Дженнифер': 0,
-    'Арканзас': 0,
-    // Добавьте другие пиццы по мере необходимости
-  });
+const addToCart = (SnacksItem: Snacks) => {
+  const existingItem = cartItems.value.find(item => item.id === SnacksItem.id);
+  
+  // Получаем текущую цену для выбранного веса
+  const currentPrice = menuPrices.value[SnacksItem.weightName];
 
-  const totalPrice = ref<number>(0); // Указываем тип для totalPrice
-
-  const updatePrice = (payload: { title: string; price: number }) => { // Указываем тип для параметра
-    menuPrices.value[payload.title] = payload.price; // Обновляем цену для конкретного наименования
-  };
-
-  // Сообщение об ошибке
-  const errorMessage = ref<string | null>(null);
+  if (existingItem) {
+    existingItem.price = currentPrice; // Обновляем цену при необходимости
+    existingItem.quantity++;
+  } else {
+    cartItems.value.push({
+      id: SnacksItem.id,
+      name: SnacksItem.name,
+      imagesrc: SnacksItem.imageSrc,
+      price: currentPrice, // Берем цену из menuPrices
+      quantity: 1,
+    });
+  }
+};
+// Функция удаления пиццы из корзины
+const removeFromCartt = (SnacksItem: Snacks) => {
+  const existingItem = cartItems.value.find(item => item.id === SnacksItem.id);
+  
+  if (existingItem) {
+    existingItem.quantity--;
+    // Удаляем элемент из корзины, если количество стало меньше 1
+    if (existingItem.quantity < 1) {
+      cartItems.value = cartItems.value.filter(item => item.id !== SnacksItem.id);
+    }
+  }
+};
+// Функция удаления элемента из корзины
+const removeFromCart = (id: number) => {
+  const index = cartItems.value.findIndex(item => item.id === id);
+  if (index !== -1) {
+    cartItems.value.splice(index, 1); // Удаляем элемент из массива
+  }
+};
 
 // Получаем данные пиццы при монтировании
 onMounted(async () => {
   try {
     const data = await getSnacks();
-    Snacks.value = data; // Убедитесь, что data - это массив пицц
-    errorMessage.value = null; // Сбрасываем сообщение об ошибке
+    Snacks.value = data;
+    errorMessage.value = null;
   } catch (error) {
     console.error('Error fetching Snacks:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.'; // Устанавливаем сообщение об ошибке
+    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
   }
 });
 </script>

@@ -5,7 +5,6 @@
                 <div class="stock__label">Акции</div>
                 <div class="stock__sublabel">Акции и скидки не суммируются</div>
         </div>
-
         <div class="stock-list">
                 <StockCard
                         v-for="stock in stock"
@@ -31,6 +30,8 @@
 import StockCard from  '@entities/stockCard/ui/stockCard.vue';
 import { getStock } from '@widgets/menuBlock/api/apiService';
 import { ref, onMounted } from 'vue';
+import card from '@widgets/Card/card.vue';
+import Card from '@widgets/Card/card.vue';
 interface Stock {
   id: number;
   name: string;
@@ -44,6 +45,17 @@ interface Stock {
   stockLabel2:string;
   stockLabel3:string;
 }
+const cartItems = ref<{ id: number, name: string, price: number, quantity: number,imagesrc:string, }[]>([]);
+
+
+
+// Функция удаления элемента из корзины
+const removeFromCart = (id: number) => {
+  const index = cartItems.value.findIndex(item => item.id === id);
+  if (index !== -1) {
+    cartItems.value.splice(index, 1); // Удаляем элемент из массива
+  }
+};
 
 // Данные пиццы
 const stock = ref<Stock[]>([]);
