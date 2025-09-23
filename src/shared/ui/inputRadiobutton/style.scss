@@ -3,7 +3,6 @@
 .input-radioButton__block {
   display: flex;
   flex-direction: row;
-
   gap: 0.5rem;
   cursor: pointer;
 }
@@ -16,10 +15,14 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  border:  1px solid #D8D8D8;
+  border: 1px solid #D8D8D8;
   border-radius: 20px;
   background-repeat: no-repeat; /* Не повторяем изображение */
   background-position: center; /* Центрируем изображение */
+}
+
+.custom-radioButton.active {
+  background-image: url("/images/headers/radioDot.svg"); /* Изображение для отмеченного состояния */
 }
 
 /* Изменяем стиль при отмеченном чекбоксе */
@@ -31,6 +34,7 @@
   color: #9B9B9B;
   font-size: 14px;
 }
+
 .input-radioButton__text.active {
   color: #000000;
 }
@@ -42,11 +46,9 @@
 
 .input-radioButton__sub-text {
   display: none;
-
 }
 
 .input-radioButton__sub-text.active {
   display: block;
   color: #009B3D;
-
 }

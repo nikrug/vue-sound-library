@@ -29,9 +29,9 @@
                         </div> 
                             <div class="card__radioButtons">
                                 <div class="card__label-small">Способ оплаты</div>
-                                <inputRadiobutton  v-model="selectedOption" value="option1"  label="Оплата пластиковой картой в зале" sublabel=""/>
-                                <inputRadiobutton  v-model="selectedOption" value="option2"  label="Оплата наличными в зале" sublabel=""/>
-                                <inputRadiobutton  v-model="selectedOption" value="option3"  label="Оплата на сайте" sublabel="Скидки по акциям Доставки неактивны при оплате на сайте"/>
+                                <inputRadiobutton  v-model="selectedDeliveryOption" value="option1" label="Оплата пластиковой картой в зале" sublabel=""/>
+                                <inputRadiobutton  v-model="selectedDeliveryOption" value="option2" label="Оплата наличными в зале" sublabel=""/>
+                                <inputRadiobutton  v-model="selectedDeliveryOption" value="option3" label="Оплата на сайте" sublabel="Скидки по акциям Доставки неактивны при оплате на сайте"/>
                             </div>
                             <div class="card__comment">
                                 <div class="card__comment-textblock">
@@ -49,15 +49,15 @@
                         <inputText inputPlaceholder="+7 (923)-640-12-98" inputTextLabel="Введите номер телефона"></inputText>
                             <div class="card__radioButtons">
                                 <div class="card__label-small">Адрес самовывоза</div>
-                                <inputRadiobutton  v-model="selectedOption" value="option4"  label="Оплата пластиковой картой в зале" sublabel=""/>
-                                <inputRadiobutton  v-model="selectedOption" value="option5"  label="Оплата наличными в зале" sublabel=""/>
-                                <inputRadiobutton  v-model="selectedOption" value="option6"  label="Оплата на сайте" sublabel="Скидки по акциям Доставки неактивны при оплате на сайте"/>
+                                <inputRadiobutton  v-model="selectedPickupOption" value="option4" label="Оплата пластиковой картой в зале" sublabel=""/>
+                                <inputRadiobutton  v-model="selectedPickupOption" value="option5" label="Оплата наличными в зале" sublabel=""/>
+                                <inputRadiobutton  v-model="selectedPickupOption" value="option6" label="Оплата на сайте" sublabel="Скидки по акциям Доставки неактивны при оплате на сайте"/>
                             </div>
                             <div class="card__radioButtons">
                                 <div class="card__label-small">Способ оплаты</div>
-                                <inputRadiobutton  v-model="selectedOption" value="option7"  label="Оплата пластиковой картой в зале" sublabel=""/>
-                                <inputRadiobutton  v-model="selectedOption" value="option8"  label="Оплата наличными в зале" sublabel=""/>
-                                <inputRadiobutton  v-model="selectedOption" value="option9"  label="Оплата на сайте" sublabel="Скидки по акциям Доставки неактивны при оплате на сайте"/>
+                                <inputRadiobutton  v-model="selectedPaymentOption" value="option7" label="Оплата пластиковой картой в зале" sublabel=""/>
+                                <inputRadiobutton  v-model="selectedPaymentOption" value="option8" label="Оплата наличными в зале" sublabel=""/>
+                                <inputRadiobutton  v-model="selectedPaymentOption" value="option9" label="Оплата на сайте" sublabel="Скидки по акциям Доставки неактивны при оплате на сайте"/>
                             </div>
                             <div class="card__comment">
                                 <div class="card__comment-textblock">
@@ -84,13 +84,15 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { inputText,inputRadiobutton,inputCheckbox,customButton,inputTextarea} from '@shared/ui';
+import { inputText, inputRadiobutton, inputCheckbox, customButton, inputTextarea } from '@shared/ui';
 import Card from '@widgets/Card/card.vue';
+
 const delivery = ref(true);
 const yourown = ref(false);
-const selectedOption = ref<string>('option1'); // Значение по умолчанию
-
-const cartItems = ref<{ id: number, name: string, price: number, quantity: number,imagesrc:string, }[]>([]);
+const selectedDeliveryOption = ref<string>('option1');
+const selectedPickupOption = ref<string>('option4');
+const selectedPaymentOption = ref<string>('option7');
+const cartItems = ref<{ id: number, name: string, price: number, quantity: number, imagesrc: string }[]>([]);
 
 // Функция удаления элемента из корзины
 const removeFromCart = (id: number) => {

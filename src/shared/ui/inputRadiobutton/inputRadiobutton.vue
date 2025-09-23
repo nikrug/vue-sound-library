@@ -9,13 +9,14 @@
       :checked="isChecked"
       @change="toggleCheckbox"
     />
-    <div class="custom-radioButton" :class="{ checked: isChecked }"></div>
+    <div class="custom-radioButton" :class="{ active: isChecked }"></div>
     <div class="input-radioButton__label">
       <div :class="{ 'active': isChecked }" class="input-radioButton__text">{{ label }}</div>
       <div :class="{ 'active': isChecked }" class="input-radioButton__sub-text">{{ sublabel }}</div>
     </div>
   </div>
 </template>
+
 
 <script lang="ts" setup>
 import { computed, defineProps, defineEmits } from 'vue';
