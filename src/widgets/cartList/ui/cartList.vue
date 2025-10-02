@@ -1,12 +1,12 @@
 <template>
-  <div :class="[customclass, 'card-box']">
+  <div :class="[customclass, 'cart-list']">
     <ul>
-      <li class="card-item" v-for="item in cartItems" :key="item.id">
-        <div class="card-name">
+      <li class="cart-list__item" v-for="item in cartItems" :key="item.id">
+        <div class="cart-list__name">
           <img :src="item.imagesrc" alt="Изображение товара" />
           {{ item.name }} 
         </div>
-        <div class="card-counter">
+        <div class="cart-list__counter">
           <button class="count-button" @click="updateItemQuantity(item, -1)">-</button>
             <div class="count-quantity">{{ item.quantity }}</div>
           <button class="count-button" @click="updateItemQuantity(item, 1)">+</button>
@@ -14,9 +14,9 @@
         </div>
       </li>
     </ul>
-    <div class="card-bottom">
+    <div class="cart-list__bottom">
       <inputCheckbox inputCheckboxLabel="Не перезванивать для подтверждения заказа" inputCheckboxSubLabel="(кроме заказов, оформленных впсервые)"></inputCheckbox>
-      <div class="card-bottom__total">
+      <div class="cart-list__bottom-total">
         <div>Сумма заказа:</div>
         <div class="total-text">{{ total }}₽</div>
       </div>
@@ -27,7 +27,6 @@
 <script setup lang="ts">
 import { inputCheckbox } from '@shared/ui';
 import { computed, defineProps, defineExpose, watch } from 'vue';
-
 interface CartItem {
   id: number;
   name: string;
@@ -89,29 +88,4 @@ watch(() => props.cartItems, saveCartToStorage, { deep: true });
 
 <style lang="scss">
 @import "./style.scss" ;
-.invisible{
-  display: none;
-}
-
-.cart {
-  padding: 1rem;
-}
-
-h2 {
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  font-size:20px;
-  font-weight: 500;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
-
-
 </style>

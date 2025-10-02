@@ -1,5 +1,5 @@
 <template>
-      <Card :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
+      <CartList :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
       <div class="menu-label" id="Beri-Peki">Заготовка пиццы «Бери-пеки»</div>
 
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
@@ -18,10 +18,10 @@
           <div class="menu-options">
             <massWeight  CustomClass="option-none" @update-price="updatePrice" :title="BeriPeki.weightName">
               <template v-slot:counter1>
-                <counter :onAddToCart="() => addToCart(BeriPeki)" :onDeleteToCart="() => removeFromCartt(BeriPeki)" :price="menuPrices[BeriPeki.weightName]" />
+                <counter :id="`${BeriPeki.id}-counter3`" :onAddToCart="() => addToCart(BeriPeki)" :onDeleteToCart="() => removeFromCartt(BeriPeki)" :price="menuPrices[BeriPeki.weightName]" />
               </template>
               <template v-slot:counter2>
-                <counter :onAddToCart="() => addToCart(BeriPeki)" :onDeleteToCart="() => removeFromCartt(BeriPeki)" :price="menuPrices[BeriPeki.weightName]" />
+                <counter :id="`${BeriPeki.id}-counter4`" :onAddToCart="() => addToCart(BeriPeki)" :onDeleteToCart="() => removeFromCartt(BeriPeki)" :price="menuPrices[BeriPeki.weightName]" />
               </template>
               
             </massWeight>
@@ -43,7 +43,7 @@
   import { getBeriPeki } from '../../api/apiService';
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref, onMounted } from 'vue';
-  import Card from '@widgets/Card/card.vue';
+  import CartList from "@widgets/cartList/ui/cartList.vue";
 interface BeriPeki {
   id: number;
   name: string;
@@ -103,7 +103,6 @@ const removeFromCart = (id: number) => {
   }
 };
 
-// Получаем данные пиццы при монтировании
 onMounted(async () => {
   try {
     const data = await getBeriPeki();
@@ -111,7 +110,10 @@ onMounted(async () => {
     errorMessage.value = null;
   } catch (error) {
     console.error('Error fetching BeriPeki:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
+    errorMessage.value = 'Не удалось загрузить данные по BeriPeki. Пожалуйста, попробуйте позже.';
+    
+    // Показываем всплывающее окно с сообщением об ошибке
+    alert(errorMessage.value);
   }
 });
 </script>
@@ -120,8 +122,5 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 @import '../style.scss';
-.invisible{
-  display: none;
-}
 
 </style>

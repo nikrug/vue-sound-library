@@ -1,6 +1,15 @@
 <script setup>
   import {  ref } from 'vue';
-    const Popup =ref(false);
+  import  SkeletonLoader  from '@widgets/SkeletonLoader/ui/SkeletonLoader.vue'; // Путь к вашему компоненту
+
+const Popup = ref(false);
+const loading = ref(true); // Добавляем состояние загрузки
+
+// Загрузка данных (например, имитация задержки)
+setTimeout(() => {
+  loading.value = false; // После 2 секунд изменяем состояние загрузки
+}, 2000);
+
 const props = defineProps({
   menuName: {
     type: String,
@@ -33,9 +42,12 @@ const props = defineProps({
 <template>
     <div class="menu__item">
       <div class="menu__text-img">
-        <div class="menu__item-img-container img-container">
+        <div v-if="loading">
+          <SkeletonLoader />
+        </div>
+        <div v-else class="menu__item-img-container img-container">
             <img class="menu__over-img" :src="overImage">
-            <img @click="Popup = !Popup" class="menu__item-img" :src="imageSrc">
+            <img @click="Popup = !Popup" class="menu__item-img main-img" :src="imageSrc">
         </div>
         <div class="menu__item-description-container">
             <div class="menu__item-name">{{menuName}}

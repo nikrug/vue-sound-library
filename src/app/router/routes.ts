@@ -10,7 +10,7 @@ import  Stock  from 'src/pages/stock/ui/stock.vue';
 import  Contacts  from 'src/pages/contacts/ui/contascts.vue';
 import  About  from 'src/pages/about/ui/about.vue';
 import  Career  from 'src/pages/career/ui/career.vue';
-import Card from 'src/pages/card/ui/card.vue';
+import Cart from 'src/pages/cart/ui/cart.vue';
 import { IndexPage } from 'src/pages/main';
 import { ErrorNotFound } from 'src/pages/notFound';
 import { PPostsDetail } from 'src/pages/post';
@@ -62,9 +62,9 @@ const routes: RouteRecordRaw[] = [
         meta: { title: `${DEFAULT_TITLE}: ABOUT` },
       },
       {
-        path: ROUTES.CARD,
-        component:Card,
-        meta: { title: `${DEFAULT_TITLE}: CARD` },
+        path: ROUTES.CART,
+        component:Cart,
+        meta: { title: `${DEFAULT_TITLE}: Cart` },
       },
     ],
   },

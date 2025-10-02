@@ -14,7 +14,15 @@
         @include font-style(500, .875rem, 1.5rem, $description-light);
     }
     
+    .experiens__text-box{
+        display: grid;
+        gap: 1px;
+    }
+    
+    .experiens__img{
+    
 
+    }
     .experiens__customer{
         justify-content: center;
         

@@ -12,18 +12,47 @@
     align-items: center;
     width: 100%;
 }
-
+.dropdownl{
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+.dropdownl a{
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 7px 12px;
+  color: #000000;
+  
+}
+.cardbutton-none{
+  display: none;
+}
+/* Для скрытия полосы прокрутки в большинстве браузеров */
+.scrollDownmenu__list::-webkit-scrollbar {
+    display: none; /* Для Chrome, Safari и Opera */
+}
 .scrollDownmenu__list.active {
   position: fixed;
   top:0;
   background-color: white;
   color:rgb(0, 0, 0);
+  .scrollDownmenu__logo{
+  display:none;
+  }
+  .scrollDownmenu__list-link {
+  color:black;
+  }
 }
 
-.scrollDownmenu__list.active a{
+  .scrollDownmenu__logo{
+  display:none;
+}
+
+.scrollDownmenu__list-link.active {
   color:black;
 }
-.scrollDownmenu__list a{
+.scrollDownmenu__list-link {
   color:white;
   white-space: nowrap;
   padding: 7px 14px;
@@ -31,7 +60,7 @@
   transition: background 0.2s ease;
 }
 
-.scrollDownmenu__list a:hover{
+.scrollDownmenu__list-link:hover{
   background: rgba(240, 240, 240, 0.51);
   transition: background 0.2s ease;
 
@@ -53,13 +82,24 @@
   border-radius: 5px;
 }
 
-.scrollDownmenu__logo{
-    display: none;
+.dropdownl{
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
 }
 
-.scrollDownmenu__logo.active{
-    display: none;
+.dropdownl a{
+  background-color: #F0F0F0;
+  border-radius: 20px;
+  padding: 7px 12px;
+  
 }
+
+.cardbutton-none{
+  display: none;
+}
+
 
   .visible{
     display: none;
@@ -90,12 +130,28 @@
       left: auto;
       width: 200px;
     }
+    .scrollDownmenu__list.active {
+    position: fixed;
+    top:0;
+    background-color: white;
+    color:rgb(0, 0, 0);
+    .scrollDownmenu__logo{
+    display:none;
+  }
+  }
   }
 
   @media (min-width: 1244px) {
-    .scrollDownmenu__logo.active{
-    display: block;
-    }   
+    .scrollDownmenu__list.active {
+    position: fixed;
+    top:0;
+    background-color: white;
+    color:rgb(0, 0, 0);
+    .scrollDownmenu__logo{
+    display:flex;
+  }
+}
+    
     .scrollDownmenu__card-button{
       position: static;
       color:white;

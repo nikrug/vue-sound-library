@@ -18,10 +18,10 @@
             <div class="menu-options">
               <massWeight :CustomClass="Mexican.CustomClass" @update-price="updatePrice" :title="Mexican.weightName">
                 <template v-slot:counter1>
-                  <counter :onAddToCart="() => addToCart(Mexican)" :onDeleteToCart="() => removeFromCartt(Mexican)" :price="menuPricesMexican[Mexican.weightName]" />
+                  <counter :id="`${Mexican.id}-counter7`" :onAddToCart="() => addToCart(Mexican)" :onDeleteToCart="() => removeFromCartt(Mexican)" :price="menuPricesMexican[Mexican.weightName]" />
                 </template>
                 <template v-slot:counter2>
-                  <counter :onAddToCart="() => addToCart(Mexican)" :onDeleteToCart="() => removeFromCartt(Mexican)" :price="menuPricesMexican[Mexican.weightName]" />
+                  <counter :id="`${Mexican.id}-counter8`" :onAddToCart="() => addToCart(Mexican)" :onDeleteToCart="() => removeFromCartt(Mexican)" :price="menuPricesMexican[Mexican.weightName]" />
                 </template>
                 
               </massWeight>
@@ -46,7 +46,7 @@
   import MenuItem from "@entities/menuItem/ui/menuItem.vue";
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref,onMounted } from 'vue';
-  import Card from '@widgets/Card/card.vue';
+  import Cart from '@widgets/Cart/cart.vue';
   interface Mexican {
     id: number;
     name: string;
@@ -116,7 +116,10 @@ onMounted(async () => {
     errorMessage.value = null;
   } catch (error) {
     console.error('Error fetching Mexicans:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
+    errorMessage.value = 'Не удалось загрузить данные по Mexican. Пожалуйста, попробуйте позже.';
+    
+    // Показываем всплывающее окно с сообщением об ошибке
+    alert(errorMessage.value);
   }
 });
 </script>

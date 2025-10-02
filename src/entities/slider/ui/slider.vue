@@ -35,12 +35,5 @@ const props = defineProps({
 @import './style.scss';
 @import '/node_modules/nouislider/dist/nouislider.min.css';
 
-.experiens__text-box{
-  display: grid;
-  gap: 1px;
-}
-.experiens__img{
-  
 
-}
 </style>

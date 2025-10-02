@@ -64,6 +64,13 @@
     background-color:#E17B00;
 }
 
+.counter {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .menu__button-block{
     display:flex;
     justify-content:space-between;

@@ -1,5 +1,5 @@
 <template>
-    <button class="scrollDownmenu__card-button">
+    <button class="scrollDownmenu__cart-button">
        <div class="cou" v-if="total > 1" :class="{ 't': total > 1 }">
             {{ total }}₽
         </div> 
@@ -31,19 +31,6 @@ const total = computed(() => {
 // Экспортируем computed свойство total
 defineExpose({ total });
 
-// Функция удаления 1 единицы товара из корзины
-const removeItem = (item: CartItem) => {
-  item.quantity--; // Уменьшаем количество на 1
-  if (item.quantity <= 0) {
-    props.onRemoveItem(item.id);
-  }
-};
-
-// Функция добавления 1 единицы товара в корзину
-const addItem = (item: CartItem) => {
-  item.quantity++; // Увеличиваем количество на 1
-};
-
 // Восстанавливаем корзину из localStorage
 const savedCart = localStorage.getItem('cartItems');
 if (savedCart) {
@@ -66,16 +53,5 @@ watch(() => props.cartItems, (newCartItems) => {
 
 
 <style lang="scss">
-.scrollDownmenu__card-button{
-  justify-content: center;
-  gap: 0.5rem;
-  display: inline-flex;
-  bottom:10px;
-  right:10px;
-  left: 10px;
-  color:white;
-  padding: 14px;
-  background-color: #FF991F;
-  border-radius: 10px;
-}
+@import "./style.scss" ;
 </style>

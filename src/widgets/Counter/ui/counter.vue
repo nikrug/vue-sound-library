@@ -11,22 +11,24 @@
     <button class="basket-button" v-if="count < 1" @click="handleAddToCart">в корзину</button>
 
     <div class="buttons" v-if="count > 0" :class="{ 'buttons-active': count > 0 }">
-      <button class="count-button" v-if="count > 0" @click="handleDeleteToCart">-</button>
-
-      <div class="count-text" v-if="count > 0">{{ count }}</div>
-
-      <button class="count-button" v-if="count > 0" @click="handleAddToCart">+</button>
+      <button class="count-button" @click="handleDeleteToCart">-</button>
+      <div class="count-text">{{ count }}</div>
+      <button class="count-button" @click="handleAddToCart">+</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, defineProps } from 'vue';
+import { ref, computed, defineProps, onMounted } from 'vue';
 
 const props = defineProps({
   price: {
     type: Number,
     default: 0,
+  },
+  id: { // Добавляем ID для уникальности
+    type: String,
+    required: true,
   },
   onAddToCart: {
     type: Function,
@@ -41,15 +43,30 @@ const props = defineProps({
 const count = ref(0);
 const total = computed(() => count.value * props.price);
 
+const loadCount = () => {
+  const storedCount = localStorage.getItem(`counter-${props.id}`);
+  if (storedCount) {
+    count.value = parseInt(storedCount, 10);
+  }
+};
+
+const saveCount = () => {
+  localStorage.setItem(`counter-${props.id}`, count.value);
+};
 const increment = () => {
   count.value++;
+  saveCount(); // Сохраняем после изменения
 };
 
 const decrement = () => {
   if (count.value > 0) {
     count.value--;
+    saveCount(); // Сохраняем после изменения
   }
 };
+
+// Загружаем значение счетчика при монтировании
+onMounted(loadCount);
 
 // Обработчик для добавления в корзину
 const handleAddToCart = () => {
@@ -57,9 +74,9 @@ const handleAddToCart = () => {
   props.onAddToCart(); // Вызываем переданную функцию
 };
 
-// Обработчик для добавления в корзину
+// Обработчик для удаления из корзины
 const handleDeleteToCart = () => {
-  decrement(); // Увеличиваем счетчик
+  decrement(); // Уменьшаем счетчик
   props.onDeleteToCart(); // Вызываем переданную функцию
 };
 </script>

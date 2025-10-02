@@ -70,13 +70,4 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import './style.scss';
 
-.stock__item-text-block{
-
-}
-.stock__item-description-block{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  gap:1rem;
-}
 </style>

@@ -3,29 +3,27 @@
     <div :class="CustomClass" >
         <div :class="LinkClass" >
             <img class="scrollDownmenu__logo" src="/images/drop-down-menu/dropdown-logo.svg">
-            <a href="#Pizza" @click="handleClick('Pizza')">Пицца </a>
-            <a href="#Beri-Peki" @click="handleClick('Beri-Peki')">Заготовка пиццы «Бери-пеки»</a>
-            <a href="#Snacks"  @click="handleClick('Snacks')">Закуски</a>
-            <a href="#Mexican" @click="handleClick('Mexican')">Мексиканские блюда</a>
-            <a href="#Salat" @click="handleClick('Salat') ">Салаты</a>
-            <a href="/">Супы</a>
-            <a href="/">Напитки</a>
-            <a href="/">Десерты</a>
-            <a href="/">Другое</a>
-            <router-link :to="{ path: '/card' }" :class="ButtonClass">
-                  <cardButton :cartItems="cartItems" :onRemoveItem="removeFromCart" />
+            <a class="scrollDownmenu__list-link" href="#Pizza" @click="handleClick('Pizza')">Пицца </a>
+            <a class="scrollDownmenu__list-link" href="#Beri-Peki" @click="handleClick('Beri-Peki')">Заготовка пиццы «Бери-пеки»</a>
+            <a class="scrollDownmenu__list-link" href="#Snacks"  @click="handleClick('Snacks')">Закуски</a>
+            <a class="scrollDownmenu__list-link" href="#Mexican" @click="handleClick('Mexican')">Мексиканские блюда</a>
+            <a class="scrollDownmenu__list-link" href="#Salat" @click="handleClick('Salat') ">Салаты</a>
+            <a class="scrollDownmenu__list-link" href="/">Супы</a>
+            <a class="scrollDownmenu__list-link" href="/">Напитки</a>
+            <a class="scrollDownmenu__list-link" href="/">Десерты</a>
+            <a class="scrollDownmenu__list-link" href="/">Другое</a>
+            <router-link :to="{ path: '/cart' }" :class="ButtonClass">
+                  <CartButton :cartItems="cartItems" :onRemoveItem="removeFromCart" />
             </router-link>
         </div>
     </div>
-
-  
 </template>
 
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount,ref } from 'vue';
 import routes from '@app/router/routes';
-import cardButton from '@widgets/Card/card-button.vue';
+import CartButton from '@widgets/cartButton/ui/cartButton.vue';
 const props = defineProps({
   CustomClass: {
     type: String,
@@ -34,12 +32,13 @@ const props = defineProps({
   
   ButtonClass:{
     type: String,
-    default: "scrollDownmenu__card-button",
+    default: "",
   },
   LinkClass: {
     type: String,
     default: "scrollDownmenu__list",
   },
+
     // Новый проп для передачи дополнительного действия
   onLinkClick: {
     type: Function,
@@ -109,13 +108,16 @@ const handleScroll = (): void => {
   const scrollPosition = window.scrollY;
   const scrollDownmenuList = document.querySelector('.scrollDownmenu__list') as HTMLElement;
   const scrollDownmenuLogo = document.querySelector('.scrollDownmenu__logo') as HTMLElement;
+    const scrollDownmenuLink = document.querySelector('.scrollDownmenu__list-link') as HTMLElement;
 
   if (scrollPosition > 100) {
     scrollDownmenuList.classList.add('active');
     scrollDownmenuLogo.classList.add('active');
+    scrollDownmenuLink.classList.add('active');
   } else {
     scrollDownmenuList.classList.remove('active');
     scrollDownmenuLogo.classList.remove('active');
+    scrollDownmenuLink.classList.add('active');
   }
 };
 
@@ -142,19 +144,11 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 @import './style.scss';
-.dropdownl{
-    gap: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1rem;
+.scrollDownmenu__logo.active {
+  display: flex; // Или другой стиль, который должен применяться, когда элемент активен
 }
-.dropdownl a{
-  background-color: #F0F0F0;
-  border-radius: 20px;
-  padding: 7px 12px;
-  
-}
-.cardbutton-none{
-  display: none;
+
+.scrollDownmenu__logo {
+  display: none; // Также убедитесь, что изначально элемент отображается так, как вы ожидаете
 }
 </style>

@@ -1,40 +1,40 @@
 @import "src/shared/styles";
 
-.card__label{
+.cart__label{
     color:white;
     font-size: 48px;
     max-width: 100px;
 }
-.card__content{
+.cart__content{
     display: flex;
     flex-direction: column;
     gap:2rem;
 }
 
-.card__adres-delivery{
+.cart__adres-delivery{
     display: flex;
     flex-direction: column;
     gap:1rem;
 }
 
-.card__label-small{
+.cart__label-small{
     font-size: 16px;
 }
 
-.card__comment-textblock{
+.cart__comment-textblock{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    .card__comment-label{
+    .cart__comment-label{
         font-size: 16px;
     }
-    .card__comment-sublabel{
+    .cart__comment-sublabel{
         font-size: 12px;
         color:#9B9B9B;
     }
 }
 
-.card{
+.cart{
     background-image: url("/images/menu-item/pattern.png");
     background-color: #198f30;
     padding:40px 0;
@@ -43,19 +43,19 @@
     min-height:100vh;
 }
 
-.card__list{
+.cart__box{
     max-width: 1280px;
     display: flex;
     flex-direction: column;
     margin: 0;
     gap: 2rem;
 }
-.card__radioButtons{
+.cart__radioButtons{
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
-.card__adres{
+.cart__adres{
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -64,7 +64,7 @@
     height: fit-content;
     gap: 1rem;
        width: 100%;
-    .card__adres-street{
+    .cart__adres-street{
         display: inline-flex;
         gap:1rem;
            width: 100%;
@@ -72,7 +72,7 @@
     min-width: 0;
     }
 
-    .card__adres-house{
+    .cart__adres-house{
         display: flex;
         flex-direction: row;
         gap:1rem;
@@ -83,17 +83,17 @@
 }
 
 @media(min-width:#{$br-tablet}px){
-.card__adres{
+.cart__adres{
     border-radius: 0px;
 
 }
 
-.card__content{
+.cart__content{
     display: flex;
     flex-direction: column;
         gap:2rem;
 }
-.card{
+.cart{
 
     padding:40px 0;
     display: flex;
@@ -101,7 +101,7 @@
     gap: 2rem
 }
 
-.card__list{
+.cart__box{
     max-width: 1280px;
     display: flex;
     flex-direction: column;
@@ -111,23 +111,23 @@
 
   }
   @media(min-width:#{$br-desktop}px){
-    .card__adres{
+    .cart__adres{
     border-radius: 10px;
 
 }
-    .card__list{
+    .cart__box{
     max-width: 1280px;
     display: flex;
     flex-direction: column;
     margin: 3rem auto ;
     gap: 2rem;
 }
-.card__content{
+.cart__content{
     display: flex;
     flex-direction: row;
     gap:2rem;
 }
-.card{
+.cart{
     background-image: url("/images/menu-item/pattern.png");
     background-color: #198f30;
 

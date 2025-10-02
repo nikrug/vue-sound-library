@@ -33,55 +33,6 @@ import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownm
 import menuItems from 'src/widgets/mainHeader/headerDropdown/ui/headerDropdown.vue';
 </script>
 
-<style>
-.q-btn{
-  font-size:12px;
-}
-.display-none{
-  display: none;
-}
-  .visible{
-    display: none;
-  }
-  .visible-line{
-    display: none;
-  }
-.visible-line-tablet{
-  display: none;
-}
-  .header__orange-text{
-    color:#FF991F;
-    font-size:18px;
-    white-space: nowrap;
-    font-weight: 700;
-  }
-
-  .header__text{
-    color:black;
-    font-size:12px;
-  }
-
-  .header__info-text-block{
-    text-align: end;
-  }
-  @media (min-width: 768px) {
-    .visible-line-tablet{
-    display: flex;
-    }
-
-  }
-  @media (min-width: 1244px) {
-    .visible{
-
-    display: inline;
-
-  }
-  .visible-line-tablet{
-  display: flex;
-}
-    .visible-line{
-    display: flex;
-  }
-
-  }
+<style lang="scss">
+@import './style.scss';
 </style>

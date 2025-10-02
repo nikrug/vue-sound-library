@@ -183,12 +183,4 @@ const PopupCarrer=ref(false);
 @import '/node_modules/swiper/swiper-bundle.min.css';
 @import './style.scss';
 
-.swiper-pagination{
-  position: relative;
-  margin: 10px;
-  --swiper-pagination-color: white;
-  --swiper-pagination-bullet-inactive-color: #ffffff;
-  --swiper-pagination-bullet-inactive-opacity: 0.3;
-  --swiper-pagination-bullet-opacity: 1;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-      <Card :customclass="'invisible'"  :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
+      <CartList :customclass="'invisible'"  :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
       <div class="menu-label" id="Salat">Салаты</div>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
       <div class="menu-container">
@@ -15,10 +15,10 @@
           <div class="menu-options">
             <massWeight CustomClass="option-none" @update-price="updatePrice" :title="Salat.weightName">
               <template v-slot:counter1>
-                <counter :onAddToCart="() => addToCart(Salat)" :onDeleteToCart="() => removeFromCartt(Salat)" :price="menuPrices[Salat.weightName]" />
+                <counter :id="`${Salat.id}-counter7`" :onAddToCart="() => addToCart(Salat)" :onDeleteToCart="() => removeFromCartt(Salat)" :price="menuPrices[Salat.weightName]" />
               </template>
               <template v-slot:counter2>
-                <counter :onAddToCart="() => addToCart(Salat)" :onDeleteToCart="() => removeFromCartt(Salat)" :price="menuPrices[Salat.weightName]" />
+                <counter :id="`${Salat.id}-counter7`" :onAddToCart="() => addToCart(Salat)" :onDeleteToCart="() => removeFromCartt(Salat)" :price="menuPrices[Salat.weightName]" />
               </template>
             </massWeight>
           </div>
@@ -42,7 +42,7 @@
   import { getSalat } from '../../api/apiService';
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref, onMounted } from 'vue';
-  import Card from '@widgets/Card/card.vue';
+  import CartList from "@widgets/cartList/ui/cartList.vue";
 interface Salat {
   id: number;
   name: string;
@@ -112,7 +112,10 @@ onMounted(async () => {
     errorMessage.value = null;
   } catch (error) {
     console.error('Error fetching Salats:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
+    errorMessage.value = 'Не удалось загрузить данные по Salat. Пожалуйста, попробуйте позже.';
+    
+    // Показываем всплывающее окно с сообщением об ошибке
+    alert(errorMessage.value);
   }
 });
 </script>

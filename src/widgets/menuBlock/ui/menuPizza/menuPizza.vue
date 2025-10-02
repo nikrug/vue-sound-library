@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Card :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
+    <CartList :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
 
     <div class="menu-label" id="Pizza">Пицца</div>
 
@@ -21,10 +21,10 @@
           <div class="menu-options">
             <massWeight @update-price="updatePrice" :title="pizzaItem.weightName">
               <template v-slot:counter1>
-                <counter :onAddToCart="() => addToCart(pizzaItem)" :onDeleteToCart="() => removeFromCartt(pizzaItem)" :price="menuPrices[pizzaItem.weightName]" />
+                <counter   :id="`${pizzaItem.id}-counter1`" :onAddToCart="() => addToCart(pizzaItem)" :onDeleteToCart="() => removeFromCartt(pizzaItem)" :price="menuPrices[pizzaItem.weightName]" />
               </template>
               <template v-slot:counter2>
-                <counter :onAddToCart="() => addToCart(pizzaItem)" :onDeleteToCart="() => removeFromCartt(pizzaItem)" :price="menuPrices[pizzaItem.weightName]" />
+                <counter  :id="`${pizzaItem.id}-counter2`" :onAddToCart="() => addToCart(pizzaItem)" :onDeleteToCart="() => removeFromCartt(pizzaItem)" :price="menuPrices[pizzaItem.weightName]" />
               </template>
               
             </massWeight>
@@ -52,7 +52,7 @@ import { getPizzas } from '../../api/apiService';
 import MenuItem from '@entities/menuItem/ui/menuItem.vue';
 import counter from '@widgets/Counter/ui/counter.vue';
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
-import Card from '@widgets/Card/card.vue';
+import CartList from '@widgets/cartList/ui/cartList.vue';
 
 interface Pizza {
   id: number;
@@ -123,15 +123,14 @@ onMounted(async () => {
     errorMessage.value = null;
   } catch (error) {
     console.error('Error fetching pizzas:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
+    errorMessage.value = 'Не удалось загрузить данные по Pizza. Пожалуйста, попробуйте позже.';
+    
+    // Показываем всплывающее окно с сообщением об ошибке
+    alert(errorMessage.value);
   }
 });
 </script>
 
 <style lang="scss" scoped>
 @import '../style.scss';
-.invisible{
-  display: none;
-}
-
 </style>

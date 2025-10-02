@@ -1,5 +1,5 @@
 <template>
-      <Card :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
+      <CartList :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
       <div class="menu-label" id="Snacks">Закуски</div>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
       <div class="menu-container">
@@ -15,10 +15,10 @@
           <div class="menu-options">
             <massWeight :CustomClass="Snacks.CustomClass" @update-price="updatePrice" :title="Snacks.weightName">
               <template v-slot:counter1>
-                <counter :onAddToCart="() => addToCart(Snacks)" :onDeleteToCart="() => removeFromCartt(Snacks)" :price="menuPrices[Snacks.weightName]" />
+                <counter :id="`${Snacks.id}-counter5`" :onAddToCart="() => addToCart(Snacks)" :onDeleteToCart="() => removeFromCartt(Snacks)" :price="menuPrices[Snacks.weightName]" />
               </template>
               <template v-slot:counter2>
-                <counter :onAddToCart="() => addToCart(Snacks)" :onDeleteToCart="() => removeFromCartt(Snacks)" :price="menuPrices[Snacks.weightName]" />
+                <counter :id="`${Snacks.id}-counter6`" :onAddToCart="() => addToCart(Snacks)" :onDeleteToCart="() => removeFromCartt(Snacks)" :price="menuPrices[Snacks.weightName]" />
               </template>
               
             </massWeight>
@@ -44,7 +44,7 @@
   import MenuItem from "@entities/menuItem/ui/menuItem.vue";
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref,onMounted } from 'vue';
-  import Card from '@widgets/Card/card.vue';
+  import CartList from "@widgets/cartList/ui/cartList.vue";
   interface Snacks {
     id: number;
     name: string;
@@ -113,7 +113,10 @@ onMounted(async () => {
     errorMessage.value = null;
   } catch (error) {
     console.error('Error fetching Snacks:', error);
-    errorMessage.value = 'Не удалось загрузить данные. Пожалуйста, попробуйте позже.';
+    errorMessage.value = 'Не удалось загрузить данные по Snacks. Пожалуйста, попробуйте позже.';
+    
+    // Показываем всплывающее окно с сообщением об ошибке
+    alert(errorMessage.value);
   }
 });
 </script>

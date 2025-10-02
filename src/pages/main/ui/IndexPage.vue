@@ -13,7 +13,10 @@
     :modules="modules"
     class="IndexSwiper"
   >
-    <swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
+    <swiper-slide v-if="loading">
+      <SkeletonLoader CustomClass="skeleton-img-slider" ></SkeletonLoader>
+    </swiper-slide>
+    <swiper-slide v-else class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
     ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
     ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
     ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide
@@ -38,6 +41,16 @@
 <style lang="scss" scoped>
 @import './style.scss';
 @import '/node_modules/swiper/swiper-bundle.min.css';
+
+.swiper-pagination{
+  display: block;
+  position: relative;
+  top:5px;
+  --swiper-pagination-color: white;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  --swiper-pagination-bullet-opacity: 1;
+}
 </style>
 
 <script setup lang="ts">
@@ -48,11 +61,17 @@
   import MenuBeriPeki from "@widgets/menuBlock/ui/menuBeriPeki/menuBeriPeki.vue";
   import testServer from "@widgets/menuBlock/ui/testServer.vue";
   import { ref } from 'vue';
+   import  SkeletonLoader  from '@widgets/SkeletonLoader/ui/SkeletonLoader.vue';
   import { Navigation, Pagination } from 'swiper/modules';
   import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/css';
+
 
   // Экспорируем необходимые компоненты и модули
   const modules = [Pagination, Navigation];
+  const loading = ref(true); // Добавляем состояние загрузки
 
+  // Загрузка данных (например, имитация задержки)
+  setTimeout(() => {
+    loading.value = false; // После 2 секунд изменяем состояние загрузки
+  }, 2000);
 </script>

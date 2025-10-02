@@ -319,11 +319,4 @@ export default {
 
 <style lang="scss">
 @import "./style";
-
-.counter {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
-}
 </style>
