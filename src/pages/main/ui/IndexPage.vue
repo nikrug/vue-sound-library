@@ -42,15 +42,6 @@
 @import './style.scss';
 @import '/node_modules/swiper/swiper-bundle.min.css';
 
-.swiper-pagination{
-  display: block;
-  position: relative;
-  top:5px;
-  --swiper-pagination-color: white;
-  --swiper-pagination-bullet-inactive-color: #ffffff;
-  --swiper-pagination-bullet-inactive-opacity: 0.3;
-  --swiper-pagination-bullet-opacity: 1;
-}
 </style>
 
 <script setup lang="ts">
