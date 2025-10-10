@@ -25,7 +25,7 @@
             <inputCheckbox inputCheckboxLabel="Запомнить меня на сайте"></inputCheckbox>
             <div class="popup__forget-button-block">
               <div class="popup__text-forget-label"  @click="Popup = !Popup, forgetPassword=!forgetPassword">Забыли пароль?</div>
-              <customButton ButtonText="Войти"></customButton>
+              <customButton @click="handleLogin" ButtonText="Войти"></customButton>
             </div>
           </div>
 
@@ -58,27 +58,34 @@
             </div>
 </template>
 
-  <script setup lang="ts">
-  import { customButton } from '@shared/ui';
-  import { inputText } from '@shared/ui';
-  import { inputCheckbox } from '@shared/ui';
-import {  ref } from 'vue';
+<script setup lang="ts">
+import { customButton } from '@shared/ui';
+import { inputText } from '@shared/ui';
+import { inputCheckbox } from '@shared/ui';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router'; // Импортируйте useRouter
+
+const router = useRouter(); // Получите доступ к роутеру
 
 const Popup = ref(false);
-const forgetPassword=ref(false);
+const forgetPassword = ref(false);
 const login = ref(true);
 const regist = ref(false);
-  const props = defineProps({
+
+const handleLogin = () => {
+  // Здесь вы можете добавить логику проверки данных пользователя.
+  // Если данные корректны, перенаправьте на страницу office
+  router.push('/office'); // Перенаправление на страницу office
+};
+
+const props = defineProps({
   customClass: {
     type: String,
     default: ''
   },
-
 });
-  </script>
-  
-  <style lang="scss" scoped>
-  @import './style.scss';
+</script>
 
-  </style>
-  
+<style lang="scss" scoped>
+@import './style.scss';
+</style>

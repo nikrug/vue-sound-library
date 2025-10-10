@@ -32,8 +32,15 @@
   .header__orange-text{
     color:#FF991F;
     font-size:18px;
+    cursor: pointer;
     white-space: nowrap;
     font-weight: 700;
+    transition: color 0.2s ease;
+  }
+
+  .header__orange-text:hover{
+    color:#E17B00;
+
   }
 
   .header__text{

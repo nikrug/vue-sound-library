@@ -45,6 +45,7 @@
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref,onMounted } from 'vue';
   import CartList from "@widgets/cartList/ui/cartList.vue";
+  import { useQuasar } from 'quasar';
   interface Snacks {
     id: number;
     name: string;
@@ -105,6 +106,8 @@ const removeFromCart = (id: number) => {
   }
 };
 
+const $q = useQuasar()
+
 // Получаем данные пиццы при монтировании
 onMounted(async () => {
   try {
@@ -115,8 +118,9 @@ onMounted(async () => {
     console.error('Error fetching Snacks:', error);
     errorMessage.value = 'Не удалось загрузить данные по Snacks. Пожалуйста, попробуйте позже.';
     
-    // Показываем всплывающее окно с сообщением об ошибке
-    alert(errorMessage.value);
+    $q.notify({
+      color: 'negative', message: 'ERROR fetching Snacks', icon: 'report_problem', position:"top-left",
+    })
   }
 });
 </script>

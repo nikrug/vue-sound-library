@@ -14,8 +14,8 @@
                             :key="link.link" :to="link.link" />
                     </div>
                     <div class="footer__number">
-                        <div class="footer__number-text">+7 3822 99 02 55</div>
-                        <img src="/images/footer/VK.svg">
+                        <a href="/" class="footer__number-text">+7 3822 99 02 55</a>
+                        <a href="https://vk.com/club54487026"><img src="/images/footer/VK.svg"></a>
                     </div>
                 </div>
             </div>
@@ -25,9 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import './style.scss';
-
-
 import { footerBodyList } from '../config/config';
 import FooterLogo from 'src/widgets/mainFooter/footerLogo/ui/FooterLogo.vue';
 </script>
+
+<style lang="scss">
+@import './style.scss';
+</style>

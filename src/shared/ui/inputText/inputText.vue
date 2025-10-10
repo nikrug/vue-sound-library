@@ -26,6 +26,10 @@ const props = defineProps({
     type: String,
     default: "", // значение по умолчанию
   },
+  maxLength: {
+    type: Number,
+    default: 20, // Установите значение по умолчанию
+  },
 });
 
 const password = ref('');         // Хранит значение пароля
@@ -46,7 +50,8 @@ const togglePassword = () => {
         :type="showPassword ? '' : inputType" 
         class="input-text"
         :placeholder="inputPlaceholder"
-        v-model="password" 
+        v-model="password"
+        :maxlength="inputType === 'password' ? maxLength : undefined"
         requared="true"
       />
       

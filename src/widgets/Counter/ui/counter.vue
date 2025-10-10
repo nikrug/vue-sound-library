@@ -8,7 +8,7 @@
       {{ total }} ₽
     </div>
 
-    <button class="basket-button" v-if="count < 1" @click="handleAddToCart">в корзину</button>
+    <button class="basket-button" v-if="count < 1" @click="handleAddToCart">В корзину</button>
 
     <div class="buttons" v-if="count > 0" :class="{ 'buttons-active': count > 0 }">
       <button class="count-button" @click="handleDeleteToCart">-</button>

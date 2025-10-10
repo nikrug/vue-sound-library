@@ -8,12 +8,12 @@
       <q-btn class="visible-line header__nav-text" stretch flat label="О компании" key="О компании" link="/about" to="/about"/>
       <q-btn class="visible-line header__nav-text" stretch flat label="Карьера" key="Карьера" link="/career" to="/career"/>
       <q-btn class="visible-line header__nav-text" stretch flat label="Контакты" key="Контакты" link="/contacts" to="/contacts"/>
-      <q-btn v-show="menuItems" class="visible-line-tablet header__nav-text" stretch flat label="Отследить заказ" key="Отследить заказ" link="/notFound" to="/notFound"/>
+      <q-btn v-show="menuItems" class="visible-line-tablet header__nav-text" stretch flat label="Отследить заказ" key="Офис" link="/office" to="/office"/>
       <Popup customClass="visible"></Popup>
       <q-space />
 
       <div class="header__info-text-block visible">
-        <div class="header__orange-text">+7 3822 99 02 55</div>
+        <a href="/" class="header__orange-text">+7 3822 99 02 55</a>
         <div class="header__text">Бесплатная доставка <br>
           по Томску от 400 ₽</div>
       </div>
@@ -23,8 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import './style.scss';
-
 import { ref } from 'vue';
 import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import HeaderLogo from 'src/widgets/mainHeader/headerLogo/ui/HeaderLogo.vue';

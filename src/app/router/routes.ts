@@ -7,6 +7,7 @@ import MainLayout from '../layouts/MainLayout.vue';
 import { FormPage } from 'src/pages/form';
 import  Delivery  from 'src/pages/delivery/ui/delivery.vue';
 import  Stock  from 'src/pages/stock/ui/stock.vue';
+import Office from 'src/pages/office/ui/office.vue';
 import  Contacts  from 'src/pages/contacts/ui/contascts.vue';
 import  About  from 'src/pages/about/ui/about.vue';
 import  Career  from 'src/pages/career/ui/career.vue';
@@ -65,6 +66,11 @@ const routes: RouteRecordRaw[] = [
         path: ROUTES.CART,
         component:Cart,
         meta: { title: `${DEFAULT_TITLE}: Cart` },
+      },
+      {
+        path: ROUTES.OFFICE,
+        component:Office,
+        meta: { title: `${DEFAULT_TITLE}: OFFICE` },
       },
     ],
   },

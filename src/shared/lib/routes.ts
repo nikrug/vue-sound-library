@@ -12,4 +12,5 @@ export const ROUTES = {
   ABOUT: '/about',
   CAREER: '/career',
   CART:'/cart',
+  OFFICE:'/office'
 };

@@ -53,7 +53,7 @@ import MenuItem from '@entities/menuItem/ui/menuItem.vue';
 import counter from '@widgets/Counter/ui/counter.vue';
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
 import CartList from '@widgets/cartList/ui/cartList.vue';
-
+import { useQuasar } from 'quasar';
 interface Pizza {
   id: number;
   name: string;
@@ -115,6 +115,8 @@ const removeFromCart = (id: number) => {
   }
 };
 
+const $q = useQuasar()
+
 // Получаем данные пиццы при монтировании
 onMounted(async () => {
   try {
@@ -125,8 +127,9 @@ onMounted(async () => {
     console.error('Error fetching pizzas:', error);
     errorMessage.value = 'Не удалось загрузить данные по Pizza. Пожалуйста, попробуйте позже.';
     
-    // Показываем всплывающее окно с сообщением об ошибке
-    alert(errorMessage.value);
+    $q.notify({
+      color: 'negative', message: 'ERROR fetching Pizzas', icon: 'report_problem', position:"top-left",
+    })
   }
 });
 </script>

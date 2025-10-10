@@ -16,7 +16,7 @@
         <Popup></Popup>
       </ul>
       <div class="dropdown-footer">
-        <div class="dropdown__footer-label">+7 3822 99 02 55</div>
+        <a href="/" class="dropdown__footer-label">+7 3822 99 02 55</a>
         <div class="dropdown__footer-text">
           Бесплатная доставка<br>
           по Томску от 400 ₽

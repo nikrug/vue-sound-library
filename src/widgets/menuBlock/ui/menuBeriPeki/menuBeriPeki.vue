@@ -44,6 +44,8 @@
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
   import { ref, onMounted } from 'vue';
   import CartList from "@widgets/cartList/ui/cartList.vue";
+  import { useQuasar } from 'quasar';
+
 interface BeriPeki {
   id: number;
   name: string;
@@ -102,6 +104,8 @@ const removeFromCart = (id: number) => {
     cartItems.value.splice(index, 1); // Удаляем элемент из массива
   }
 };
+const $q = useQuasar()
+
 
 onMounted(async () => {
   try {
@@ -111,9 +115,9 @@ onMounted(async () => {
   } catch (error) {
     console.error('Error fetching BeriPeki:', error);
     errorMessage.value = 'Не удалось загрузить данные по BeriPeki. Пожалуйста, попробуйте позже.';
-    
-    // Показываем всплывающее окно с сообщением об ошибке
-    alert(errorMessage.value);
+    $q.notify({
+      color: 'negative', message: 'ERROR fetching BeriPeki', icon: 'report_problem', position:"top-left",
+    })
   }
 });
 </script>
