@@ -5,7 +5,9 @@
     @extend %main;
   }
 }
-
+.menu-popup-info{
+  padding:24px 0;
+}
 .menu-list{
   display: flex;
   flex-direction: column;

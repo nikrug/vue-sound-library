@@ -29,7 +29,12 @@
           </div>
         </template>
           <template v-slot:additional-info>
-            <massWeight CustomInfoClass="option-info-flex" CustomClass="option-none" ButtonBlockClass="option-none" :title="BeriPeki.weightName"/>
+            <massWeight
+              menuClass="menu-popup-info"
+              CustomInfoClass="option-info-flex"
+              CustomClass="option-none"
+              ButtonBlockClass="option-none"
+              :title="BeriPeki.weightName"/>
           </template>
       </MenuItem>
       

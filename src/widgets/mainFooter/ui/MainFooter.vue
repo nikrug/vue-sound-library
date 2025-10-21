@@ -15,7 +15,10 @@
                     </div>
                     <div class="footer__number">
                         <a href="/" class="footer__number-text">+7 3822 99 02 55</a>
-                        <a href="https://vk.com/club54487026"><img src="/images/footer/VK.svg"></a>
+                        <a href="https://vk.com/club54487026" class="footer__vk-link">
+                            <div class="icon_normal"></div>
+                            <div class="icon_hover"></div>
+                        </a>
                     </div>
                 </div>
             </div>

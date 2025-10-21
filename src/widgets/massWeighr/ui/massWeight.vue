@@ -1,5 +1,5 @@
 <template>
-  <div class="menu__option">
+  <div :class="menuClass">
     <div :class="CustomClass">
       <button
         class="option-button"
@@ -39,6 +39,10 @@ export default {
     title: {
       type: String,
       default: "Выберите граммовку пиццы",
+    },
+    menuClass: {
+      type: String,
+      default: "menu__option",
     },
     CustomClass: {
       type: String,
@@ -116,19 +120,19 @@ export default {
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
-        case "Манхетен":
+        case "Манхеттен":
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },
         ];
 
-        case "Манхетен2":
+        case "Манхеттен2":
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },
         ];
 
-        case "Манхетен3":
+        case "Манхеттен3":
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },

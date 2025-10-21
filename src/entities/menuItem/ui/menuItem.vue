@@ -67,20 +67,25 @@ const props = defineProps({
           <div v-show="Popup" class="menu-popup" @mousedown="Popup=!Popup">
               <div class="menu-popup" @mousedown.stop>
 
-                <span class="menu-close-button" @click="Popup = !Popup">&times;</span>
-                <div class="menu__item-img-container">
+                <span class="menu-close-button" @click="Popup = !Popup">
+                  <div class="icon_normal-close"></div>
+                  <div class="icon_hover-close"></div>
+                </span>
+                <div class="menu__item-img-container-popup">
                     <img class="menu__poup-item-img" :src="imageSrc">
                 </div>
-                <div class="menu__item-description-container">
-                    <div class="menu__item-name-popup">{{menuName}}
-                      <img :src="SpicyimageSrc">
-                    </div>
-                    <div class="menu__item-description">
-                      {{ menuDescription}}<br>
-                      {{ menuWeight}}
+                <div class="menu__item-description-popup">
+                    <div class="menu__item-description-text">
+                      <div class="menu__item-name-popup">{{menuName}}
+                        <img :src="SpicyimageSrc">
                       </div>
-                    <slot name="additional-info"></slot>
-                    <img src="/images/menu-item/Group 3611 (1).svg">
+                      <div class="menu__item-descriptions">
+                        {{ menuDescription}}<br>
+                        {{ menuWeight}}
+                      </div>
+                      <slot class="menu__item-descriptions" name="additional-info"></slot>
+                    </div>
+                    <img class="menu__item-img-popup" src="/images/menu-item/Group 3611 (1).svg">
                 </div>
               </div>
           </div>

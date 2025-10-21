@@ -33,9 +33,44 @@
   width: 100%;
 }
 
-.popup__logo-button{
+.popup__logo-button {
     cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: relative; /* Для позиционирования внутренних элементов */
 }
+
+.icon_normal,
+.icon_hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain; /* Чтобы изображение scale */
+    background-repeat: no-repeat; /* Избегает повторения фона */
+    transition: opacity 0.3s ease; /* Плавный переход для opacity */
+}
+
+.icon_normal {
+    background-image: url("/images/headers/icon_LK.svg");
+    opacity: 1; /* По умолчанию показываем первую иконку */
+}
+
+.icon_hover {
+    background-image: url("/images/headers/icon_LK-green.svg");
+    opacity: 0; /* Изначально скрываем вторую иконку */
+}
+
+/* При наведении изменяем opacity */
+.popup__logo-button:hover .icon_normal {
+    opacity: 0; /* Скрываем первую иконку */
+}
+
+.popup__logo-button:hover .icon_hover {
+    opacity: 1; /* Показываем вторую иконку */
+}
+
 .popup__forget-button-block{
   display: flex;
   flex-direction: row;

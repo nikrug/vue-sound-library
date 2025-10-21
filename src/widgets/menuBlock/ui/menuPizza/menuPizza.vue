@@ -33,6 +33,7 @@
         </template>
         <template v-slot:additional-info>
           <massWeight
+            menuClass="menu-popup-info"
             CustomInfoClass="option-info-flex"
             CustomClass="option-none"
             ButtonBlockClass="option-none"
@@ -136,4 +137,5 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 @import '../style.scss';
+
 </style>

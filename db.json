@@ -72,7 +72,7 @@
       "name": "Манхеттен",
       "description": "Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто.",
       "weight": "(В 100 гр.: 304 ккал/1270 кДж)",
-      "weightName":"Манхетен",
+      "weightName":"Манхеттен",
       "imageSrc": "/images/menu-item/Manhattan.jpg",
       "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
       "overImage":""
@@ -102,7 +102,7 @@
       "name": "Манхеттен",
       "description": "Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто.",
       "weight": "(В 100 гр.: 304 ккал/1270 кДж)",
-      "weightName":"Манхетен2",
+      "weightName":"Манхеттен2",
       "imageSrc": "/images/menu-item/Manhattan.jpg",
       "spicyImageSrc": "",
       "overImage":""
@@ -112,7 +112,7 @@
       "name": "Манхеттен",
       "description": "Состав: колбаса, грибы свежие, помидоры, маслины, сыр, соус томатный, дрожжевое тесто.",
       "weight": "(В 100 гр.: 304 ккал/1270 кДж)",
-      "weightName":"Манхетен3",
+      "weightName":"Манхеттен3",
       "imageSrc": "/images/menu-item/Manhattan.jpg",
       "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
       "overImage":""

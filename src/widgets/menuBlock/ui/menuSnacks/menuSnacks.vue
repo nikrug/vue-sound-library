@@ -26,7 +26,12 @@
           </div>
         </template>
         <template v-slot:additional-info>
-          <massWeight CustomInfoClass="option-info-flex" CustomClass="option-none" ButtonBlockClass="option-none" :title="Snacks.weightName"/>
+          <massWeight 
+            menuClass="menu-popup-info" 
+            CustomInfoClass="option-info-flex" 
+            CustomClass="option-none" 
+            ButtonBlockClass="option-none" 
+            :title="Snacks.weightName"/>
         </template>
       </MenuItem>
       </div>
