@@ -22,6 +22,7 @@
     flex-direction: column;
     text-align: left;
     gap: .6rem;
+      width: 100%;
 }
 
 .input-text{
@@ -34,7 +35,7 @@
 .input-subtext{
     color:#9B9B9B ;
     font-size: 12px;
-    text-align: end;
+    text-align: start;
 }
 
 .input__show-img{

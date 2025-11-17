@@ -1,12 +1,16 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits, defineProps, watch } from 'vue';
 
 const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
   inputTextLabel: {
     type: String,
     default: "Пароль",
   },
-  inputLabel:{
+  inputLabel: {
     type: String,
     default: "input-label",
   },
@@ -20,26 +24,31 @@ const props = defineProps({
   },
   inputType: {
     type: String,
-    default: "text", // значение по умолчанию
+    default: "text",
   },
   inputSubtext: {
     type: String,
-    default: "", // значение по умолчанию
+    default: "",
   },
   maxLength: {
     type: Number,
-    default: 20, // Установите значение по умолчанию
+    default: 20,
   },
 });
 
-const password = ref('');         // Хранит значение пароля
-const showPassword = ref(false);   // Хранит состояние видимости
+const emit = defineEmits(['update:modelValue']);
+const password = ref(props.modelValue);
+const showPassword = ref(false);
 
 // Метод для переключения состояния видимости
 const togglePassword = () => {
   showPassword.value = !showPassword.value;
 };
 
+// Эмит при изменении
+watch(password, (newValue) => {
+  emit('update:modelValue', newValue);
+});
 </script>
 
 <template>
@@ -47,28 +56,33 @@ const togglePassword = () => {
     <div :class="inputLabel">{{ inputTextLabel }}</div>
     <div class="input__container">
       <input
-        :type="showPassword ? '' : inputType" 
+        :type="showPassword ? 'text' : inputType"
         class="input-text"
         :placeholder="inputPlaceholder"
         v-model="password"
         :maxlength="inputType === 'password' ? maxLength : undefined"
-        requared="true"
+        required
       />
-      
-        <div :class="PasswordButton" @click="togglePassword">
-                <img class="input__show-img"
-                :src="showPassword ? '/images/headers/eye.svg' : '/images/headers/eye-close.svg'"
-                :key="showPassword"
-                />
-        </div>
+      <div :class="PasswordButton" @click="togglePassword">
+        <img class="input__show-img"
+          :src="showPassword ? '/images/headers/eye.svg' : '/images/headers/eye-close.svg'"
+        />
+      </div>
     </div>
     <div class="input-subtext">{{ inputSubtext }}</div>
   </div>
 </template>
+
 <style lang="scss">
 @import "./style";
-
-.input{
-  width: 100%;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+input[type="password"]:not(:placeholder-shown)  {
+  font-size: 23px;
+    font-family: Verdana;
+    letter-spacing: 1.45px;
+    max-height: 50px;
+    color: #009b3d;
+  padding-right: 55px;
+}
 }
 </style>

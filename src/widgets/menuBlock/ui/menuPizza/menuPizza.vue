@@ -51,7 +51,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { getPizzas } from '../../api/apiService';
 import MenuItem from '@entities/menuItem/ui/menuItem.vue';
-import counter from '@widgets/Counter/ui/counter.vue';
+import counter from "@widgets/counter/ui/counter/counter.vue"; 
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
 import CartList from '@widgets/cartList/ui/cartList.vue';
 import { useQuasar } from 'quasar';

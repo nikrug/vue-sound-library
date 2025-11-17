@@ -172,7 +172,7 @@ const PopupCarrer=ref(false);
   import { ref, onMounted } from 'vue';
   import { Navigation, Pagination } from 'swiper/modules';
   import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/css';
+
 
   // Экспорируем необходимые компоненты и модули
   const modules = [Pagination, Navigation];
