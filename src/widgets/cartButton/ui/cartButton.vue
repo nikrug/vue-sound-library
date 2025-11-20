@@ -1,10 +1,10 @@
 <template>
     <button class="scrollDownmenu__cart-button">
+      <img src="/images/drop-down-menu/icon-basket.svg">
        <div class="cou" v-if="total > 1" :class="{ 't': total > 1 }">
             {{ total }}₽
         </div> 
-        <div class="cou" v-if="total < 1" :class="{ 't': total < 1 }">Корзина</div>
-        <img src="/images/drop-down-menu/icon-basket.svg">
+        <div class="button-text" v-if="total < 1" :class="{ 't': total < 1 }">Корзина</div>
     </button>
 </template>
 

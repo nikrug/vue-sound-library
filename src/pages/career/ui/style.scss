@@ -239,6 +239,9 @@
 .swiper-button-prev {
   background-color: white;
   border-radius: 30px;
+  position: relative;
+  bottom: 300px;
+  left: -640px;
   width: 48px; /* Ширина кнопок */
   height: 48px; /* Высота кнопок */
   z-index: 10; /* Обеспечение правильного наложения */
@@ -247,6 +250,9 @@
 }
 .swiper-button-next {
   background-color: white;
+  position: relative;
+  bottom: 325px;
+  left: 640px;
   border-radius: 30px;
   width: 48px; /* Ширина кнопок */
   height: 48px; /* Высота кнопок */

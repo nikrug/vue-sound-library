@@ -42,7 +42,7 @@
 </style>
 
 <script setup lang="ts">
-  import counter from "@widgets/counter/ui/counter/counter.vue"; 
+  import counter from "@widgets/counter/ui/counter/Counter.vue"; 
   import MenuItem from "@entities/menuItem/ui/menuItem.vue";
   import { getSalat } from '../../api/apiService';
   import massWeight from '@widgets/massWeighr/ui/massWeight.vue';

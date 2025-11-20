@@ -2,7 +2,7 @@
   <div>
     <CartList :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart"  />
 
-    <div class="menu-label" id="Pizza">Пицца</div>
+    <div class="menu-label-pizza" id="Pizza">Пицца</div>
 
     <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
@@ -51,7 +51,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { getPizzas } from '../../api/apiService';
 import MenuItem from '@entities/menuItem/ui/menuItem.vue';
-import counter from "@widgets/counter/ui/counter/counter.vue"; 
+import counter from "@widgets/counter/ui/counter/Counter.vue"; 
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
 import CartList from '@widgets/cartList/ui/cartList.vue';
 import { useQuasar } from 'quasar';

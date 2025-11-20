@@ -12,7 +12,7 @@
 
     <div class="buttons" v-if="count > 0" :class="{ 'buttons-active': count > 0 }">
       <button class="count-button" @click="handleDeleteToCart">-</button>
-      <div class="count-text">{{ count }}</div>
+      <div class="count-text-button">{{ count }}</div>
       <button class="count-button" @click="handleAddToCart">+</button>
     </div>
   </div>

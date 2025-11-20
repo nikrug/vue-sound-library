@@ -33,6 +33,7 @@
     border-radius: 10px;
     width: 100%;
     border: 1px solid #d8d8d8;
+    transition:border  0.3s ease;
 }
 
 .input-subtext{
@@ -46,17 +47,12 @@
   height: auto;
 }
 
-.input-text {
-    outline: none; /* Убираем стандартный outline */
-    transition: outline 0.3s ease; /* Плавный переход для outline */
-}
-
 .input-text:active {
-    outline: 1px solid rgb(105, 105, 105);
+    border: 1px solid rgb(105, 105, 105);
 }
 
 .input-text:focus {
-    outline: 1px solid green;
+    border: 1px solid green;
 }
 
 .input-text::placeholder {
