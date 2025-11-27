@@ -60,7 +60,7 @@
 }
 
 .input-text:focus::placeholder {
-    color: white; /* Цвет placeholder при фокусе */
+    color: rgba(255, 255, 255, 0); /* Цвет placeholder при фокусе */
 }
 
 .hide-button{

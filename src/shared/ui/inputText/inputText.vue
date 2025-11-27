@@ -34,6 +34,10 @@ const props = defineProps({
     type: Number,
     default: 20,
   },
+  formSubmitted: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -58,6 +62,7 @@ watch(password, (newValue) => {
       <input
         :type="showPassword ? 'text' : inputType"
         class="input-text"
+        :class="{ 'error': formSubmitted && !password }" 
         :placeholder="inputPlaceholder"
         v-model="password"
         :maxlength="inputType === 'password' ? maxLength : undefined"
@@ -75,14 +80,6 @@ watch(password, (newValue) => {
 
 <style lang="scss">
 @import "./style";
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-input[type="password"]:not(:placeholder-shown)  {
-  font-size: 23px;
-    font-family: Verdana;
-    letter-spacing: 1.45px;
-    max-height: 50px;
-    color: #009b3d;
-  padding-right: 55px;
-}
-}
+
+
 </style>

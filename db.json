@@ -26,6 +26,7 @@
       "imageSrc": "/images/menu-item/Jeniffer.jpg",
       "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
       "overImage":"/images/menu-item/hit.svg"
+      
     },
     {
       "id": 2,
@@ -129,9 +130,110 @@
       "overImage":""
     }
   ],
+  "beri-peki": [
+    {
+      "id": 12,
+      "name": "Нью-Джерси",
+      "description": "Состав: копченая индейка, колбаса п/к, ветчина, болгарский перец, помидоры, сыр, оливки, пикантный соус, дрожжевое тесто.",
+      "weight": "(В 100 гр: 320 Ккал/1340 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":"/images/menu-item/new.svg"
+    },
+    {
+      "id": 13,
+      "name": "Манхэттен",
+      "description": "Состав: колбаса, свежие грибы, помидоры, маслины, сыр, соус томатный, дрожжевое тесто.",
+      "weight": "(В 100 гр: 320 Ккал/1340 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":"/images/menu-item/hit.svg"
+    },
+    {
+      "id": 14,
+      "name": "Арканзас",
+      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
+      "weight": "(В 100 гр.: 290 кКал/1214 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    },
+    {
+      "id": 15,
+      "name": "Мичиган",
+      "description": "Состав: колбаса пепперони, огурцы маринованные, сыр, перец халапеньо, томатный соус, дрожжевое тесто.",
+      "weight": "(100 гр.: 330 Ккал/1382 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    },
+    {
+      "id": 16,
+      "name": "Арканзас",
+      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
+      "weight": "(В 100 гр.: 290 кКал/1214 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    },
+    {
+      "id": 17,
+      "name": "Дженнифер",
+      "description": "Состав: копченая курица, творожный сыр, кабачки, свежие грибы, помидоры, сыр, соус сырный, соус пикантный, дрожжевое тесто.",
+      "weight": "(В 100 гр: 244 Ккал/1020 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    },
+    {
+      "id": 18,
+      "name": "Мичиган",
+      "description": "Состав: колбаса пепперони, огурцы маринованные, сыр, перец халапеньо, томатный соус, дрожжевое тесто.",
+      "weight": "(В 100 гр.: 330 ккал/1382 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    },
+    {
+      "id": 19,
+      "name": "Арканзас",
+      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
+      "weight": "(В 100 гр.: 290 кКал/1214 кДж)",
+      "weightName":"Бери-пеки Нью-Джерси",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    },
+    {
+      "id": 20,
+      "name": "Дженни",
+      "description": "Состав: копченая курица, творожный сыр, кабачки, свежие грибы",
+      "weight": "(В 100 гр: 244 Ккал/1020 кДж)",
+      "weightName":"Дженнифер",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "spicyImageSrc": "",
+      "overImage":""
+    }
+  ],
   "snacks": [
      {
-      "id": 1,
+      "id": 21,
       "name": "Куриные наггетсы",
       "description": "Состав: маринованные в  соевом  соусе кусочки куриного филе в хрустящей панировке, обжаренные во фритюре. Соус на ваш выбор: Кетчуп/ Тар-тар",
       "weight": "(В 100 гр.: 304 ккал/1270 кДж)",
@@ -142,7 +244,7 @@
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 2,
+      "id": 22,
       "name": "Сырная тортилья",
       "description": "Состав: запеченная пресная лепешка под сыром, сырный соус и орегано",
       "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
@@ -153,7 +255,7 @@
       "overImage":"/images/menu-item/hit.svg"
     },
     {
-      "id": 3,
+      "id": 23,
       "name": "Сухарики к пиву",
       "description": "(В 100 гр.: 275 ккал/1550 кДж)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
       "weight": "",
@@ -164,7 +266,7 @@
       "overImage":""
     },
     {
-      "id": 4,
+      "id": 24,
       "name": "Соус Сальса классический",
       "description": "(В 100 гр.: 275 ккал/1550 кДж)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
       "weight": "",
@@ -174,7 +276,7 @@
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 5,
+      "id": 25,
       "name": "Соус Тар-тар",
       "description": "(В 100 гр.: 275 ккал/1550 кДж)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
       "weight": "",
@@ -184,7 +286,7 @@
       "overImage":""
     },
     {
-      "id": 6,
+      "id": 26,
       "name": "Соус сырный",
       "description": "(В 100 гр.: 275 ккал/1550 кДж)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
       "weight": "",
@@ -194,7 +296,7 @@
       "overImage":""
     },
     {
-      "id": 7,
+      "id": 27,
       "name": "Кетчуп / Майонез / Сметана",
       "description": "Кетчуп (В 100 гр.: 55 ккал/230 кДж) Майонез  В 100 гр.: 423 ккал/1776 кДж) Сметана (В 100 гр.: 117 ккал/484 кДж)",
       "weight": "",
@@ -204,7 +306,7 @@
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 8,
+      "id": 28,
       "name": "Соус Сальса классический",
       "description": "(В 100 гр.: 275 ккал/1550 кДж)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
       "weight": "",
@@ -214,7 +316,7 @@
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 9,
+      "id": 29,
       "name": "Сухарики к пиву",
       "description": "(В 100 гр.: 275 ккал/1550 кДж)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
       "weight": "",
@@ -225,61 +327,10 @@
       "overImage":""
     }
   ],
-  "salat": [
-    {
-      "id": 1,
-      "name": "Лукас",
-      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
-      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
-      "weightName":"Лукас",
-      "imageSrc": "/images/menu-item/salad.png",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":"/images/menu-item/new.svg"
-    },
-    {
-      "id": 2,
-      "name": "Цезарь",
-      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
-      "weight": "(100 гр: 300 Ккал/1250 кДж)",
-      "weightName":"Цезарь",
-      "imageSrc": "/images/menu-item/salad.png",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":"/images/menu-item/hit.svg"
-    },
-    {
-      "id": 3,
-      "name": "Сомбреро",
-      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
-      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
-      "weightName":"Сомбреро",
-      "imageSrc": "/images/menu-item/salad.png",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":""
-    },
-    {
-      "id": 4,
-      "name": "Сомбреро",
-      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
-      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
-      "weightName":"Сомбреро",
-      "imageSrc": "/images/menu-item/salad.png",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":""
-    },
-    {
-      "id": 5,
-      "name": "Сомбреро",
-      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
-      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
-      "weightName":"Сомбреро",
-      "imageSrc": "/images/menu-item/salad.png",
-      "spicyImageSrc": "",
-      "overImage":""
-    }
-  ],
+
   "mexican": [
  {
-      "id": 1,
+      "id": 30,
       "name": "Кесадия куриная",
       "description": "Состав: курица, помидоры, перец болгарский, сыр, соус, кетчуп, майонез с зеленью, пресная лепешка",
       "weight": "(В 100 гр.: 330 ккал/1382 кДж)",
@@ -289,7 +340,7 @@
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 2,
+      "id": 31,
       "name": "Кесадия грибная",
       "description": "Состав: грибы, сыр, помидоры, маслины, соус Чили, майонез, пресная лепешка.",
       "weight": "(В 100 гр.: 238 ккал/997 кДж)",
@@ -299,7 +350,7 @@
       "overImage":"/images/menu-item/hit.svg"
     },
     {
-      "id": 3,
+      "id": 32,
       "name": "Кесадия мясная",
       "description": "Состав: грибы, сыр, помидоры, маслины, соус Чили, майонез, пресная лепешка.",
       "weight": "(В 100 гр.: 238 ккал/997 кДж)",
@@ -309,7 +360,7 @@
       "overImage":""
     },
     {
-      "id": 4,
+      "id": 33,
       "name": "Цезарь ролл",
       "description": "Состав: тортилья-гриль, курица, маринованная в соевом соусе, помидоры, сыра, лист салата, соус горчичный.",
       "weight": "(В 100 гр.: 238 ккал/997 кДж)",
@@ -320,7 +371,7 @@
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 5,
+      "id": 34,
       "name": "Кесадия куриная",
       "description": "Состав: курица, помидоры, перец болгарский, сыр, соус, кетчуп, майонез с зеленью, пресная лепешка",
       "weight": "(В 100 гр.: 330 ккал/1382 кДж)",
@@ -330,7 +381,7 @@
       "overImage":""
     },
     {
-      "id": 6,
+      "id": 35,
       "name": "Кесадия грибная",
       "description": "Состав: грибы, сыр, помидоры, маслины, соус Чили, майонез, пресная лепешка.",
       "weight": "(В 100 гр.: 238 ккал/997 кДж)",
@@ -340,7 +391,7 @@
       "overImage":""
     },
     {
-      "id": 7,
+      "id": 36,
       "name": "Энчиладос",
       "description": "Состав: курица, перец болгарский, кукуруза, лук жареный, рис, сыр, соус Чили, майонез, преcная лепешка. Соус на ваш выбор: Сальса классический/Сальса фирменный.",
       "weight": "(В 100 гр.: 330 ккал/1382 кДж)",
@@ -350,95 +401,60 @@
       "overImage":"/images/menu-item/new.svg"
     }
   ],
-  "beri-peki": [
+  "salat": [
     {
-      "id": 1,
-      "name": "Нью-Джерси",
-      "description": "Состав: копченая индейка, колбаса п/к, ветчина, болгарский перец, помидоры, сыр, оливки, пикантный соус, дрожжевое тесто.",
-      "weight": "(В 100 гр: 320 Ккал/1340 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
+      "id": 37,
+      "name": "Лукас",
+      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
+      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
+      "weightName":"Лукас",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/salad.png",
+      "spicyImageSrc": "",
       "overImage":"/images/menu-item/new.svg"
     },
     {
-      "id": 2,
-      "name": "Манхэттен",
-      "description": "Состав: колбаса, свежие грибы, помидоры, маслины, сыр, соус томатный, дрожжевое тесто.",
-      "weight": "(В 100 гр: 320 Ккал/1340 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
+      "id": 38,
+      "name": "Цезарь",
+      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
+      "weight": "(100 гр: 300 Ккал/1250 кДж)",
+      "weightName":"Цезарь",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/salad.png",
+      "spicyImageSrc": "",
       "overImage":"/images/menu-item/hit.svg"
     },
     {
-      "id": 3,
-      "name": "Арканзас",
-      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
-      "weight": "(В 100 гр.: 290 кКал/1214 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":""
-    },
-    {
-      "id": 4,
-      "name": "Мичиган",
-      "description": "Состав: колбаса пепперони, огурцы маринованные, сыр, перец халапеньо, томатный соус, дрожжевое тесто.",
-      "weight": "(100 гр.: 330 Ккал/1382 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":""
-    },
-    {
-      "id": 5,
-      "name": "Арканзас",
-      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
-      "weight": "(В 100 гр.: 290 кКал/1214 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
+      "id": 39,
+      "name": "Сомбреро",
+      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
+      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
+      "weightName":"Сомбреро",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/salad.png",
       "spicyImageSrc": "",
       "overImage":""
     },
     {
-      "id": 6,
-      "name": "Дженнифер",
-      "description": "Состав: копченая курица, творожный сыр, кабачки, свежие грибы, помидоры, сыр, соус сырный, соус пикантный, дрожжевое тесто.",
-      "weight": "(В 100 гр: 244 Ккал/1020 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
+      "id": 40,
+      "name": "Сомбреро",
+      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
+      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
+      "weightName":"Сомбреро",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/salad.png",
+      "spicyImageSrc": "",
       "overImage":""
     },
     {
-      "id": 7,
-      "name": "Мичиган",
-      "description": "Состав: колбаса пепперони, огурцы маринованные, сыр, перец халапеньо, томатный соус, дрожжевое тесто.",
-      "weight": "(В 100 гр.: 330 ккал/1382 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":""
-    },
-    {
-      "id": 8,
-      "name": "Арканзас",
-      "description": "Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
-      "weight": "(В 100 гр.: 290 кКал/1214 кДж)",
-      "weightName":"Бери-пеки Нью-Джерси",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
-      "overImage":""
-    },
-    {
-      "id": 9,
-      "name": "Дженни",
-      "description": "Состав: копченая курица, творожный сыр, кабачки, свежие грибы",
-      "weight": "(В 100 гр: 244 Ккал/1020 кДж)",
-      "weightName":"Дженнифер",
-      "imageSrc": "/images/menu-item/Beri-peki.jpg",
-      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
+      "id": 41,
+      "name": "Сомбреро",
+      "description": "Состав: маринованная говядина, огурцы свежие, пекинская капуста, лук красный маринованный, сухарики, орехово-чесночная заправка.",
+      "weight": "(В 100 гр.: 275 ккал/1550 кДж)",
+      "weightName":"Сомбреро",
+      "CustomClass":"option-none",
+      "imageSrc": "/images/menu-item/salad.png",
+      "spicyImageSrc": "",
       "overImage":""
     }
   ],

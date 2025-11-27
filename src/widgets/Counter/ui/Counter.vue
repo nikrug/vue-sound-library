@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup >
 import { ref, computed, defineProps, onMounted } from 'vue';
 
 const props = defineProps({

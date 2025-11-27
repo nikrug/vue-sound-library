@@ -60,7 +60,7 @@
 }
 
 .input-text:focus::placeholder {
-    color: white; /* Цвет placeholder при фокусе */
+    display:none;
 }
 
 .hide-button{
@@ -84,4 +84,43 @@
     align-items: center;
     justify-content: center;
 
+}
+
+.input-error {
+    input{
+        border: 1px solid red; // Красная рамка при ошибке
+        background-color: #fff0f0; // Светлый фон для ошибки
+        color: red; // Цвет текста при ошибке
+    }
+    .input-text::placeholder {
+    color: red; /* Цвет placeholder при фокусе */
+    }
+    .input-text:hover {
+    border: 1px solid red;
+    transition:border  0.3s ease-in-out;
+}
+
+.input-text:focus {
+    border: 1px solid red;
+    transition:border  0.3s ease;
+}
+      input[type="password"]:not(:placeholder-shown) {
+    font-size: 23px;
+    font-family: Verdana;
+    letter-spacing: 1.45px;
+    max-height: 50px;
+    color: red;
+    padding-right: 55px;
+  }
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  input[type="password"]:not(:placeholder-shown) {
+    font-size: 23px;
+    font-family: Verdana;
+    letter-spacing: 1.45px;
+    max-height: 50px;
+    color: #009b3d;
+    padding-right: 55px;
+  }
 }

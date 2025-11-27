@@ -144,11 +144,5 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 @import './style.scss';
-.scrollDownmenu__logo.active {
-  display: flex; // Или другой стиль, который должен применяться, когда элемент активен
-}
 
-.scrollDownmenu__logo {
-  display: none; // Также убедитесь, что изначально элемент отображается так, как вы ожидаете
-}
 </style>

@@ -30,10 +30,6 @@
 
     <div class="menu-list">
       <menuPizza></menuPizza>
-      <MenuBeriPeki></MenuBeriPeki>
-      <menuSnacks></menuSnacks>
-      <menuMexican></menuMexican>
-      <menuSalat></menuSalat>
     </div>
   </div>
 </template>
@@ -45,12 +41,8 @@
 </style>
 
 <script setup lang="ts">
-  import menuPizza from "@widgets/menuBlock/ui/menuPizza/menuPizza.vue";
-  import menuMexican from "@widgets/menuBlock/ui/menuMexican/menuMexican.vue";
-  import menuSalat from "@widgets/menuBlock/ui/menuSalat/menuSalat.vue";
-  import menuSnacks from "@widgets/menuBlock/ui/menuSnacks/menuSnacks.vue";
-  import MenuBeriPeki from "@widgets/menuBlock/ui/menuBeriPeki/menuBeriPeki.vue";
-  import testServer from "@widgets/menuBlock/ui/testServer.vue";
+  import menuPizza from "@widgets/menuBlock/ui/menuPizza.vue";
+
   import { ref } from 'vue';
    import  SkeletonLoader  from '@widgets/SkeletonLoader/ui/SkeletonLoader.vue';
   import { Navigation, Pagination } from 'swiper/modules';

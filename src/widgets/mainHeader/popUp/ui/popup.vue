@@ -28,7 +28,9 @@
         <inputCheckbox inputCheckboxLabel="Запомнить меня на сайте"></inputCheckbox>
         <div class="popup__forget-button-block">
           <div class="popup__text-forget-label"  @click="Popup = !Popup, forgetPassword=!forgetPassword">Забыли пароль?</div>
-          <customButton @click="handleLogin" ButtonText="Войти"></customButton>
+          <router-link :to="{ path: '/office' }" >
+                <customButton @click="handleLogin" ButtonText="Войти"></customButton>
+          </router-link>
         </div>
       </div>
 
@@ -64,7 +66,7 @@
 import { customButton, inputText, inputCheckbox } from '@shared/ui';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-
+import { ROUTES } from '@shared/lib/routes';
 const router = useRouter();
 
 const Popup = ref(false);
@@ -74,7 +76,7 @@ const regist = ref(false);
 
 const handleLogin = () => {
   Popup.value=!Popup
-    router.push('/office'); // Перенаправить после завершения анимации
+  router.push('/office'); // Перенаправить после завершения анимации
 }
 
 const props = defineProps({

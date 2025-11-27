@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import counter from "@widgets/counter/ui/counter/counter.vue"; 
+
 export default {
   name: "PizzaWeightSelector",
   props: {
