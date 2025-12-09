@@ -1,5 +1,6 @@
 <script setup>
   import {  ref } from 'vue';
+
   import  SkeletonLoader  from '@widgets/SkeletonLoader/ui/SkeletonLoader.vue'; // Путь к вашему компоненту
 
 const Popup = ref(false);
@@ -13,27 +14,27 @@ setTimeout(() => {
 const props = defineProps({
   menuName: {
     type: String,
-    default:"Арканзас",
+    default:'Арканзас',
   },
   menuDescription: {
     type: String,
-    default:"Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.",
+    default:'Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.',
   },
   imageSrc: {
     type: String,
-    default:"/images/menu-item/Archcansas.png"
+    default:'/images/menu-item/Archcansas.png'
   },
   SpicyimageSrc: {
     type: String,
-    default:""
+    default:''
   },
   overImage: {
     type: String,
-    default:""
+    default:''
   },
   menuWeight: {
     type: String,
-    default:"(В 100 гр.: 290 кКал/1214 кДж)",
+    default:'(В 100 гр.: 290 кКал/1214 кДж)',
   },
 });
 </script>
@@ -46,16 +47,16 @@ const props = defineProps({
           <SkeletonLoader />
         </div>
         <div v-else class="menu__item-img-container img-container">
-            <img class="menu__over-img" :src="overImage">
-            <img @click="Popup = !Popup" class="menu__item-img main-img" :src="imageSrc">
+            <img class="menu__over-img" :src="props.overImage">
+            <img @click="Popup = !Popup" class="menu__item-img main-img" :src="props.imageSrc">
         </div>
         <div class="menu__item-description-container">
-            <div class="menu__item-name">{{menuName}}
-              <img :src="SpicyimageSrc">
+            <div class="menu__item-name">{{props.menuName}}
+              <img :src="props.SpicyimageSrc">
             </div>
             <div class="menu__description-block">
-              <div class="menu__item-description">{{ menuDescription}}</div>
-              <div class="menu__item-description">{{ menuWeight}}</div>
+              <div class="menu__item-description">{{ props.menuDescription}}</div>
+              <div class="menu__item-description">{{ props.menuWeight}}</div>
             </div>
         </div>
         </div>
@@ -72,16 +73,16 @@ const props = defineProps({
                   <div class="icon_hover-close"></div>
                 </span>
                 <div class="menu__item-img-container-popup">
-                    <img class="menu__poup-item-img" :src="imageSrc">
+                    <img class="menu__poup-item-img" :src="props.imageSrc">
                 </div>
                 <div class="menu__item-description-popup">
                     <div class="menu__item-description-text">
-                      <div class="menu__item-name-popup">{{menuName}}
-                        <img :src="SpicyimageSrc">
+                      <div class="menu__item-name-popup">{{props.menuName}}
+                        <img :src="props.SpicyimageSrc">
                       </div>
                       <div class="menu__item-descriptions">
-                        {{ menuDescription}}<br>
-                        {{ menuWeight}}
+                        {{ props.menuDescription}}<br>
+                        {{ props.menuWeight}}
                       </div>
                       <slot class="menu__item-descriptions" name="additional-info"></slot>
                     </div>

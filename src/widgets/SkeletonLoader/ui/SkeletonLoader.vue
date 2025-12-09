@@ -1,6 +1,6 @@
 <template>
   <div class="skeleton-loader">
-    <div :class="CustomClass"></div>
+    <div :class="props.CustomClass"></div>
   </div>
 </template>
 
@@ -9,11 +9,11 @@
 </style>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount,ref } from 'vue';
+
 const props = defineProps({
   CustomClass: {
     type: String,
-    default: "skeleton-img",
+    default: 'skeleton-img',
 
   },
 });

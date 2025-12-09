@@ -66,9 +66,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+
 import { customButton } from '@shared/ui';
 import { inputText } from '@shared/ui';
-import addressWidget from "@widgets/addressWidget/ui/addressWidget/addressWidget.vue";
+import addressWidget from '@widgets/addressWidget/ui/addressWidget/addressWidget.vue';
 
 const newPassword = ref(false);
 const email = ref('');

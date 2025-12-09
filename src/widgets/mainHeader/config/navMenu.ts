@@ -2,7 +2,7 @@ import { ROUTES } from '@shared/lib/routes';
 
 export const navMenu = [
   {
-    link: "/",
+    link: '/',
     label: 'Меню',
   },
   {

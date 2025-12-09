@@ -152,7 +152,7 @@
           <div class="carrer__head-hunter-text-block">
             <div>тут: </div>
             <a href="https://tomsk.hh.ru/">
-              <img src="/images/carrer/hh.ru__min_ 2.svg"></img>
+              <img src="/images/carrer/hh.ru__min_ 2.svg">
             </a>
           </div>
         </div>
@@ -163,16 +163,12 @@
   </q-layout>
 </template>
 <script setup lang="ts">
-import { MainFooterComponent } from '@widgets/mainFooter';
+import { carrerComment } from '@entities/carrerComment';
 import carrerStory from '@entities/carrerStory/ui/carrerStory.vue';
 import { customButton } from '@shared/ui';
-import { carrerComment } from '@entities/carrerComment';
-
-const PopupCarrer=ref(false);
-  import { ref, onMounted } from 'vue';
-  import { Navigation, Pagination } from 'swiper/modules';
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-
+import { MainFooterComponent } from '@widgets/mainFooter';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
   // Экспорируем необходимые компоненты и модули
   const modules = [Pagination, Navigation];

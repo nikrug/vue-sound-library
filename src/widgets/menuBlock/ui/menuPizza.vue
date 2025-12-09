@@ -1,6 +1,5 @@
 <template>
   <div>
-           <CartButton :cartItems="cartItems" :onRemoveItem="removeFromCart" />
     <MenuSection 
       :menuItems="pizza"
       menuLabel="Пицца"
@@ -31,22 +30,17 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { getPizzas, getMexican,getBeriPeki,getSalat,getSnacks } from '../api/apiService';
+
 import MenuSection from '@widgets/menuBlock/ui/menuSection.vue';
-import CartButton from '@widgets/cartButton/ui/cartButton.vue';
+
+import { getPizzas, getMexican,getBeriPeki,getSalat,getSnacks } from '../api/apiService';
 const pizza = ref([]);
 const BeriPeki =ref([]);
 const Salat =ref([]);
 const Snacks =ref([]);
 const Mexican = ref([]);
-const cartItems = ref<{ id: number, name: string, price: number, quantity: number,imagesrc:string, }[]>([]);
-// Функция удаления элемента из корзины
-const removeFromCart = (id: number) => {
-  const index = cartItems.value.findIndex(item => item.id === id);
-  if (index !== -1) {
-    cartItems.value.splice(index, 1); // Удаляем элемент из массива
-  }
-};
+
+
 onMounted(async () => {
   try {
     pizza.value = await getPizzas();

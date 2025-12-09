@@ -32,11 +32,11 @@ const props = defineProps({
   },
   onAddToCart: {
     type: Function,
-    default: () => {},
+    default: null,
   },
   onDeleteToCart: {
     type: Function,
-    default: () => {},
+    default: null,
   },
 });
 

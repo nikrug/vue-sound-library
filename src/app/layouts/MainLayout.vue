@@ -8,7 +8,7 @@
   </q-layout>
 </template>
 <script setup lang="ts">
-import { MainHeaderComponent } from '@widgets/mainHeader';
 import { MainFooterComponent } from '@widgets/mainFooter';
-import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownmenu.vue';
+import { MainHeaderComponent } from '@widgets/mainHeader';
+
 </script>

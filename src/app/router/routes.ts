@@ -4,18 +4,18 @@ import { RouteRecordRaw } from 'vue-router';
 
 import MainLayout from '../layouts/MainLayout.vue';
 
-import { FormPage } from 'src/pages/form';
-import  Delivery  from 'src/pages/delivery/ui/delivery.vue';
-import  Stock  from 'src/pages/stock/ui/stock.vue';
-import Office from 'src/pages/office/ui/office.vue';
-import  Contacts  from 'src/pages/contacts/ui/contascts.vue';
 import  About  from 'src/pages/about/ui/about.vue';
 import  Career  from 'src/pages/career/ui/career.vue';
 import Cart from 'src/pages/cart/ui/cart.vue';
+import  Contacts  from 'src/pages/contacts/ui/contascts.vue';
+import  Delivery  from 'src/pages/delivery/ui/delivery.vue';
+import { FormPage } from 'src/pages/form';
 import { IndexPage } from 'src/pages/main';
 import { ErrorNotFound } from 'src/pages/notFound';
+import Office from 'src/pages/office/ui/office.vue';
 import { PPostsDetail } from 'src/pages/post';
 import { PPostsList } from 'src/pages/post';
+import  Stock  from 'src/pages/stock/ui/stock.vue';
 
 const routes: RouteRecordRaw[] = [
   {

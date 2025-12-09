@@ -1,4 +1,5 @@
 import path from 'path'
+
 import { imageMinimizer } from './config/imageMinimizer'
 
 function main () {

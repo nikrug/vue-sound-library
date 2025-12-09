@@ -1,5 +1,6 @@
-import {fontGeneration} from "./config/fontMin";
-import path from "path";
+import path from 'path';
+
+import {fontGeneration} from './config/fontMin';
 
 function main() {
     const inputDirectory = path.join(__dirname, 'src', 'app', 'styles', 'fonts')

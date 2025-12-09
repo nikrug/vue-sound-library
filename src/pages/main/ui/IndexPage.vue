@@ -41,14 +41,12 @@
 </style>
 
 <script setup lang="ts">
-  import menuPizza from "@widgets/menuBlock/ui/menuPizza.vue";
-
   import { ref } from 'vue';
-   import  SkeletonLoader  from '@widgets/SkeletonLoader/ui/SkeletonLoader.vue';
+
+  import menuPizza from '@widgets/menuBlock/ui/menuPizza.vue';
+  import  SkeletonLoader  from '@widgets/SkeletonLoader/ui/SkeletonLoader.vue';
   import { Navigation, Pagination } from 'swiper/modules';
   import { Swiper, SwiperSlide } from 'swiper/vue';
-
-  import addressWidget from "@entities/addressCard/ui/addressWidget.vue";
   // Экспорируем необходимые компоненты и модули
   const modules = [Pagination, Navigation];
   const loading = ref(true); // Добавляем состояние загрузки

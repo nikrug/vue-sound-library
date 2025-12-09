@@ -1,14 +1,12 @@
 <script setup>
-  import {  ref } from 'vue';
-    const Popup =ref(false);
 const props = defineProps({
   contactsName: {
     type: String,
-    default:"ул. Сергея Лазо, 7",
+    default:'ул. Сергея Лазо, 7',
   },
   contactsNumber: {
     type: String,
-    default:"+7(3822) 90 25 05",
+    default:'+7(3822) 90 25 05',
   },
 });
 </script>
@@ -19,10 +17,10 @@ const props = defineProps({
         <div class="contacts__card-info">
         <slot class="contacts__map"></slot>
         <div class="contacts__card-text">
-            <div class="contacts__adress-text">{{ contactsName }}</div>
+            <div class="contacts__adress-text">{{ props.contactsName }}</div>
             <div class="contacts__number-block">
                 <div>Контактный телефон</div>
-                <div class="contacts__number-text">{{ contactsNumber }}</div>
+                <div class="contacts__number-text">{{ props.contactsNumber }}</div>
             </div>
             <div class="contacts__work-time-block">
                 <div class="contacts__yellow-text">Режим работы</div>

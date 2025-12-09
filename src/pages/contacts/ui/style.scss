@@ -5,7 +5,10 @@
     font-size: 48px;
     max-width: 100px;
 }
-
+.ymaps{
+    height: 265px;
+    width: 100%;
+}
 .contacts{
     background-image: url("/images/menu-item/pattern.png");
     background-color: #198f30;
@@ -26,7 +29,10 @@
 
 
   @media(min-width:#{$br-tablet}px){
-
+.ymaps{
+    height: 100%;
+    width: 500px;
+}
 .contacts{
 
     padding:40px 0;
@@ -45,6 +51,10 @@
 
   }
   @media(min-width:#{$br-desktop}px){
+    .ymaps{
+    height: 100%;
+    width: 620px;
+}
     .contacts__list{
     max-width: 1280px;
     display: flex;

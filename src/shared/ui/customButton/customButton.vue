@@ -2,20 +2,20 @@
 const props = defineProps({
   ButtonText: {
     type: String,
-    default: "Пароль",
+    default: 'Пароль',
   },
   ButtonStyle: {
     type: String,
-    default: "customButton",
+    default: 'customButton',
   },
 
 });
 </script>
 
 <template>
-    <button :class="ButtonStyle">
+    <button :class="props.ButtonStyle">
         <slot></slot>
-        {{ ButtonText }}
+        {{ props.ButtonText }}
     </button>
 </template>
 

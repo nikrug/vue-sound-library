@@ -8,20 +8,25 @@
         <div class="icon_hover-popup"></div>
       </button>
     </div>
-    <AddressPopup v-if="showPopup" @close="closePopup" @add="handleAddAddress" />
+    <Transition name="v-faid">
+      <AddressPopup v-if="showPopup" @close="closePopup" @add="handleAddAddress" />
+    </Transition>
     <div class="address-block">
       <div v-for="(address, index) in addresses" :key="index" class="address-item">
         <div class="address-title">{{ address.title || 'Название' }}
           <button class="delete-button" @click="address.showDeletePopup = !address.showDeletePopup">
           </button>
-          <div v-if="address.showDeletePopup" class="popup-delete">
-            Вы действительно хотите безвозвратно удалить этот адрес?
-            <div class="popup-delete-button-block">
-              <button class="popup-delete-button1" @click="address.showDeletePopup = false">Отмена</button>
-              <button class="popup-delete-button2" @click="removeAddress(index)">Удалить</button>
+          <Transition name="v-faid">
+            <div v-if="address.showDeletePopup" class="popup-delete">
+              Вы действительно хотите безвозвратно удалить этот адрес?
+              <div class="popup-delete-button-block">
+                <button class="popup-delete-button1" @click="address.showDeletePopup = false">Отмена</button>
+                <button class="popup-delete-button2" @click="removeAddress(index)">Удалить</button>
+              </div>
             </div>
-          </div>
+          </Transition>
         </div>
+        
         <div class="address-info">
           <div class="address-info">{{ address.street || 'Адрес' }},
             {{ address.building || 'Номер дома' }},
@@ -50,6 +55,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
+
 import AddressPopup from '@widgets/addressWidget/ui/addressPopup/addressPopup.vue';
 
 interface Address {
@@ -118,4 +124,6 @@ export default defineComponent({
 
 <style lang="scss">
 @import './style.scss';
+
+
 </style>

@@ -1,39 +1,38 @@
 <script setup>
-  import {  ref } from 'vue';
-    const Popup =ref(false);
+
 const props = defineProps({
   commentImg: {
     type: String,
-    default:"/images/carrer/Nikita.png",
+    default:'/images/carrer/Nikita.png',
   },
 
   commentImgclass:{
     type: String,
-    default:"carrier__coment-img",
+    default:'carrier__coment-img',
   },
 
   commentTitle: {
     type: String,
-    default:"Никита",
+    default:'Никита',
   },
 
   commentText: {
     type: String,
-    default:"Хороший, веселый и активный персонал. Получил незабываемые впечатления как от коллектива, так и от приготовления еды для гостей.",
+    default:'Хороший, веселый и активный персонал. Получил незабываемые впечатления как от коллектива, так и от приготовления еды для гостей.',
   },
 
   commentTime: {
     type: String,
-    default:"13:25",
+    default:'13:25',
   },
 
   commentImgsee: {
     type:String,
-    default:"carrier__coment-img-none",
+    default:'carrier__coment-img-none',
   },
   commentTextBox: {
     type:String,
-    default:"carrier__coment-text-box",
+    default:'carrier__coment-text-box',
   },
 });
 </script>
@@ -41,16 +40,15 @@ const props = defineProps({
 
 <template>
   <div class="carrier__comment-body">
-    <img :class="commentImgclass" :src="commentImg">
+    <img :class="props.commentImgclass" :src="props.commentImg">
     <div class="carrier__comment">
-        <div :class="commentTextBox">
-            <div class="carrier__coment-title">{{ commentTitle }}</div>
-            <div class="carrier__coment-text">{{ commentText }}</div>
+        <div :class="props.commentTextBox">
+            <div class="carrier__coment-title">{{ props.commentTitle }}</div>
+            <div class="carrier__coment-text">{{ props.commentText }}</div>
             <div class="carrier__comment-corner">
-              <div class="carrier__coment-time">{{ commentTime }}</div>
-              <img :class="commentImgsee" src="/images/carrer/vacancy-chat-readed.svg"></img>
+              <div class="carrier__coment-time">{{ props.commentTime }}</div>
+              <img :class="props.commentImgsee" src="/images/carrer/vacancy-chat-readed.svg">
             </div>
-
         </div>
   </div>
   </div>

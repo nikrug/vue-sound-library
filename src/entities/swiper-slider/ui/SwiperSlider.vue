@@ -49,9 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
     origins.forEach((origin) => {
       (origin as HTMLElement).style.width = '100%';
     });
-    const target = slider.querySelectorAll('.noUi-handle');
-    target.forEach((target) => {
-    });
+
   });
 });
 </script>

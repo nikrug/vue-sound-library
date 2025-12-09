@@ -1,16 +1,6 @@
 <script setup>
   import {  ref } from 'vue';
   const PopupCarrer =ref(false);
-const props = defineProps({
-  contactsName: {
-    type: String,
-    default:"ул. Сергея Лазо, 7",
-  },
-  contactsNumber: {
-    type: String,
-    default:"+7(3822) 90 25 05",
-  },
-});
 </script>
 
 

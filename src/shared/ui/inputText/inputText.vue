@@ -8,27 +8,27 @@ const props = defineProps({
   },
   inputTextLabel: {
     type: String,
-    default: "Пароль",
+    default: 'Пароль',
   },
   inputLabel: {
     type: String,
-    default: "input-label",
+    default: 'input-label',
   },
   inputPlaceholder: {
     type: String,
-    default: "Введите пароль",
+    default: 'Введите пароль',
   },
   PasswordButton: {
     type: String,
-    default: "hide-button",
+    default: 'hide-button',
   },
   inputType: {
     type: String,
-    default: "text",
+    default: 'text',
   },
   inputSubtext: {
     type: String,
-    default: "",
+    default: '',
   },
   maxLength: {
     type: Number,

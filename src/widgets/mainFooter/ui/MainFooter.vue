@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import { footerBodyList } from '../config/config';
+
 import FooterLogo from 'src/widgets/mainFooter/footerLogo/ui/FooterLogo.vue';
 </script>
 

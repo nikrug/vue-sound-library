@@ -31,9 +31,9 @@
             <div class="delivery__item-top">
                 <div class="delivery__text-label ">Принимаем к оплате банковские карты</div>
                 <div class="delivery__img-block">
-                    <img src="/images/delivery/mir 1.png" alt="Picky Picks">
-                    <img src="/images/delivery/Visa_Inc._logo 1.png" alt="Picky Picks">
-                    <img src="/images/delivery/Mastercard_Logo_2016 1.png" alt="Picky Picks">
+                    <img class="delivery__img1" src="/images/delivery/mir 1.svg" alt="Picky Picks">
+                    <img class="delivery__img2" src="/images/delivery/Visa_Inc._logo 1.svg" alt="Picky Picks">
+                    <img class="delivery__img3" src="/images/delivery/Mastercard_Logo_2016 1.svg" alt="Picky Picks">
                 </div>
             </div>
             <div class="delivery__text-label delivery__text-white">
@@ -145,6 +145,14 @@
 
 <style lang="scss" scoped>
 @import './style.scss';
-
+.delivery__img1{
+    width: calc(30%);
+}
+.delivery__img2{
+    width: calc(30%);
+}
+.delivery__img3{
+    width: calc(15%);
+}
 </style>
 

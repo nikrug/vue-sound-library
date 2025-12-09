@@ -1,18 +1,17 @@
 <script setup>
-  import {  ref } from 'vue';
-    const Popup =ref(false);
+
 const props = defineProps({
   stockName: {
     type: String,
-    default:"Арканзас",
+    default:'Арканзас',
   },
   stockDescription: {
     type: String,
-    default:"Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.(В 100 гр.: 290 кКал/1214 кДж)",
+    default:'Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.(В 100 гр.: 290 кКал/1214 кДж)',
   },
   stockDescription2: {
     type: String,
-    default:"Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.(В 100 гр.: 290 кКал/1214 кДж)",
+    default:'Состав: рваная свинина, помидоры, сыр, лук красный маринованный, лук фри, перец халапеньо, чесночное масло, соус чипотле, дрожжевое тесто.(В 100 гр.: 290 кКал/1214 кДж)',
   },
   stockLabel1: {
     type: String,
@@ -28,19 +27,19 @@ const props = defineProps({
   },
   stockLabelClass1: {
     type: String,
-    default:"stock__item-label"
+    default:'stock__item-label'
   },
     stockLabelClass2: {
     type: String,
-    default:"stock__item-label"
+    default:'stock__item-label'
   },
     stockLabelClass3: {
     type: String,
-    default:"stock__item-label"
+    default:'stock__item-label'
   },
   imageSrc: {
     type: String,
-    default:"/images/menu-item/Beri-peki.jpg"
+    default:'/images/menu-item/Beri-peki.jpg'
   },
 });
 </script>
@@ -48,19 +47,19 @@ const props = defineProps({
 
 <template>
         <div class="stock__item">
-            <img  class="stock__item-img" :src="imageSrc">
+            <img  class="stock__item-img" :src="props.imageSrc">
             <div class="stock__item-description-container">
               <div class="stock__item-text-block">
-                <div class="stock__item-name">{{stockName}}</div>
+                <div class="stock__item-name">{{props.stockName}}</div>
                 <div class="stock__item-description-block">
-                  <div class="stock__item-description">{{ stockDescription}}</div>
-                  <div class="stock__item-description">{{ stockDescription2}}</div>
+                  <div class="stock__item-description">{{ props.stockDescription}}</div>
+                  <div class="stock__item-description">{{ props.stockDescription2}}</div>
                 </div>
               </div>
                 <div class="stock__item-label-block ">
-                    <div :class="stockLabelClass1">{{ stockLabel1}}</div>
-                    <div :class="stockLabelClass2">{{ stockLabel2}}</div>
-                    <div :class="stockLabelClass3">{{ stockLabel3}}</div>
+                    <div :class="props.stockLabelClass1">{{ props.stockLabel1}}</div>
+                    <div :class="props.stockLabelClass2">{{ props.stockLabel2}}</div>
+                    <div :class="props.stockLabelClass3">{{ props.stockLabel3}}</div>
                 </div>
             </div>
         </div>

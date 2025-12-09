@@ -1,8 +1,8 @@
+import fontkit from 'fontkit'
 import fs from 'fs'
 import path from 'path'
 import ttf2woff from 'ttf2woff'
 import ttf2woff2 from 'ttf2woff2'
-import fontkit from 'fontkit'
 
 type TOptions = {
     exclude: string[];
@@ -70,12 +70,12 @@ export async function fontGeneration (options: TOptions): Promise<void> {
     const fileExtension = pathInfo.ext.replace(/^\./, '')
 
     return {
-      // @ts-ignore
+      //@ts-ignore
       fontName: font.familyName,
       fileName: fileNameWithoutExtension,
       fileExtension,
       path: filePath.replace(options.inputDirectory, '').replace(/\\/g, '/'),
-      // @ts-ignore
+      //@ts-ignore
       width: font['OS/2'].usWeightClass,
       isItalic
     }

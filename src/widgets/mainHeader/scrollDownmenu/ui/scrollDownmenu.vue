@@ -4,7 +4,7 @@
         <div :class="LinkClass" >
             <img class="scrollDownmenu__logo" src="/images/drop-down-menu/dropdown-logo.svg">
             <a class="scrollDownmenu__list-link" href="#Pizza" @click="handleClick('Pizza')">Пицца </a>
-            <a class="scrollDownmenu__list-link" href="#Beri-Peki" @click="handleClick('Beri-Peki')">Заготовка пиццы «Бери-пеки»</a>
+            <a class="scrollDownmenu__list-link" href="#BeriPeki" @click="handleClick('BeriPeki')">Заготовка пиццы «Бери-пеки»</a>
             <a class="scrollDownmenu__list-link" href="#Snacks"  @click="handleClick('Snacks')">Закуски</a>
             <a class="scrollDownmenu__list-link" href="#Mexican" @click="handleClick('Mexican')">Мексиканские блюда</a>
             <a class="scrollDownmenu__list-link" href="#Salat" @click="handleClick('Salat') ">Салаты</a>
@@ -22,27 +22,27 @@
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount,ref } from 'vue';
-import routes from '@app/router/routes';
+
 import CartButton from '@widgets/cartButton/ui/cartButton.vue';
 const props = defineProps({
   CustomClass: {
     type: String,
-    default: "scrollDownmenu",
+    default: 'scrollDownmenu',
   },
   
   ButtonClass:{
     type: String,
-    default: "",
+    default: '',
   },
   LinkClass: {
     type: String,
-    default: "scrollDownmenu__list",
+    default: 'scrollDownmenu__list',
   },
 
     // Новый проп для передачи дополнительного действия
   onLinkClick: {
     type: Function,
-    default: () => {}
+    default: null,
   }
 });
 

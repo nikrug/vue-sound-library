@@ -34,27 +34,27 @@
 <script>
 
 export default {
-  name: "PizzaWeightSelector",
+  name: 'PizzaWeightSelector',
   props: {
     title: {
       type: String,
-      default: "Выберите граммовку пиццы",
+      default: 'Выберите граммовку пиццы',
     },
     menuClass: {
       type: String,
-      default: "menu__option",
+      default: 'menu__option',
     },
     CustomClass: {
       type: String,
-      default: "options",
+      default: 'options',
     },
     CustomInfoClass: {
       type: String,
-      default: "options-info",
+      default: 'options-info',
     },
     ButtonBlockClass: {
       type: String,
-      default: "menu__button-block",
+      default: 'menu__button-block',
     },
   },
   data() {
@@ -69,166 +69,166 @@ export default {
   computed: {
     weightOptions() {
       switch (this.title) {
-        case "Дженнифер":
+        case 'Дженнифер':
           return [
             { label: '690 г.', value: 'small', price: 545 },
             { label: '1380 г.', value: 'large', price: 1065 },
           ];
-        case "Арканзас":
+        case 'Арканзас':
           return [
             { label: '690 г.', value: 'medium', price: 545  },
             { label: '1330 г.', value: 'large', price: 1065 },
           ];
-        case "Арканзас2":
+        case 'Арканзас2':
           return [
             { label: '690 г.', value: 'medium', price: 545  },
             { label: '1330 г.', value: 'large', price: 1065 },
           ];
-        case "Мичиган":
+        case 'Мичиган':
             return [
             { label: '680 г.', value: 'medium', price: 550 },
             { label: '1360 г.', value: 'large', price: 995 },
         ];
 
-        case "Мичиган2":
+        case 'Мичиган2':
             return [
             { label: '680 г.', value: 'medium', price: 550 },
             { label: '1360 г.', value: 'large', price: 995 },
         ];
 
-        case "Пепперони":
+        case 'Пепперони':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
-        case "Пепперони2":
+        case 'Пепперони2':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
-        case "Джорджия":
+        case 'Джорджия':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
-        case "Джорджия2":
+        case 'Джорджия2':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 995 },
         ];
 
-        case "Манхеттен":
+        case 'Манхеттен':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },
         ];
 
-        case "Манхеттен2":
+        case 'Манхеттен2':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },
         ];
 
-        case "Манхеттен3":
+        case 'Манхеттен3':
             return [
             { label: '690 г.', value: 'medium', price: 550 },
             { label: '1330 г.', value: 'large', price: 975 },
         ];
 
-        case "Бери-пеки Нью-Джерси":
+        case 'Бери-пеки Нью-Джерси':
             return [
             {label: '300 г.', price: 545 },
         ];
 
-        case "Бери-пеки Мичиган":
+        case 'Бери-пеки Мичиган':
             return [
             {label: '300г', price: 580 },
         ];
 
-        case "Бери-пеки Мичиган2":
+        case 'Бери-пеки Мичиган2':
             return [
             {label: '300г', price: 580 },
         ];
 
-        case "Бери-пеки Арканзас":
+        case 'Бери-пеки Арканзас':
             return [
             {label: '300г', price: 495 },
         ];
 
-        case "Бери-пеки Арканзас2":
+        case 'Бери-пеки Арканзас2':
             return [
             {label: '300г', price: 495 },
         ];
 
-        case "Бери-пеки Арканзас3":
+        case 'Бери-пеки Арканзас3':
             return [
             {label: '300г', price: 495 },
         ];
 
-        case "Бери-пеки Манхэттен":
+        case 'Бери-пеки Манхэттен':
             return [
             {label: '300г', price: 495 },
         ];
 
-        case "Бери-пеки Дженифер":
+        case 'Бери-пеки Дженифер':
             return [
             {label: '300г', price: 495 },
         ];
 
-        case "Бери-пеки Дженни":
+        case 'Бери-пеки Дженни':
             return [
             {label: '300г', price: 495 },
         ];
 
-        case "Наггетсы":
+        case 'Наггетсы':
             return [
             {label: '300г', price: 187 },
         ];
 
-        case "Тортилья":
+        case 'Тортилья':
             return [
             {label: '300г', price: 157 },
         ];
 
-        case "Сухарики":
+        case 'Сухарики':
             return [
             {label: '300г', price: 87 },
         ];
 
-        case "Сухарики2":
+        case 'Сухарики2':
             return [
             {label: '300г', price: 87 },
         ];
 
 
-        case "Сальса":
+        case 'Сальса':
             return [
             { label: '30г', value: 'medium', price: 10 },
             { label: '60г', value: 'large', price: 35 },
         ];
 
-        case "Сальса2":
+        case 'Сальса2':
             return [
             { label: '30г', value: 'medium', price: 10 },
             { label: '60г', value: 'large', price: 35 },
         ];
 
-        case "Тар-Тар":
+        case 'Тар-Тар':
             return [
             { label: '30г', value: 'medium', price: 10 },
             { label: '60г', value: 'large', price: 35 },
         ];
 
-        case "Сырный":
+        case 'Сырный':
             return [
             { label: '30г', value: 'medium', price: 10 },
             { label: '60г', value: 'large', price: 35 },
         ];
 
-        case "Кетчуп Майонез Сметана":
+        case 'Кетчуп Майонез Сметана':
             return [
             { label: 'кетчуп', value: 'ketchup', price: 25 },
             { label: 'майонез', value: 'mayo', price: 25 },
@@ -236,61 +236,61 @@ export default {
         ];
 
 
-        case "Кесадия":
+        case 'Кесадия':
             return [
             { label: '170 г.', value: 'medium', price: 100 },
             { label: '340 г.', value: 'large', price: 227 },
         ];
 
-        case "Кесадия2":
+        case 'Кесадия2':
             return [
             { label: '170 г.', value: 'medium', price: 100 },
             { label: '340 г.', value: 'large', price: 227 },
         ];
         
-        case "Кесадия3":
+        case 'Кесадия3':
             return [
             { label: '170 г.', value: 'medium', price: 100 },
             { label: '340 г.', value: 'large', price: 227 },
         ];
 
-        case "Кесадия4":
+        case 'Кесадия4':
             return [
             { label: '170 г.', value: 'medium', price: 100 },
             { label: '340 г.', value: 'large', price: 227 },
         ];
 
-        case "Кесадия5":
+        case 'Кесадия5':
             return [
             { label: '170 г.', value: 'medium', price: 100 },
             { label: '340 г.', value: 'large', price: 227 },
         ];
 
-        case "Кесадия-ролл":
+        case 'Кесадия-ролл':
             return [
             {label: '300г', price: 227 },
            
         ];
 
-        case "Энчиладос":
+        case 'Энчиладос':
             return [
             { label: '680г', value: 'medium', price: 500 },
             { label: '1360г', value: 'large', price: 995 },
         ];
 
-        case "Лукас":
+        case 'Лукас':
             return [
             {label: '300г', price: 112 },
            
         ];
 
-        case "Цезарь":
+        case 'Цезарь':
             return [
             {label: '300г', price: 120 },
            
         ];
 
-        case "Сомбреро":
+        case 'Сомбреро':
             return [
             {label: '300г', price: 187 },
            
@@ -308,7 +308,7 @@ export default {
     }
   },
   methods: {
-    selectWeight(value, price, label) {
+    selectWeight(value, price) {
       this.selectedWeight = value;
       this.totalPrice = price;
 

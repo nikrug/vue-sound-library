@@ -84,13 +84,14 @@
 
 <script>
 import { ref } from 'vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import './style.scss';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
 export default {
   components: {
@@ -102,7 +103,6 @@ export default {
 
     const setThumbsSwiper = (swiper) => {
       thumbsSwiper.value = swiper;
-      console.log('Thumbs swiper instance: ', swiper); // Логируем экземпляр
     };
 
     return {

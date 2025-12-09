@@ -4,7 +4,7 @@
       <div class="popup-header">
         <div class="popup-title">Добавить адрес</div>
         <button class="popup-close">
-          <img @click="$emit('close')" src="images/office/delete (1).svg"></img>
+          <img @click="$emit('close')" src="images/office/delete (1).svg">
         </button>
       </div>
       <div class="popup-input">
@@ -77,8 +77,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import inputText from '@shared/ui/inputText/inputText.vue';
+
 import CustomButton from '@shared/ui/customButton/customButton.vue';
+import inputText from '@shared/ui/inputText/inputText.vue';
 
 export default defineComponent({
   name: 'AddressPopup',

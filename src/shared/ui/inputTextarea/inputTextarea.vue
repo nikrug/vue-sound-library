@@ -1,21 +1,4 @@
-<script setup>
-import { ref } from 'vue';
-
-const props = defineProps({
-  inputTextLabel: {
-    type: String,
-    default: "Пароль",
-  },
-  inputLabel:{
-    type: String,
-    default: "input-label",
-  },
-  inputPlaceholder: {
-    type: String,
-    default: "Введите пароль",
-  },
-});
-
+<script setup lang="ts">
 
 </script>
 

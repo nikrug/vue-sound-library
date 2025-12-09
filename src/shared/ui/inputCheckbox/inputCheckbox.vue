@@ -3,11 +3,11 @@ import { ref } from 'vue';
 const props = defineProps({
   inputCheckboxLabel: {
     type: String,
-    default: "Заголовок",
+    default: 'Заголовок',
   },
   inputCheckboxSubLabel: {
     type: String,
-    default: "",
+    default: '',
   },
 });
 const isChecked = ref(false);
@@ -22,8 +22,8 @@ function toggleCheckbox() {
     <input class="input-checkbox" type="checkbox" v-model="isChecked" ref="checkbox">
     <div class="custom-checkbox" ></div>
     <div class="input-checkbox__label">
-      <div class="input-checkbox__text">{{ inputCheckboxLabel }}</div>
-      <div class="input-checkbox__sub-text">{{ inputCheckboxSubLabel }}</div>
+      <div class="input-checkbox__text">{{ props.inputCheckboxLabel }}</div>
+      <div class="input-checkbox__sub-text">{{ props.inputCheckboxSubLabel }}</div>
     </div>
   </div>
 </template>

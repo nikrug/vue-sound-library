@@ -14,7 +14,7 @@
                                 Регистрация
                             </span>
                         </div>
-                        <div class="cart__adres-delivery"v-show="delivery">
+                        <div class="cart__adres-delivery" v-show="delivery">
                         <inputText inputPlaceholder="+7 (923)-640-12-98" inputTextLabel="Введите номер телефона"></inputText>
                         <inputText inputPlaceholder="Ваши адреса" inputTextLabel="Адрес доставки"></inputText>
                         <inputText inputPlaceholder="Улица" inputTextLabel="Улица"></inputText>
@@ -45,7 +45,7 @@
                             
                             </customButton>
                         </div>
-                        <div class="cart__adres-delivery"v-show="yourown">
+                        <div class="cart__adres-delivery" v-show="yourown">
                         <inputText inputPlaceholder="+7 (923)-640-12-98" inputTextLabel="Введите номер телефона"></inputText>
                             <div class="cart__radioButtons">
                                 <div class="cart__label-small">Адрес самовывоза</div>
@@ -85,9 +85,10 @@
 </style>
 
 <script setup lang="ts">
-import { ref,computed } from "vue";
+import { ref,computed } from 'vue';
+
 import { inputText, inputRadiobutton, inputCheckbox, customButton, inputTextarea } from '@shared/ui';
-import cartList from "@widgets/cartList/ui/cartList.vue";
+import cartList from '@widgets/cartList/ui/cartList.vue';
 
 const delivery = ref(true);
 const yourown = ref(false);

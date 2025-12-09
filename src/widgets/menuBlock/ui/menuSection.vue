@@ -5,7 +5,7 @@
   :cartItems="cartItems" 
   :onRemoveItem="removeFromCart" 
 />
-    <div class="menu-label" :id="menuLabelId">{{ menuLabel }}</div>
+    <div class="menu-label" :id="menuLabelId">{{ props.menuLabel }}</div>
 
     <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
@@ -58,13 +58,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useQuasar } from 'quasar';
+import { ref } from 'vue';
+
 import MenuItem from '@entities/menuItem/ui/menuItem.vue';
-import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
-import counter from '@widgets/counter/ui/Counter.vue';
 import CartList from '@widgets/cartList/ui/cartList.vue';
-import { ids } from 'webpack';
+import counter from '@widgets/counter/ui/Counter.vue';
+import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
 
 // Определите общие поля для пиццы и мексиканских блюд
 interface MenuItem {

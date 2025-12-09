@@ -30,10 +30,12 @@
 </style>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { getPizzas } from '../api/apiService';
-import MenuItem from "@entities/menuItem/ui/menuItem.vue";
-import counter from "@widgets/Counter/ui/counter.vue"; 
+
+import MenuItem from '@entities/menuItem/ui/menuItem.vue';
+import counter from '@widgets/Counter/ui/counter.vue'; 
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
+
+import { getPizzas } from '../api/apiService';
 interface Pizza {
   id: number;
   name: string;

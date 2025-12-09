@@ -1,14 +1,14 @@
 <template>
   <div :class="[customclass, 'cart-list']">
     <ul>
-      <li class="cart-list__item" v-for="item in cartItems" :key="item.id">
+      <li class="cart-list__item" v-for="item in cart" :key="item.id">
         <div class="cart-list__name">
           <img :src="item.imagesrc" alt="Изображение товара" />
           {{ item.name }} 
         </div>
         <div class="cart-list__counter">
           <button class="count-button" @click="updateItemQuantity(item, -1)">-</button>
-            <div class="count-quantity">{{ item.quantity }}</div>
+          <div class="count-quantity">{{ item.quantity }}</div>
           <button class="count-button" @click="updateItemQuantity(item, 1)">+</button>
           <span class="count-price">{{ item.price * item.quantity }}₽</span>
         </div>
@@ -25,8 +25,10 @@
 </template>
 
 <script setup lang="ts">
+import { computed, defineProps, defineExpose, ref, watch } from 'vue';
+
 import { inputCheckbox } from '@shared/ui';
-import { computed, defineProps, defineExpose, watch } from 'vue';
+
 interface CartItem {
   id: number;
   name: string;
@@ -37,55 +39,54 @@ interface CartItem {
 
 const props = defineProps<{
   cartItems: CartItem[];
-  onRemoveItem: (id: number) => void; // Функция для удаления элемента из корзины
-  customclass?: string; // Добавляем customclass как опциональный пропс
+  onRemoveItem: (id: number) => void;
+  customclass?: string;
 }>();
 
+const cart = ref<CartItem[]>([...props.cartItems]);
+
 const total = computed(() => {
-  return props.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0);
 });
 
-// Экспортируем computed свойство total
 defineExpose({ total });
 
-// Функция для обновления количества товара
 const updateItemQuantity = (item: CartItem, delta: number) => {
-  item.quantity += delta; // Увеличиваем или уменьшаем количество на delta
-  if (item.quantity <= 0) {
-    props.onRemoveItem(item.id);
+  const cartItem = cart.value.find(cartItem => cartItem.id === item.id);
+  if (cartItem) {
+    cartItem.quantity += delta;
+
+    if (cartItem.quantity <= 0) {
+      props.onRemoveItem(cartItem.id);
+      cart.value = cart.value.filter(cartItem => cartItem.id !== item.id); // Используем item.id
+    }
   }
-  return total;
 };
 
-// Восстанавливаем корзину из localStorage
 const restoreCartFromStorage = () => {
   const savedCart = localStorage.getItem('cartItems');
   if (savedCart) {
     const parsedCart: CartItem[] = JSON.parse(savedCart);
     parsedCart.forEach(item => {
-      const existingItem = props.cartItems.find(cartItem => cartItem.id === item.id);
+      const existingItem = cart.value.find(cartItem => cartItem.id === item.id);
       if (existingItem) {
-        existingItem.quantity = item.quantity; // Обновляем количество
+        existingItem.quantity = item.quantity;
       } else {
-        props.cartItems.push(item); // Добавляем новый элемент
+        cart.value.push(item);
       }
     });
   }
-    return total;
 };
 
-// Сохраняем состояние корзины в localStorage при изменениях
 const saveCartToStorage = (newCartItems: CartItem[]) => {
   localStorage.setItem('cartItems', JSON.stringify(newCartItems));
 };
 
-// Восстанавливаем корзину при инициализации компонента
 restoreCartFromStorage();
 
-// Следим за изменением корзины и сохраняем в localStorage
-watch(() => props.cartItems, saveCartToStorage, { deep: true });
+watch(cart, saveCartToStorage, { deep: true });
 </script>
 
 <style lang="scss">
-@import "./style.scss" ;
+@import "./style.scss";
 </style>

@@ -135,7 +135,12 @@ flex-direction: row;
     align-items: center;
     text-align: center;
   }
-  
+  .error-message {
+    color: red; // Цвет текста ошибки
+    font-size: 12px; // Размер шрифта 
+    text-align: left;
+}
+
   .popup-content {
     background: var(--pure-white);
     background-image: url("/images/headers/pattern.svg");

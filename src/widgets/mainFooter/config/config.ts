@@ -4,7 +4,7 @@ import { ROUTES } from '@shared/lib/routes';
 
 export const footerBodyList = [
     {
-      link: "/",
+      link: '/',
       label: 'Меню',
     },
     {

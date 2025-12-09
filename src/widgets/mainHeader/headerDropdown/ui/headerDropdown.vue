@@ -28,9 +28,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
+
 import burger from 'src/widgets/mainHeader/burger/ui/burger.vue';
 import { navMenu } from 'src/widgets/mainHeader/config/navMenu';
+import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownmenu.vue';
 const isOpen = ref(false);
 const isVisible = ref(false);
