@@ -27,7 +27,6 @@
     ><swiper-slide class="swiper-slide"> <img class="swiper-img" src="/images/menu-item/add-banner.png"></swiper-slide>
     <div class="swiper-pagination"></div>
   </swiper>
-
     <div class="menu-list">
       <menuPizza></menuPizza>
     </div>
@@ -41,6 +40,7 @@
 </style>
 
 <script setup lang="ts">
+  
   import { ref } from 'vue';
 
   import menuPizza from '@widgets/menuBlock/ui/menuPizza.vue';

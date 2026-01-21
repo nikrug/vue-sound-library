@@ -1,5 +1,7 @@
 <template>
+
   <div>
+    
     <MenuSection 
       :menuItems="pizza"
       menuLabel="Пицца"

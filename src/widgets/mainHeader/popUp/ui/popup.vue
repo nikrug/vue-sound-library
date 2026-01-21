@@ -48,8 +48,24 @@
           </div>
         </div>
       </form>
+
     </div>
   </Transition>
+              <div v-show="forgetPassword" class="popup-overlay">
+                <div class="popup-content">
+                            <div class="popup__close">
+                              <img src="/images/headers/logo-popup.svg">
+                              <span class="close-button" @click="forgetPassword = !forgetPassword"><img src="/images/headers/icon-Close.svg"></span>
+                            </div>
+                            <div class="popup__text-forget" >Для восстановления пароля введите адрес электронной почты</div>
+                            <inputText inputPlaceholder="Введите адрес электронной почты" inputTextLabel="Электронная почта"></inputText>
+                            <div class="popup__forget-button-block">
+                              
+                              <div class="popup__text-forget-label"  @click="Popup = !Popup, forgetPassword=!forgetPassword">Войти</div>
+                              <customButton ButtonText="Восстановить пароль"></customButton>
+                            </div>
+                </div>
+            </div>
 </template>
 
 

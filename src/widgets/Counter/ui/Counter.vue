@@ -3,13 +3,10 @@
     <div class="count-text" v-if="count < 1">
       {{ price }} ₽
     </div>
-
     <div class="count-text" v-if="count > 0" :class="{ 'active-text': count > 0 }">
       {{ total }} ₽
     </div>
-
     <button class="basket-button" v-if="count < 1" @click="handleAddToCart">В корзину</button>
-
     <div class="buttons" v-if="count > 0" :class="{ 'buttons-active': count > 0 }">
       <button class="count-button" @click="handleDeleteToCart">-</button>
       <div class="count-text-button">{{ count }}</div>
@@ -18,7 +15,7 @@
   </div>
 </template>
 
-<script setup >
+<script setup>
 import { ref, computed, defineProps, onMounted } from 'vue';
 
 const props = defineProps({
@@ -26,7 +23,15 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
-  id: { // Добавляем ID для уникальности
+  label: {
+    type: String,
+    required: true,
+  },
+  imageSrc: {
+    type: String,
+    required: true,
+  },
+  id: {
     type: String,
     required: true,
   },
@@ -42,45 +47,94 @@ const props = defineProps({
 
 const count = ref(0);
 const total = computed(() => count.value * props.price);
+const cartItems = ref([]); // Массив всех элементов в корзине
 
-const loadCount = () => {
-  const storedCount = localStorage.getItem(`counter-${props.id}`);
-  if (storedCount) {
-    count.value = parseInt(storedCount, 10);
+const loadCartFromDB = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/cart');
+    cartItems.value = await response.json();
+    const existingItem = cartItems.value.find(item => item.id === props.id);
+    count.value = existingItem ? existingItem.count : 0; // Устанавливаем count из БД
+  } catch (error) {
+    console.error('Ошибка загрузки корзины из БД:', error);
   }
 };
 
-const saveCount = () => {
-  localStorage.setItem(`counter-${props.id}`, count.value);
-};
-const increment = () => {
-  count.value++;
-  saveCount(); // Сохраняем после изменения
+const saveToDB = async (item) => {
+  try {
+    const existingItemIndex = cartItems.value.findIndex(cartItem => cartItem.id === item.id);
+
+    if (existingItemIndex > -1) {
+      // Если товар существует, обновляем его количество
+      await fetch(`http://localhost:3000/cart/${item.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+      });
+      // Обновляем локальный массив
+      cartItems.value[existingItemIndex].count = item.count;
+    } else {
+      // Если товара нет, добавляем новую запись
+      await fetch('http://localhost:3000/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(item),
+      });
+      // Добавляем в локальный массив
+      cartItems.value.push(item);
+    }
+  } catch (error) {
+    console.error('Ошибка при сохранении в БД:', error);
+  }
 };
 
-const decrement = () => {
+const addToCart = async () => {
+  count.value++;
+  const item = {
+    id: props.id,
+    count: count.value,
+    price: props.price,
+    label: props.label,
+    imageSrc: props.imageSrc,
+  };
+  await saveToDB(item);
+  props.onAddToCart();
+};
+
+const decrement = async () => {
   if (count.value > 0) {
     count.value--;
-    saveCount(); // Сохраняем после изменения
+    const item = {
+      id: props.id,
+      count: count.value,
+      price: props.price,
+      label: props.label,
+      imageSrc: props.imageSrc,
+    };
+    
+    if (count.value === 0) {
+      await fetch(`http://localhost:3000/cart/${item.id}`, {
+        method: 'DELETE',
+      });
+      cartItems.value = cartItems.value.filter(cartItem => cartItem.id !== item.id);
+      props.onDeleteToCart();
+    } else {
+      await saveToDB(item);
+    }
   }
 };
 
-// Загружаем значение счетчика при монтировании
-onMounted(loadCount);
+onMounted(loadCartFromDB);
 
-// Обработчик для добавления в корзину
 const handleAddToCart = () => {
-  increment(); // Увеличиваем счетчик
-  props.onAddToCart(); // Вызываем переданную функцию
+  addToCart();
 };
 
-// Обработчик для удаления из корзины
 const handleDeleteToCart = () => {
-  decrement(); // Уменьшаем счетчик
-  props.onDeleteToCart(); // Вызываем переданную функцию
+  decrement();
 };
 </script>
-
-<style lang="scss">
-@import "./style";
-</style>

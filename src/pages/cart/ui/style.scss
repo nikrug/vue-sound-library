@@ -33,7 +33,22 @@
         color:#9B9B9B;
     }
 }
+.cart__customButton{
+    padding: 14px 34px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    background:#FF991F;
+    font-size: 16px;
+    color: white;
+    justify-content: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
 
+.cart__customButton:hover{
+    background:#E17B00;
+}
 .cart{
     background-image: url("/images/menu-item/pattern.png");
     background-color: #198f30;

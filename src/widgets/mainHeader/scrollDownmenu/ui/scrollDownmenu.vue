@@ -24,6 +24,8 @@
 import { onMounted, onBeforeUnmount,ref } from 'vue';
 
 import CartButton from '@widgets/cartButton/ui/cartButton.vue';
+
+
 const props = defineProps({
   CustomClass: {
     type: String,

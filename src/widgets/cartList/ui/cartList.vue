@@ -1,14 +1,14 @@
 <template>
   <div :class="[customclass, 'cart-list']">
     <ul>
-      <li class="cart-list__item" v-for="item in cart" :key="item.id">
+      <li class="cart-list__item" v-for="item in cartItems" :key="item.id">
         <div class="cart-list__name">
           <img :src="item.imagesrc" alt="Изображение товара" />
           {{ item.name }} 
         </div>
         <div class="cart-list__counter">
           <button class="count-button" @click="updateItemQuantity(item, -1)">-</button>
-          <div class="count-quantity">{{ item.quantity }}</div>
+            <div class="count-quantity">{{ item.quantity }}</div>
           <button class="count-button" @click="updateItemQuantity(item, 1)">+</button>
           <span class="count-price">{{ item.price * item.quantity }}₽</span>
         </div>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, defineExpose, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 
 import { inputCheckbox } from '@shared/ui';
 
@@ -39,54 +39,36 @@ interface CartItem {
 
 const props = defineProps<{
   cartItems: CartItem[];
-  onRemoveItem: (id: number) => void;
-  customclass?: string;
+  onRemoveItem: (id: number) => void; // Функция для удаления элемента из корзины
+  customclass?: string; // Добавляем customclass как опциональный пропс
 }>();
 
-const cart = ref<CartItem[]>([...props.cartItems]);
+// Use a ref to create a local cart state
+const localCartItems = ref<CartItem[]>(props.cartItems);
 
 const total = computed(() => {
-  return cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return localCartItems.value.reduce((sum, item) => sum + item.price * item.quantity, 0);
 });
 
+// Экспортируем computed свойство total
 defineExpose({ total });
 
+// Функция для обновления количества товара
 const updateItemQuantity = (item: CartItem, delta: number) => {
-  const cartItem = cart.value.find(cartItem => cartItem.id === item.id);
-  if (cartItem) {
-    cartItem.quantity += delta;
-
-    if (cartItem.quantity <= 0) {
-      props.onRemoveItem(cartItem.id);
-      cart.value = cart.value.filter(cartItem => cartItem.id !== item.id); // Используем item.id
+  const currentItem = localCartItems.value.find(cartItem => cartItem.id === item.id);
+  if (currentItem) {
+    currentItem.quantity += delta; // Увеличиваем или уменьшаем количество на delta
+    if (currentItem.quantity <= 0) {
+      props.onRemoveItem(item.id);
+      localCartItems.value = localCartItems.value.filter(cartItem => cartItem.id !== item.id);
     }
   }
 };
 
-const restoreCartFromStorage = () => {
-  const savedCart = localStorage.getItem('cartItems');
-  if (savedCart) {
-    const parsedCart: CartItem[] = JSON.parse(savedCart);
-    parsedCart.forEach(item => {
-      const existingItem = cart.value.find(cartItem => cartItem.id === item.id);
-      if (existingItem) {
-        existingItem.quantity = item.quantity;
-      } else {
-        cart.value.push(item);
-      }
-    });
-  }
-};
 
-const saveCartToStorage = (newCartItems: CartItem[]) => {
-  localStorage.setItem('cartItems', JSON.stringify(newCartItems));
-};
-
-restoreCartFromStorage();
-
-watch(cart, saveCartToStorage, { deep: true });
 </script>
 
+
 <style lang="scss">
-@import "./style.scss";
+@import "./style.scss" ;
 </style>

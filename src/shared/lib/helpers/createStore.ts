@@ -4,8 +4,7 @@ import {
   defineStore,
   DefineStoreOptions,
   StateTree,
-  Store,
-  storeToRefs
+
 } from 'pinia';
 
 /**
@@ -46,6 +45,6 @@ export function createStore<Id extends string, S extends StateTree = object, G e
   const store = defineStore(id, option);
   return () => ({
     ...store(),
-    ...storeToRefs<Store<Id, S, _GettersTree<S>, _ActionsTree>>(store() as Store<Id, S, _GettersTree<S>, _ActionsTree>)
+   
   });
 }

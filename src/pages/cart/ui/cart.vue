@@ -1,9 +1,9 @@
 <template>
-    <div class="cart">
+    <div class="cart" >
         <div class="cart__box">
         <div class="cart__label">Корзина</div>
             <div class="cart__content">
-                <cartList :cartItems="cartItems" :onRemoveItem="removeFromCart" />
+                <CartAlone></CartAlone>
                 <form>
                     <div class="cart__adres">
                         <div class="popup__choose-block">
@@ -12,6 +12,7 @@
                             </span>
                             <span class="popup__text" :class="{'active': yourown}"  @click="yourown = true,  delivery = false">
                                 Регистрация
+
                             </span>
                         </div>
                         <div class="cart__adres-delivery" v-show="delivery">
@@ -41,9 +42,9 @@
                                 <inputTextarea></inputTextarea>
                             </div>
                             <inputCheckbox inputCheckboxLabel="Я согласен на обработку персональных данных"></inputCheckbox>
-                            <customButton :ButtonText="`Отправить заказ - ${total}₽`">
-                            
-                            </customButton>
+                                  <button class="cart__customButton">
+                                        Отправить заказ - <CartSummary></CartSummary>
+                                    </button>
                         </div>
                         <div class="cart__adres-delivery" v-show="yourown">
                         <inputText inputPlaceholder="+7 (923)-640-12-98" inputTextLabel="Введите номер телефона"></inputText>
@@ -67,11 +68,11 @@
                                  <inputTextarea></inputTextarea>
                             </div>
                             <inputCheckbox inputCheckboxLabel="Я согласен на обработку персональных данных"></inputCheckbox>
-                            
+             
                                 <cartList :customclass="'invisible'" :cartItems="cartItems" :onRemoveItem="removeFromCart" />
-                                <customButton :ButtonText="`Отправить заказ - ${total}₽`">
-                                </customButton>
-                            
+                                  <button class="cart__customButton">
+                                        Отправить заказ - <CartSummary></CartSummary>
+                                    </button>
                         </div>
                     </div>
                 </form>
@@ -82,13 +83,17 @@
 
 <style lang="scss" scoped>
 @import './style.scss';
+
 </style>
 
 <script setup lang="ts">
-import { ref,computed } from 'vue';
+import { ref } from 'vue';
 
-import { inputText, inputRadiobutton, inputCheckbox, customButton, inputTextarea } from '@shared/ui';
+import { inputText, inputRadiobutton, inputCheckbox, inputTextarea } from '@shared/ui';
 import cartList from '@widgets/cartList/ui/cartList.vue';
+import CartAlone from '@widgets/cartTest/CartAlone.vue';
+import CartSummary from '@widgets/cartTest/CartSummary.vue';
+
 
 const delivery = ref(true);
 const yourown = ref(false);
@@ -105,12 +110,6 @@ const removeFromCart = (id: number) => {
   }
 };
 
-
-
-// Calculate the total
-const total = computed(() => {
-  return cartItems.value.reduce((sum, item) => sum + item.price * item.quantity, 0);
-});
 
 
 </script>

@@ -56,20 +56,28 @@
                         </div>
                     </form>
                 </div>
+                
                 <div class="office__list-addres">
                     <addressWidget></addressWidget>
                 </div>
+                <CartTestt></CartTestt>
             </div> 
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 import { customButton } from '@shared/ui';
 import { inputText } from '@shared/ui';
 import addressWidget from '@widgets/addressWidget/ui/addressWidget/addressWidget.vue';
+
+interface User {
+    email: string;
+    phone?: string; // Поле phone может быть не обязательным
+    // Добавьте другие поля, если нужно
+}
 
 const newPassword = ref(false);
 const email = ref('');
@@ -78,25 +86,70 @@ const newPasswordValue = ref('');
 const repeatPassword = ref('');
 
 const emailError = ref('');
-const phoneError = ref(''); // Ошибка для поля телефона
+const phoneError = ref('');
 const newPasswordError = ref('');
+const users = ref<User[]>([]); // Указываем, что это массив объектов типа User
 
-// Вычисляемое свойство для текста кнопки
 const buttonText = computed(() => {
     return newPassword.value ? 'Сохранить новый пароль' : 'Сохранить изменения';
 });
 
-// Обработчик отправки формы
-const handleSubmit = () => {
+// Загружаем пользователей из db.json
+const fetchUsers = async () => {
+    try {
+        const response = await fetch('http://localhost:3000/users'); // Укажите путь к вашему db.json
+        if (!response.ok) {
+            throw new Error('Ошибка загрузки данных');
+        }
+        const data = await response.json();
+        users.value = data.users; // Предполагая, что ваши данные находятся в поле "users"
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
+
+const handleSubmit = async () => {
     validateEmail();
-    validatePhone(); // Валидация телефона
+    validatePhone();
     validateNewPassword();
 
     if (!emailError.value && !phoneError.value && !newPasswordError.value) {
-        // Отправьте данные, так как нет ошибок
-        console.log('Данные отправлены:', { email: email.value, phone: phone.value, newPassword: newPasswordValue.value });
+        if (newPassword.value) {
+            // If a new password is being set, make a request to update it.
+            try {
+                const response = await fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email.value,
+                        newPassword: newPasswordValue.value,
+                    }),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Ошибка при смене пароля');
+                }
+                
+                const result = await response.json();
+                console.log('Пароль успешно изменен:', result);
+                // Optionally, clear the password fields
+                newPasswordValue.value = '';
+                repeatPassword.value = '';
+                newPassword.value = false; // Reset the password change toggle
+            } catch (error) {
+                 console.error(error); // Log the error
+            }
+        } else {
+            // Handle case where only email and phone updates are needed
+            console.log('Данные отправлены:', { email: email.value, phone: phone.value });
+        }
     }
 };
+
 
 // Валидация электронной почты
 const validateEmail = () => {
@@ -121,7 +174,13 @@ const validateNewPassword = () => {
     }
 };
 
+// Lifecycle hook for mounting the component
+onMounted(() => {
+    fetchUsers(); // Загружаем пользователей при монтировании компонента
+});
 </script>
+
+
 
 <style lang="scss" scoped>
 @import './style.scss';

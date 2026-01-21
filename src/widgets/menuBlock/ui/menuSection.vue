@@ -1,10 +1,11 @@
 <template>
   <div>
     <CartList 
-  :customclass="'invisible'" 
-  :cartItems="cartItems" 
-  :onRemoveItem="removeFromCart" 
-/>
+      :customclass="'invisible'" 
+      :cartItems="cartItems" 
+      :onRemoveItem="removeFromCart" 
+    />
+
     <div class="menu-label" :id="menuLabelId">{{ props.menuLabel }}</div>
 
     <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
@@ -22,13 +23,19 @@
       >
         <template v-slot:weight-counter>
           <div class="menu-options">
-            <massWeight :CustomClass="item.CustomClass"  @update-price="updatePrice" :title="item.weightName">
+            <massWeight 
+              :CustomClass="item.CustomClass"  
+              @update-price="updatePrice" 
+              :title="item.weightName"
+            >
               <template v-slot:counter1>
                 <counter
                   :id="`${item.id}-counter1`"
                   :onAddToCart="() => addToCart(item)"
                   :onDeleteToCart="() => removeFromCartt(item)"
                   :price="menuPrices[item.weightName]"
+                  :label="menuPrices[item.weightName] ? item.weightName : 'Default Label'"
+                  :imageSrc="menuPrices[item.weightName] ? item.imageSrc : 'Default Label'"
                 />
               </template>
               <template v-slot:counter2>
@@ -37,6 +44,8 @@
                   :onAddToCart="() => addToCart(item)"
                   :onDeleteToCart="() => removeFromCartt(item)"
                   :price="menuPrices[item.weightName]"
+                  :label="menuPrices[item.weightName] ? item.weightName : 'Default Label'"
+                  :imageSrc="menuPrices[item.weightName] ? item.imageSrc : 'Default Label'"
                 />
               </template>
             </massWeight>
@@ -57,6 +66,7 @@
   </div>
 </template>
 
+
 <script setup lang="ts">
 import { ref } from 'vue';
 
@@ -76,6 +86,7 @@ interface MenuItem {
   spicyImageSrc: string;
   overImage: string;
   CustomClass:string;
+  label:string;
 }
 
 // props с трансформацией для строгой типизации
@@ -88,19 +99,20 @@ const props = defineProps<{
 // State
 const menuPrices = ref<Record<string, number>>({});
 const errorMessage = ref<string | null>(null);
-const cartItems = ref<{ id: number, name: string, price: number, quantity: number, imagesrc: string, }[]>([]);
+const cartItems = ref<{ id: number, name: string, price: number,label:string, quantity: number, imagesrc: string, }[]>([]);
 
 // Functions
-const updatePrice = (payload: { title: string; price: number }) => {
+const updatePrice = (payload: { title: string; price: number;label:string; imagesrc: string;}) => {
   menuPrices.value[payload.title] = payload.price;
 };
 
 const addToCart = (item: MenuItem) => {
-  // Сформируйте уникальный ключ для каждого варианта элемента
-  const existingItem = cartItems.value.find(cartItem => cartItem.id === item.id && cartItem.price === menuPrices.value[item.weightName]);
+  const existingItem = cartItems.value.find(cartItem => 
+    cartItem.id === item.id && cartItem.price === menuPrices.value[item.weightName]
+  );
 
   const currentPrice = menuPrices.value[item.weightName];
-
+  const weightLabel = item.weightName; // Or whatever appropriate label you want to use
   if (existingItem) {
     existingItem.quantity++;
   } else {
@@ -110,6 +122,7 @@ const addToCart = (item: MenuItem) => {
       imagesrc: item.imageSrc,
       price: currentPrice,
       quantity: 1,
+      label: weightLabel, // Set the correct label here
     });
   }
 };
