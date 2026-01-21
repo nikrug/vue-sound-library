@@ -22,15 +22,7 @@
       "quantity": 0
     }
   ],
-  "cart": [
-    {
-      "id": "41-counter2",
-      "count": 11,
-      "price": 187,
-      "label": "Сомбреро",
-      "imageSrc": "/images/menu-item/salad.png"
-    }
-  ],
+  "cart": [],
   "users": [
     {
       "id": "1",
