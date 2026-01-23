@@ -162,6 +162,7 @@
     <MainFooterComponent />
   </q-layout>
 </template>
+
 <script setup lang="ts">
 import { carrerComment } from '@entities/carrerComment';
 import carrerStory from '@entities/carrerStory/ui/carrerStory.vue';

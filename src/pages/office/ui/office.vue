@@ -74,6 +74,8 @@ import { inputText } from '@shared/ui';
 import addressWidget from '@widgets/addressWidget/ui/addressWidget/addressWidget.vue';
 
 interface User {
+    id: string;
+    password: string;
     email: string;
     phone?: string; // Поле phone может быть не обязательным
     // Добавьте другие поля, если нужно
@@ -94,19 +96,27 @@ const buttonText = computed(() => {
     return newPassword.value ? 'Сохранить новый пароль' : 'Сохранить изменения';
 });
 
-// Загружаем пользователей из db.json
+
 const fetchUsers = async () => {
     try {
-        const response = await fetch('http://localhost:3000/users'); // Укажите путь к вашему db.json
+        const response = await fetch('http://localhost:3000/users');
+        
         if (!response.ok) {
-            throw new Error('Ошибка загрузки данных');
+            throw new Error('Ошибка при загрузке пользователей');
         }
+
         const data = await response.json();
-        users.value = data.users; // Предполагая, что ваши данные находятся в поле "users"
+        users.value = data; // Сохраняем загруженные данные в users
+        console.log('Загруженные пользователи:', users.value);
     } catch (error) {
-        console.error(error);
+        console.error('Ошибка:', error);
     }
 };
+
+// Вызов функции при монтировании
+onMounted(() => {
+    fetchUsers();
+});
 
 
 
@@ -115,41 +125,50 @@ const handleSubmit = async () => {
     validatePhone();
     validateNewPassword();
 
-    if (!emailError.value && !phoneError.value && !newPasswordError.value) {
-        if (newPassword.value) {
-            // If a new password is being set, make a request to update it.
-            try {
-                const response = await fetch('http://localhost:3000/users', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: email.value,
-                        newPassword: newPasswordValue.value,
-                    }),
-                });
+    if (!emailError.value && !phoneError.value && (newPassword.value ? !newPasswordError.value : true)) {
+        try {
+            // Проверяем, существует ли массив users и имеет ли он элементы
+            if (users.value && users.value.length > 0) {
+                // Находим пользователя по email
+                const existingUser = users.value.find(user => user.email === email.value);
                 
-                if (!response.ok) {
-                    throw new Error('Ошибка при смене пароля');
+                // Если пользователь найден
+                if (existingUser) {
+                    const response = await fetch(`http://localhost:3000/users/${existingUser.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        // Обновляем только поля, которые были изменены
+                        body: JSON.stringify({
+                            id: existingUser.id, // добавляем идентификатор
+                            ...(phone.value && { phone: phone.value }), 
+                            ...(newPassword.value && { password: newPasswordValue.value }),
+                        }),
+                    });
+
+                    // Проверяем успешность запроса
+                    if (!response.ok) {
+                        throw new Error('Ошибка при обновлении данных пользователя');
+                    }
+
+                    const result = await response.json();
+                    console.log('Данные пользователя успешно обновлены:', result);
+
+                    // Сбрасываем значения полей
+                    newPasswordValue.value = '';
+                    repeatPassword.value = '';
+                } else {
+                    console.log('Пользователь с таким email не найден.');
                 }
-                
-                const result = await response.json();
-                console.log('Пароль успешно изменен:', result);
-                // Optionally, clear the password fields
-                newPasswordValue.value = '';
-                repeatPassword.value = '';
-                newPassword.value = false; // Reset the password change toggle
-            } catch (error) {
-                 console.error(error); // Log the error
+            } else {
+                console.log('Список пользователей пуст.');
             }
-        } else {
-            // Handle case where only email and phone updates are needed
-            console.log('Данные отправлены:', { email: email.value, phone: phone.value });
+        } catch (error) {
+            console.error(error);
         }
     }
 };
-
 
 // Валидация электронной почты
 const validateEmail = () => {
@@ -165,13 +184,9 @@ const validatePhone = () => {
 
 // Валидация нового пароля
 const validateNewPassword = () => {
-    if (newPasswordValue.value.length < 6) {
-        newPasswordError.value = 'Пароль должен содержать минимум 6 символов.';
-    } else if (newPasswordValue.value !== repeatPassword.value) {
+    if (newPasswordValue.value !== repeatPassword.value) {
         newPasswordError.value = 'Пароли не совпадают.';
-    } else {
-        newPasswordError.value = '';
-    }
+    } 
 };
 
 // Lifecycle hook for mounting the component

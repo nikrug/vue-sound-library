@@ -25,21 +25,6 @@
   "cart": [],
   "users": [
     {
-      "id": "1",
-      "email": "user1@example.com",
-      "password": "password123"
-    },
-    {
-      "id": "2",
-      "email": "user2@example.com",
-      "password": "password456"
-    },
-    {
-      "id": "cf27",
-      "email": "domrachev-nikitka@mail.ru",
-      "password": "123456"
-    },
-    {
       "id": "cad7",
       "email": "asdcasdc",
       "password": "asdcasdc"
@@ -52,32 +37,15 @@
     {
       "id": "fb54",
       "email": "domrachev-nikitka@mail.ru",
-      "newPassword": "1111111"
-    },
-    {
-      "id": "0f3c",
-      "email": "domrachev-nikitыka@mail.ru",
-      "newPassword": "555555"
-    },
-    {
-      "id": "bb63",
-      "email": "domrachev-nikitka@mail.ru",
-      "newPassword": "123456"
-    },
-    {
-      "id": "f30b",
-      "email": "domrachev-nikitka3@mail.ru",
+      "newPassword": "1111111",
+      "phone": "+79139334455",
       "password": "123456"
     },
     {
-      "id": "5475",
-      "email": "domrachev-nikitka3@mail.ru",
-      "password": "123456"
-    },
-    {
-      "id": "4b56",
-      "email": "domrachev-nikitka@mail.ru",
-      "newPassword": "123456"
+      "id": "7b09",
+      "email": "domrrachev-nikitka@mail.ru",
+      "password": "1234567",
+      "phone": "+79521838624"
     }
   ],
   "posts": [

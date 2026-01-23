@@ -66,7 +66,6 @@ watch(password, (newValue) => {
         :placeholder="inputPlaceholder"
         v-model="password"
         :maxlength="inputType === 'password' ? maxLength : undefined"
-        required
       />
       <div :class="PasswordButton" @click="togglePassword">
         <img class="input__show-img"
