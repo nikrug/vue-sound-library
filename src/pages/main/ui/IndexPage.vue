@@ -28,7 +28,6 @@
     <div class="swiper-pagination"></div>
   </swiper>
     <div class="menu-list">
-      <a href="https://yandex.ru/maps/?ll=30.310182,59.951059&z=12&l=map">Карта Санкт-Петербурга</a>
       <menuPizza></menuPizza>
     </div>
   </div>
