@@ -4,11 +4,12 @@
       <button
         class="option-button"
         v-for="option in weightOptions"
-        :key="option.label"
+        :key="option.weight"
         :class="{'active': selectedWeight === option.value}"
-        @click="selectWeight(option.value, option.price, option.label)"
+        @click="selectWeight(option.value, option.price, option.weight)"
       >
-        {{ option.label }}
+        {{ option.weight }}
+  
       </button>
     </div>
 
@@ -19,9 +20,9 @@
       <div
         class="options-info-text"
         v-for="option in weightOptions"
-        :key="option.label"
+        :key="option.weight"
       >
-        <div class="options-info-text">{{ option.label }}</div>
+        <div class="options-info-text">{{ option.weight }}</div>
         {{ option.price }} ₽
       </div>
     </div>
@@ -72,21 +73,25 @@ export default {
           this.weightOptions = options;
 
           // Set initial weight and price
-          this.selectWeight(options[0].value, options[0].price, options[0].label);
+          this.selectWeight(options[0].value, options[0].price, options[0].weight);
         }
       } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
       }
     },
-    selectWeight(value, price, label) {
-      this.selectedWeight = value;
-      this.totalPrice = price;
 
-      // Change counter
-      this.selectedCounter = this.selectedCounter === 'counter1' ? 'counter2' : 'counter1';
+    selectWeight(value, price, weight) {
+        this.selectedWeight = value;
+        this.totalPrice = price;
 
-      // Emit weight data including label
-      this.$emit('update-price', { title: this.title, price, label, weight: value });
+        // Change counter
+        this.selectedCounter = this.selectedCounter === 'counter1' ? 'counter2' : 'counter1';
+
+        // Emit weight data including price and weight
+        this.$emit('update-price', { title: this.title, price, value,weight });
+        
+        // Эмитим значение веса с ID элемента
+        this.$emit('update-weight', { weight, itemId: this.title }); // здесь title может быть ID элемента
     }
   },
 };

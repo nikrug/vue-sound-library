@@ -26,6 +26,7 @@
             <massWeight 
               :CustomClass="item.CustomClass"  
               @update-price="updatePrice" 
+              
               :title="item.weightName"
             >
               <template v-slot:counter1>
@@ -34,6 +35,7 @@
                   :onAddToCart="() => addToCart(item)"
                   :onDeleteToCart="() => removeFromCartt(item)"
                   :price="menuPrices[item.weightName]"
+                  :weight="selectedWeights[item.weightName]"
                   :label="menuPrices[item.weightName] ? item.weightName : 'Default Label'"
                   :imageSrc="menuPrices[item.weightName] ? item.imageSrc : 'Default Label'"
                 />
@@ -44,6 +46,7 @@
                   :onAddToCart="() => addToCart(item)"
                   :onDeleteToCart="() => removeFromCartt(item)"
                   :price="menuPrices[item.weightName]"
+                  :weight="selectedWeights[item.weightName]"
                   :label="menuPrices[item.weightName] ? item.weightName : 'Default Label'"
                   :imageSrc="menuPrices[item.weightName] ? item.imageSrc : 'Default Label'"
                 />
@@ -66,7 +69,6 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 import { ref } from 'vue';
 
@@ -75,7 +77,6 @@ import CartList from '@widgets/cartList/ui/cartList.vue';
 import counter from '@widgets/counter/ui/Counter.vue';
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
 
-// Определите общие поля для пиццы и мексиканских блюд
 interface MenuItem {
   id: number;
   name: string;
@@ -86,45 +87,44 @@ interface MenuItem {
   spicyImageSrc: string;
   overImage: string;
   CustomClass:string;
-  label:string;
 }
 
-// props с трансформацией для строгой типизации
 const props = defineProps<{
   menuItems: MenuItem[],
   menuLabel: string,
   menuLabelId: string,
 }>();
 
-// State
 const menuPrices = ref<Record<string, number>>({});
 const errorMessage = ref<string | null>(null);
-const cartItems = ref<{ id: number, name: string, price: number,label:string, quantity: number, imagesrc: string, }[]>([]);
-
-// Functions
-const updatePrice = (payload: { title: string; price: number;label:string; imagesrc: string;}) => {
+const cartItems = ref<{ id: number, name: string, price: number, weight:string, quantity: number, imagesrc: string }[]>([]);
+const selectedWeights = ref<Record<string, string>>({});
+const updatePrice = (payload: { title: string; price: number; weight:string; imagesrc: string;}) => {
   menuPrices.value[payload.title] = payload.price;
+   selectedWeights.value[payload.title] = payload.weight; // Сохраняем weight по ID элемента
+  
 };
 
-const addToCart = (item: MenuItem) => {
-  const existingItem = cartItems.value.find(cartItem => 
-    cartItem.id === item.id && cartItem.price === menuPrices.value[item.weightName]
-  );
 
-  const currentPrice = menuPrices.value[item.weightName];
-  const weightLabel = item.weightName; // Or whatever appropriate label you want to use
-  if (existingItem) {
-    existingItem.quantity++;
-  } else {
-    cartItems.value.push({
-      id: item.id,
-      name: item.name,
-      imagesrc: item.imageSrc,
-      price: currentPrice,
-      quantity: 1,
-      label: weightLabel, // Set the correct label here
-    });
-  }
+const addToCart = (item: MenuItem) => {
+    const existingItem = cartItems.value.find(cartItem =>
+        cartItem.id === item.id && cartItem.price === menuPrices.value[item.weightName]
+    );
+
+    const currentPrice = menuPrices.value[item.weightName];
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cartItems.value.push({
+            id: item.id,
+            name: item.name,
+            imagesrc: item.imageSrc,
+            price: currentPrice,
+            quantity: 1,
+            weight: selectedWeights.value[item.weightName], // Accessing a specific weight straight from selectedWeights
+        });
+    }
 };
 
 const removeFromCartt = (item: MenuItem) => {
@@ -149,5 +149,4 @@ const removeFromCart = (id: number) => {
 
 <style lang="scss" scoped>
 @import './style.scss';
-
 </style>

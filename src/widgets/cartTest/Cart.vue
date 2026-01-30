@@ -3,12 +3,14 @@
     <div class="cart-list__item" v-for="(item, index) in localCart" :key="item.id">
       <div class="cart-list__name">
         <img :src="item.imageSrc" class="cart-item-image" />
-        {{ item.label }} - {{ item.price }} ₽
+        {{ item.label }}
+        {{ item.weight }}
       </div>
       <div class="cart-list__counter">
         <button class="count-button" @click="decreaseItem(index)">-</button>
         <span class="count-quantity">{{ item.count }}</span>
         <button class="count-button" @click="increaseItem(index)">+</button>
+        <span class="count-price">{{ item.price * item.count }}₽</span>
       </div>
     </div>
     <div class="cart-list__bottom">
@@ -45,6 +47,7 @@ interface CartItem {
   count: number;
   price: number;
   label: string;
+  weight:string;
   imageSrc: string;
 }
 
@@ -85,7 +88,9 @@ const saveCartToDB = async () => {
         count: item.count,
         price: item.price,
         label: item.label,
+        labels: item.label,
         imageSrc: item.imageSrc,
+        weight:item.weight,
       })
     ));
     calculateTotalPrice(); // Пересчет общей суммы при сохранении
