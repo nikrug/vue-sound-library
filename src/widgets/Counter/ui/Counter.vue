@@ -101,6 +101,7 @@ const saveToDB = async (item) => {
 };
 
 const addToCart = async () => {
+
   count.value++;
   const item = {
     id: props.id,
@@ -108,7 +109,8 @@ const addToCart = async () => {
     price: props.price,
     label: props.label,
     imageSrc: props.imageSrc,
-    weight:props.weight
+    weight:props.weight,
+
   };
   await saveToDB(item);
   props.onAddToCart();
@@ -117,13 +119,16 @@ const addToCart = async () => {
 const decrement = async () => {
   if (count.value > 0) {
     count.value--;
+
+
     const item = {
       id: props.id,
       count: count.value,
       price: props.price,
       label: props.label,
       imageSrc: props.imageSrc,
-      weight:props.weight
+      weight:props.weight,
+  
     };
     
     if (count.value === 0) {

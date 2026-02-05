@@ -29,6 +29,7 @@ import menuItems from 'src/widgets/mainHeader/headerDropdown/ui/headerDropdown.v
 import HeaderLogo from 'src/widgets/mainHeader/headerLogo/ui/HeaderLogo.vue';
 import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
 import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownmenu.vue'
+
 </script>
 
 <style lang="scss">

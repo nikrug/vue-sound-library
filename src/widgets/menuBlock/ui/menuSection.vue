@@ -35,7 +35,7 @@
                   :onAddToCart="() => addToCart(item)"
                   :onDeleteToCart="() => removeFromCartt(item)"
                   :price="menuPrices[item.weightName]"
-                  :weight="selectedWeights[item.weightName]"
+                  :weight="selectedWeights[item.weightName] || 'defaultWeight'"
                   :label="menuPrices[item.weightName] ? item.weightName : 'Default Label'"
                   :imageSrc="menuPrices[item.weightName] ? item.imageSrc : 'Default Label'"
                 />
@@ -46,7 +46,7 @@
                   :onAddToCart="() => addToCart(item)"
                   :onDeleteToCart="() => removeFromCartt(item)"
                   :price="menuPrices[item.weightName]"
-                  :weight="selectedWeights[item.weightName]"
+                  :weight="selectedWeights[item.weightName] || 'defaultWeight'"  
                   :label="menuPrices[item.weightName] ? item.weightName : 'Default Label'"
                   :imageSrc="menuPrices[item.weightName] ? item.imageSrc : 'Default Label'"
                 />

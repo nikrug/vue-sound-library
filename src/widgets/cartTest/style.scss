@@ -40,7 +40,26 @@ li {
   margin-bottom: 0.5rem;
 }
 
+.invicible{
+  display:none;
+  color:white;
+}
 
+.cart-list__name-block{
+  display: flex;
+  flex-direction: column;
+}
+
+.count-price{
+  font-size:20px;
+  font-weight: 500;
+}
+
+.cart-list__counter-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .cart-list__item{
     display: flex;
     flex-direction: column;
@@ -73,6 +92,7 @@ li {
             align-items: center; /* центрирование по вертикали */
             min-width: 120px; /* Задайте достаточную ширину для счетчика */
             text-align: center;
+            justify-content: space-between;
         }
 }
 

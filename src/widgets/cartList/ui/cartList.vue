@@ -36,6 +36,7 @@ interface CartItem {
   price: number;
   quantity: number;
   imagesrc: string;
+  weight:string;
 }
 
 const props = defineProps<{

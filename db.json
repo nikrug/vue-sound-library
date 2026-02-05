@@ -24,13 +24,12 @@
   ],
   "cart": [
     {
-      "id": "36-counter1",
-      "count": 4,
-      "price": 995,
-      "label": "Энчиладос",
-      "labels": "Энчиладос",
-      "imageSrc": "/images/menu-item/enchiladoss.png",
-      "weight": "1360г"
+      "id": "31-counter1",
+      "count": 8,
+      "price": 227,
+      "label": "Кесадия2",
+      "imageSrc": "/images/menu-item/Kesadilia.png",
+      "weight": "340 г."
     }
   ],
   "users": [
