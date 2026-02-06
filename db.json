@@ -22,7 +22,16 @@
       "quantity": 0
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "31-counter1",
+      "count": 8,
+      "price": 227,
+      "label": "Кесадия2",
+      "imageSrc": "/images/menu-item/Kesadilia.png",
+      "weight": "340 г."
+    }
+  ],
   "users": [
     {
       "id": "cad7",
@@ -37,8 +46,7 @@
     {
       "id": "fb54",
       "email": "domrachev-nikitka@mail.ru",
-      "newPassword": "1111111",
-      "phone": "+79139334455",
+      "phone": "+79521838624",
       "password": "123456"
     },
     {
@@ -174,6 +182,16 @@
       "weightName": "Арканзас2",
       "CustomClass": "option-none",
       "imageSrc": "/images/menu-item/Archcansas.png",
+      "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
+      "overImage": ""
+    },
+    {
+      "id": "122",
+      "name": "Вы бы знали",
+      "description": "как мне.....",
+      "weight": "(666 гр: 228 Ккал/1488 кДж)",
+      "weightName": "Гослинг",
+      "imageSrc": "/images/menu-item/303473_929890.jpg",
       "spicyImageSrc": "/images/menu-item/Exclamation Mark.svg",
       "overImage": ""
     }
@@ -605,13 +623,13 @@
     "Дженнифер": [
       {
         "name": "Дженнифер",
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "small",
         "price": 545
       },
       {
         "name": "Дженнифер",
-        "label": "1380 г.",
+        "weight": "1380 г.",
         "value": "large",
         "price": 1065
       }
@@ -619,13 +637,13 @@
     "Арканзас": [
       {
         "name": "Арканзас",
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 545
       },
       {
         "name": "Арканзас",
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 1065
       }
@@ -633,13 +651,13 @@
     "Арканзас2": [
       {
         "name": "Арканзас2",
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 545
       },
       {
         "name": "Арканзас2",
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 1065
       }
@@ -647,349 +665,361 @@
     "Мичиган": [
       {
         "name": "Мичиган",
-        "label": "680 г.",
+        "weight": "680 г.",
         "value": "medium",
         "price": 550
       },
       {
         "name": "Мичиган",
-        "label": "1360 г.",
+        "weight": "1360 г.",
         "value": "large",
         "price": 995
       }
     ],
     "Мичиган2": [
       {
-        "label": "680 г.",
+        "weight": "680 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1360 г.",
+        "weight": "1360 г.",
         "value": "large",
         "price": 995
       }
     ],
     "Пепперони": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 995
       }
     ],
     "Пепперони2": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 995
       }
     ],
     "Джорджия": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 995
       }
     ],
     "Джорджия2": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 995
       }
     ],
     "Манхеттен": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 975
       }
     ],
     "Манхеттен2": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 975
       }
     ],
     "Манхеттен3": [
       {
-        "label": "690 г.",
+        "weight": "690 г.",
         "value": "medium",
         "price": 550
       },
       {
-        "label": "1330 г.",
+        "weight": "1330 г.",
         "value": "large",
         "price": 975
       }
     ],
+    "Гослинг": [
+      {
+        "value": "cac ia",
+        "weight": "прям как я",
+        "price": 100500
+      },
+      {
+        "value": "cac ia s sirom",
+        "weight": "с сыром",
+        "price": 200500
+      }
+    ],
     "Бери-пеки Нью-Джерси": [
       {
-        "label": "300 г.",
+        "weight": "300 г.",
         "price": 545
       }
     ],
     "Бери-пеки Мичиган": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 580
       }
     ],
     "Бери-пеки Мичиган2": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 580
       }
     ],
     "Бери-пеки Арканзас": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 495
       }
     ],
     "Бери-пеки Арканзас2": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 495
       }
     ],
     "Бери-пеки Арканзас3": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 495
       }
     ],
     "Бери-пеки Манхэттен": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 495
       }
     ],
     "Бери-пеки Дженифер": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 495
       }
     ],
     "Бери-пеки Дженни": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 495
       }
     ],
     "Наггетсы": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 187
       }
     ],
     "Тортилья": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 157
       }
     ],
     "Сухарики": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 87
       }
     ],
     "Сухарики2": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 87
       }
     ],
     "Сальса": [
       {
-        "label": "30г",
+        "weight": "30г",
         "value": "medium",
         "price": 10
       },
       {
-        "label": "60г",
+        "weight": "60г",
         "value": "large",
         "price": 35
       }
     ],
     "Сальса2": [
       {
-        "label": "30г",
+        "weight": "30г",
         "value": "medium",
         "price": 10
       },
       {
-        "label": "60г",
+        "weight": "60г",
         "value": "large",
         "price": 35
       }
     ],
     "Тар-Тар": [
       {
-        "label": "30г",
+        "weight": "30г",
         "value": "medium",
         "price": 10
       },
       {
-        "label": "60г",
+        "weight": "60г",
         "value": "large",
         "price": 35
       }
     ],
     "Сырный": [
       {
-        "label": "30г",
+        "weight": "30г",
         "value": "medium",
         "price": 10
       },
       {
-        "label": "60г",
+        "weight": "60г",
         "value": "large",
         "price": 35
       }
     ],
     "Кетчуп Майонез Сметана": [
       {
-        "label": "кетчуп",
+        "weight": "кетчуп",
         "value": "ketchup",
         "price": 25
       },
       {
-        "label": "майонез",
+        "weight": "майонез",
         "value": "mayo",
         "price": 25
       },
       {
-        "label": "сметана",
+        "weight": "сметана",
         "value": "smetana",
         "price": 25
       }
     ],
     "Кесадия": [
       {
-        "label": "170 г.",
+        "weight": "170 г.",
         "value": "medium",
         "price": 100
       },
       {
-        "label": "340 г.",
+        "weight": "340 г.",
         "value": "large",
         "price": 227
       }
     ],
     "Кесадия2": [
       {
-        "label": "170 г.",
+        "weight": "170 г.",
         "value": "medium",
         "price": 100
       },
       {
-        "label": "340 г.",
+        "weight": "340 г.",
         "value": "large",
         "price": 227
       }
     ],
     "Кесадия3": [
       {
-        "label": "170 г.",
+        "weight": "170 г.",
         "value": "medium",
         "price": 100
       },
       {
-        "label": "340 г.",
+        "weight": "340 г.",
         "value": "large",
         "price": 227
       }
     ],
     "Кесадия4": [
       {
-        "label": "170 г.",
+        "weight": "170 г.",
         "value": "medium",
         "price": 100
       },
       {
-        "label": "340 г.",
+        "weight": "340 г.",
         "value": "large",
         "price": 227
       }
     ],
     "Кесадия5": [
       {
-        "label": "170 г.",
+        "weight": "170 г.",
         "value": "medium",
         "price": 100
       },
       {
-        "label": "340 г.",
+        "weight": "340 г.",
         "value": "large",
         "price": 227
       }
     ],
     "Кесадия-ролл": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 227
       }
     ],
     "Энчиладос": [
       {
-        "label": "680г",
+        "weight": "680г",
         "value": "medium",
         "price": 500
       },
       {
-        "label": "1360г",
+        "weight": "1360г",
         "value": "large",
         "price": 995
       }
     ],
     "Лукас": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 112
       }
     ],
     "Цезарь": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 120
       }
     ],
     "Сомбреро": [
       {
-        "label": "300г",
+        "weight": "300г",
         "price": 187
       }
     ]

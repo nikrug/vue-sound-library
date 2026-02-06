@@ -5,6 +5,7 @@
         <div class="cart-list__name">
           <img :src="item.imagesrc" alt="Изображение товара" />
           {{ item.name }} 
+          
         </div>
         <div class="cart-list__counter">
           <button class="count-button" @click="updateItemQuantity(item, -1)">-</button>
@@ -35,6 +36,7 @@ interface CartItem {
   price: number;
   quantity: number;
   imagesrc: string;
+  weight:string;
 }
 
 const props = defineProps<{

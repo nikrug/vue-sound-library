@@ -2,6 +2,9 @@
   <div class="counter">
     <div class="count-text" v-if="count < 1">
       {{ price }} ₽
+
+      
+      
     </div>
     <div class="count-text" v-if="count > 0" :class="{ 'active-text': count > 0 }">
       {{ total }} ₽
@@ -27,10 +30,15 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  weight:{
+    type: String,
+    required: true,
+  },
   imageSrc: {
     type: String,
     required: true,
   },
+
   id: {
     type: String,
     required: true,
@@ -93,6 +101,7 @@ const saveToDB = async (item) => {
 };
 
 const addToCart = async () => {
+
   count.value++;
   const item = {
     id: props.id,
@@ -100,6 +109,8 @@ const addToCart = async () => {
     price: props.price,
     label: props.label,
     imageSrc: props.imageSrc,
+    weight:props.weight,
+
   };
   await saveToDB(item);
   props.onAddToCart();
@@ -108,12 +119,16 @@ const addToCart = async () => {
 const decrement = async () => {
   if (count.value > 0) {
     count.value--;
+
+
     const item = {
       id: props.id,
       count: count.value,
       price: props.price,
       label: props.label,
       imageSrc: props.imageSrc,
+      weight:props.weight,
+  
     };
     
     if (count.value === 0) {
