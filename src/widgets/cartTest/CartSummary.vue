@@ -23,27 +23,24 @@ export default {
       try {
         const response = await axios.get('http://localhost:3000/cart');
         this.cart = response.data;
-      } catch (error) {
-        console.error('Ошибка получения корзины:', error);
+      } catch {
+        alert('Ошибка обновления корзины'); // Замените на ваше уведомление
+       // console.error('Ошибка получения корзины:', error);
       }
     },
     
     addToCart(product) {
       this.cart.push(product);
       axios.post('http://localhost:3000/cart', product) // Сохранение товара на сервер
-        .then(response => {
-          console.log('Товар добавлен в корзину:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при добавлении товара в корзину:', error);
-        });
+
     },
     
     async updateCartInDB() {
       try {
         await axios.put('http://localhost:3000/cart', this.cart);
-      } catch (error) {
-        console.error('Ошибка обновления корзины:', error);
+      } catch  {
+      alert('Ошибка обновления корзины'); // Замените на ваше уведомление
+      //  console.error('Ошибка обновления корзины:', error);
       }
     }
   },

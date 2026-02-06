@@ -31,8 +31,9 @@ export default {
         const response = await axios.get('http://localhost:3000/cart');
         // Фильтруем пустые или некорректные элементы
         this.cart = response.data.filter(item => item.id && item.quantity > 0); 
-      } catch (error) {
-        console.error('Error loading cart:', error);
+      } catch  {
+      //  console.error('Error loading cart:', error);
+       alert('Ошибка обновления корзины:'); 
       }
     },
 
@@ -56,9 +57,11 @@ export default {
       if (product && product.id) { // Проверка на корректность продукта
         try {
           await axios.post('http://localhost:3000/cart', { ...product });
-          console.log('Product added to cart');
-        } catch (error) {
-          console.error('Error adding product to cart:', error);
+         // console.log('Product added to cart');
+          alert('Ошибка обновления корзины:'); 
+        } catch  {
+          //console.error('Error adding product to cart:', error);
+           alert('Ошибка обновления корзины:'); 
         }
       }
     },
@@ -66,18 +69,22 @@ export default {
     async updateDatabase(item) {
       try {
         await axios.put(`http://localhost:3000/cart/${item.id}`, item);
-        console.log('Product updated in cart');
-      } catch (error) {
-        console.error('Error updating product in cart:', error);
+        //console.log('Product updated in cart');
+         alert('Ошибка обновления корзины:'); 
+      } catch  {
+        //console.error('Error updating product in cart:', error);
+         alert('Ошибка обновления корзины:'); 
       }
     },
     
     async deleteFromDatabase(itemId) {
       try {
         await axios.delete(`http://localhost:3000/cart/${itemId}`);
-        console.log('Product removed from cart');
-      } catch (error) {
-        console.error('Error removing product from cart:', error);
+       // console.log('Product removed from cart');
+        alert('Ошибка удаления из корзины:'); 
+      } catch  {
+       // console.error('Error removing product from cart:', error);
+        alert('Ошибка удаления из корзины:'); 
       }
     }
   }

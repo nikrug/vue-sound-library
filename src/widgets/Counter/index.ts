@@ -1,4 +1,4 @@
-import counter from './ui/counter/counter.vue';
+import counter from '.counter/ui/Counter.vue';
 
 export {
     counter

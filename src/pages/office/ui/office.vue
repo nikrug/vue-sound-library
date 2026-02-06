@@ -107,9 +107,9 @@ const fetchUsers = async () => {
 
         const data = await response.json();
         users.value = data; // Сохраняем загруженные данные в users
-        console.log('Загруженные пользователи:', users.value);
-    } catch (error) {
-        console.error('Ошибка:', error);
+    } catch  {
+       // Обработка ошибки, например, вывод в пользовательский интерфейс
+       alert('Ошибка'); // Замените на ваше уведомление
     }
 };
 
@@ -118,8 +118,6 @@ onMounted(() => {
     fetchUsers();
 });
 
-
-
 const handleSubmit = async () => {
     validateEmail();
     validatePhone();
@@ -127,19 +125,15 @@ const handleSubmit = async () => {
 
     if (!emailError.value && !phoneError.value && (newPassword.value ? !newPasswordError.value : true)) {
         try {
-            // Проверяем, существует ли массив users и имеет ли он элементы
             if (users.value && users.value.length > 0) {
-                // Находим пользователя по email
                 const existingUser = users.value.find(user => user.email === email.value);
                 
-                // Если пользователь найден
                 if (existingUser) {
                     const response = await fetch(`http://localhost:3000/users/${existingUser.id}`, {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        // Обновляем только поля, которые были изменены
                         body: JSON.stringify({
                             id: existingUser.id, // добавляем идентификатор
                             ...(phone.value && { phone: phone.value }), 
@@ -147,25 +141,18 @@ const handleSubmit = async () => {
                         }),
                     });
 
-                    // Проверяем успешность запроса
                     if (!response.ok) {
                         throw new Error('Ошибка при обновлении данных пользователя');
                     }
-
-                    const result = await response.json();
-                    console.log('Данные пользователя успешно обновлены:', result);
-
-                    // Сбрасываем значения полей
-                    newPasswordValue.value = '';
-                    repeatPassword.value = '';
+                    // Обработка успешного обновления, например, уведомление
                 } else {
-                    console.log('Пользователь с таким email не найден.');
+                    alert('Пользователь с таким email не найден.'); // Замените на ваше уведомление
                 }
             } else {
-                console.log('Список пользователей пуст.');
+                alert('Список пользователей пуст.'); // Замените на ваше уведомление
             }
-        } catch (error) {
-            console.error(error);
+        } catch  {
+            alert('Ошибка'); // Замените на ваше уведомление
         }
     }
 };

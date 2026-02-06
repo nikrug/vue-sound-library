@@ -63,8 +63,9 @@ const loadCartFromDB = async () => {
     cartItems.value = await response.json();
     const existingItem = cartItems.value.find(item => item.id === props.id);
     count.value = existingItem ? existingItem.count : 0; // Устанавливаем count из БД
-  } catch (error) {
-    console.error('Ошибка загрузки корзины из БД:', error);
+  } catch  {
+    //console.error('Ошибка загрузки корзины из БД:', error);
+    alert('Ошибка загрузки корзины из БД'); 
   }
 };
 
@@ -95,8 +96,9 @@ const saveToDB = async (item) => {
       // Добавляем в локальный массив
       cartItems.value.push(item);
     }
-  } catch (error) {
-    console.error('Ошибка при сохранении в БД:', error);
+  } catch  {
+    //console.error('Ошибка при сохранении в БД:', error);
+    alert('Ошибка при сохранении в БД'); 
   }
 };
 
