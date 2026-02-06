@@ -99,8 +99,9 @@ const saveCartToDB = async () => {
       })
     ));
     calculateTotalPrice(); // Пересчет общей суммы при сохранении
-  } catch (error) {
-    console.error('Ошибка при сохранении корзины:', error);
+  } catch  {
+    //console.error('Ошибка при сохранении корзины:', error);
+    alert('Ошибка при сохранении корзины'); 
   }
 };
 
@@ -125,7 +126,8 @@ const removeFromCart = async (itemId: string) => {
     await axios.delete(`http://localhost:3000/cart/${itemId}`);
     calculateTotalPrice(); // Пересчет общей суммы при удалении
   } else {
-    console.warn(`Товар с id ${itemId} не найден в корзине.`);
+    alert('Товар с id ${itemId} не найден в корзине.'); 
+   // console.warn(`Товар с id ${itemId} не найден в корзине.`);
   }
 };
 

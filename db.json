@@ -24,12 +24,21 @@
   ],
   "cart": [
     {
-      "id": "31-counter1",
-      "count": 8,
-      "price": 227,
-      "label": "Кесадия2",
-      "imageSrc": "/images/menu-item/Kesadilia.png",
-      "weight": "340 г."
+      "id": "1-counter2",
+      "count": 2,
+      "price": 545,
+      "label": "Дженнифер",
+      "labels": "Дженнифер",
+      "imageSrc": "/images/menu-item/Jeniffer.jpg",
+      "weight": "690 г."
+    },
+    {
+      "id": "5-counter2",
+      "count": 5,
+      "price": 550,
+      "label": "Джорджия",
+      "imageSrc": "/images/menu-item/Jorjia.jpg",
+      "weight": "690 г."
     }
   ],
   "users": [
