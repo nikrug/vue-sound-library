@@ -74,7 +74,7 @@ import { ref } from 'vue';
 
 import MenuItem from '@entities/menuItem/ui/menuItem.vue';
 import CartList from '@widgets/cartList/ui/cartList.vue';
-import counter from '@widgets/counter/ui/Counter.vue';
+import counter from '@widgets/counter/ui/сounterTest.vue';
 import massWeight from '@widgets/massWeighr/ui/massWeight.vue';
 
 interface MenuItem {
