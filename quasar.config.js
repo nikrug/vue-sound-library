@@ -9,7 +9,7 @@
 // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const { configure } = require('quasar/wrappers');
 const webpack = require('webpack')
@@ -99,6 +99,14 @@ module.exports = configure(function(ctx) {
           .set('@pages', path.resolve(__dirname, './src/pages'))
           .set('@app', path.resolve(__dirname, './src/app'))
           .set('@fonts', path.resolve(__dirname, './src/app/styles/fonts'))
+                  config.plugin('copy').use(CopyWebpackPlugin, [{
+          patterns: [
+            {
+              from: path.resolve(__dirname, 'db.json'), // замените на путь к вашему db.json
+              to: path.resolve(__dirname, 'dist/db.json') // или другой выходной путь
+            }
+          ]
+        }]);
         config.optimization
           .splitChunks(false);
         config.output
@@ -267,6 +275,7 @@ module.exports = configure(function(ctx) {
         // do something with the Electron main process Webpack cfg
         // extendWebpackPreload also available besides this chainWebpackPreload
       }
+
     }
   };
 });
