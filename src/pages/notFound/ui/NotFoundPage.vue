@@ -1,28 +1,35 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
-    <div>
-      <div style="font-size: 30vh">
-        404
+  <q-layout view="lHh Lpr lFf">
+    <MainHeaderComponent />
+    <q-page-container>
+      <div class="notFound">
+        <div class="notFound__block">
+            <div class="notFound__block-text">
+              <div class="notFound__label">404</div>
+              <div class="notFound__text-box">
+                <div class="notFound__title">Страница не найдена</div>
+                <div class="notFound__subtitle">Воспользуйтесь меню, чтобы заказать доставку<br>
+                   свежих и вкусных блюд от ПиццеРио</div>
+              </div>
+              <a href="/">
+              <customButton ButtonText="Перейти в меню" ></customButton>
+              </a>
+            </div>
+            <div class="notFound__block-img">
+              <img class="notFound__img" src="/images/not-found/notFound.png">
+            </div>
+        </div>
       </div>
-
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
-
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        :to="ROUTES.MAIN"
-        label="Go Home"
-        no-caps
-      />
-    </div>
-  </div>
+    </q-page-container>
+    <MainFooterComponent />
+  </q-layout>
 </template>
-
 <script setup lang="ts">
-
-import { ROUTES } from '@shared/lib/routes';
+import { customButton } from '@shared/ui';
+import { MainFooterComponent } from '@widgets/mainFooter';
+import { MainHeaderComponent } from '@widgets/mainHeader';
 </script>
+
+<style lang="scss">
+@import './style.scss';
+</style>

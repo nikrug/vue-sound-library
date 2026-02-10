@@ -1,43 +1,70 @@
 <template>
   <div>
-    <burger :isOpen="isOpen" @toggle="toggleDropdown" />
-    <div class="dropdown" :class="{ show: isOpen }">
-            <ul class="dropdown-list">
-                <a href="/">Home </a>
-                <a href="/">About</a>
-                <a href="/">Services</a>
-                <a href="/">Projects</a>
-                <Popup></Popup>
-            </ul>
-          </div>
+    <burger :isOpen="isOpen" @toggle="toggleDropdown" @click="menuItems = !menuItems"/>
+    <div class="overlay" v-if="isOpen"></div>
+    <div class="dropdown" :class="{ show: isOpen }" >
+      <ScrollDownmenu LinkClass="dropdownl" ButtonClass="cardbutton-none" :onLinkClick="toggleDropdown"></ScrollDownmenu>
+      <ul class="dropdown-list" >
+        <q-btn @click="toggleDropdown" class="dropdown-link"
+          v-for="link in navMenu"
+          stretch 
+          flat
+          :label="link.label"
+          :key="link.link"
+          :to="link.link"
+        />
+        <Popup></Popup>
+      </ul>
+      <div class="dropdown-footer">
+        <a href="/" class="dropdown__footer-label">+7 3822 99 02 55</a>
+        <div class="dropdown__footer-text">
+          Бесплатная доставка<br>
+          по Томску от 400 ₽
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
 import burger from 'src/widgets/mainHeader/burger/ui/burger.vue';
+import { navMenu } from 'src/widgets/mainHeader/config/navMenu';
+import Popup from 'src/widgets/mainHeader/popUp/ui/popup.vue';
+import ScrollDownmenu from 'src/widgets/mainHeader/scrollDownmenu/ui/scrollDownmenu.vue';
+const isOpen = ref(false);
+const isVisible = ref(false);
+const menuItems = ref(true);
 
-export default defineComponent({
-  components: {
-    Popup,
-    burger,
-  },
-  setup() {
-    const isOpen = ref(false);
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+  isVisible.value = !isVisible.value;
 
-    const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
-    };
+  // Блокируем или разблокируем прокрутку страницы
+  if (isOpen.value) {
+    document.body.classList.add('no-scroll');
+  } else {
+    document.body.classList.remove('no-scroll');
+  }
+};
 
-    return {
-      isOpen,
-      toggleDropdown,
-    };
-  },
+// Добавляем обработчики на событие монтирования и размонтирования компонента
+onMounted(() => {
+  if (isOpen.value) {
+    document.body.classList.add('no-scroll');
+  }
 });
+
+onBeforeUnmount(() => {
+  document.body.classList.remove('no-scroll');
+});
+
+
 </script>
 
 <style lang="scss" scoped>
 @import './style.scss';
+
+
 </style>

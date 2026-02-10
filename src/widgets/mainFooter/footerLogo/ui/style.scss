@@ -23,26 +23,31 @@
     }
   
     &__label {
-      @include font-styles('Poppins',400, 16px, 24px, rgb(112, 112, 112));
+      @include font-styles('Nekst',400, 14px, 24px, white);
     }
   
     &__text {
-      @include font-styles('Poppins',400, 16px, 20px, gray);
-      letter-spacing: -1.2px;
-      line-height: 180%;
+      @include font-styles('Nekst',400, 14px, 20px, white);
+      position: absolute;
+      bottom: 0;
     }
   }
   
   @media(min-width:#{$br-tablet}px) {
     .footer-logo {
   
-      margin: 3rem 0 5rem 1.5rem;
+      margin: 3rem 0 5rem 0rem;
+    }
+    .footer-logo__text {
+      @include font-styles('Nekst',400, 14px, 20px, white);
+      position:relative;
+      bottom: 0;
     }
     } 
       
   @media(min-width:#{$br-desktop}px){
     .footer-logo {
   
-      margin: 3rem 0 5rem 6.5rem;
+      margin: 3rem 0 5rem 0rem;
     }
     }

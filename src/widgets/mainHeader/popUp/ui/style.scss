@@ -1,397 +1,212 @@
 @import "src/shared/styles";
-.popup {
+  .forget__password{
     position: fixed;
-    z-index: 5;
-  
-    display: flex;
-  
-    height: dvh(100);
-  
-    overflow-y: auto;
-  
-    background: rgba(black, 0.7);
-    visibility: hidden;
-}
-    .popup_open {
-      visibility: visible;
-    }
-  
-    .popup__content {
-  
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      margin: auto;
-      padding:2rem 1.5rem ;
-      overflow-y: auto;
-      text-align: center;
-  
-      background: var(--pure-white);
-  
-    }
-  
-    .popup__header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-      padding-top: 0.6rem;
-  
-      column-gap: 16px;
-    }
-  
-    .popup__title{
-      margin-bottom: 0;
-  
-      font-size: 20px;
-    }
-  
-    .popup__button{
-      @include button-style( 100%, 3rem,#0432DF,none,0.5rem);
-      @include font-styles('Poppins',700, 1rem, 1.5rem, var(--pure-white));
-      margin-top: 2.2rem;
-    }
-  
-    .popup__title-text{
-      @include font-styles('Poppins',600, 1.75rem, 2.375rem, var(--description-dark));
-      
-    }
-  
-    .popup__text{
-      @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-light));
-      margin-top: 0.5rem;
-  
-    }
-
-      
-    .popup__sign-text{
-      @include font-styles('Poppins',600, 1rem, 1.5rem, #0432DF);
-      margin-top: 0.5rem;
-      margin-bottom: 2.7rem;
-  
-    }
-  
-    .popup__form-text{
-      @include font-styles('Poppins',700, 1rem,1.5rem, var(--blue));
-    }
-  
-    .modal__email-name-container {
-      display: flex;
-      width: 100%;
-      height: 2.75rem;
-      margin-bottom: 2rem;
-  
-      background-color: #EEEEEE;
-  
-      border: none;
-      border-radius: 8px;
-  
-      @include font-styles('Poppins',700, 1rem, 1.5rem, var(--light-blue));
-  
-   }
-  
-   .modal__email-name-container, .modal__message-container {
-    position: relative;
-  
-    margin: 20px 0;
-  }
-  
-   .modal__email-name-container:hover {
-    @include font-styles('Poppins',700, 1rem, 1.5rem, var(--blue));
-    border: 1px solid var(--blue);
-  }
-  
-  
-  .modal__message-container {
-    display: flex;
-    width: 100%;
-    height: 11.75rem;
-    margin-bottom: 2.6rem;
-    padding-left: 1.5rem;
-  
-    background-color: var(--bk-color);
-  
-    border: 1px solid var(--light-blue);
-    border-radius: 24px;
-  
-    @include font-styles('Poppins',700, 1rem, 1.5rem, var(--light-blue));
-  
-  }
-   
-  .modal__message-container:hover {
-    border: 1px solid var(--blue);
-  }
-   
-  
-  .modal__email-name-container:active {
-    border: 1px solid var(--description-dark);
-  }
-  
-  .modal__email-name-container.error {
-    border-color: #dc3545; /* Красный цвет границы при ошибке */
-  }
-  
-  .modal__message-container.error {
-    border-color: #dc3545; /* Красный цвет границы при ошибке */
-  }
-  
-  label.error {
-    color: #dc3545; /* Цвет текста лейбла */
-  
-    border-color: #dc3545; /* Красный цвет границы при ошибке */
-  
-  }
-   
-   .modal__email-name-container::placeholder {
-       color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
-
-   }
-   
-  
-   
-   .modal__message-container::placeholder {
-       color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
-
-   }
-  
-   .modal__attach-block {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
-    justify-content: start;
-  
-    white-space: nowrap; /* Предотвращает перенос строк */
-  
-  
-  }
-  
-  .modal__attach-block img {
-    display: inline-block; /* Изображение как блочный элемент в строке */
-  
-    vertical-align: middle; /* Выравнивание по центру по вертикали */
-  }
-  
-  .modal__attach-block p {
-    display: inline-block; /* Текст как блочный элемент в строке */
-    margin-left: -5px; /* Отступ слева от изображения */
-  
-    vertical-align: middle; /* Выравнивание по центру по вертикали */
-  }
-  
-  .modal__email-message-text{
-    @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-light));
-  }
-
-  .popup__img-block{
-    display: flex;
-    gap: 1rem;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  textarea {
-    width: 90%;
-  
-    font-size: 16px;
-  
-    background-color: var(--pure-black);
-  
-    border-radius: 4px;
-  
-    transition: border-color 0.2s;
-  
-    @include font-styles('Poppins',700, 1rem, 1.5rem, var(--description-dark));
-  }
-  
-  input {
-    width:100%;
-  
-    font-size: 16px;
-  
-    background-color: inherit;
-
-    padding-left: 1.5rem;
-    border-radius: 8px;
-  
-    transition: border-color 0.2s;
-  
-    @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-dark));
-  }
-
-  .modal__input {
-    width:auto;
-  }
-  
-  input:focus {
-    border-color: var(--blue); /* Цвет границы при фокусе */
-  }
-  
-  label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  
-    color: var(--light-blue); /* Цвет текста лейбла */
-  
-    font-size: 16px; /* Размер текста лейбла */
-  
-    background-color: var(--bk-color); /* Цвет фона лейбла */
-  
-    transition: 0.2s ease all;
-  
-    pointer-events: none; /* Чтобы текст не блокировал ввод */
-  }
-  
-  input:hover + label {
-    color: var(--blue); /* Цвет текста */
-  }
-  
-  .name-container label.error, .email-container label.error, .message-container label.error {
-    color: #dc3545; /* Красный цвет текста при ошибке */
-  }
-  
-  
-  input:focus + label,
-  input:not(:placeholder-shown) + label {
-    top: -13px;
-    left: 20px;
-  
-    height: 15px;
-  
-    font-size: 12px;
-  
-    background-color: var(--bk-color); /* Цвет фона лейбла */ /* Цвет фона при вводе */
-    background-size: auto;
-  }
-  
-  
-  textarea:focus + label,
-  textarea:not(:placeholder-shown) + label {
-    top: -13px;
-    left: 20px;
-  
-    height: 15px;
-  
-    font-size: 12px;
-  
-    background-color: var(--bk-color); /* Цвет фона лейбла */ /* Цвет фона при вводе */
-    background-size: auto;
-  }
-  .popup-overlay {
-    position: fixed;
-    z-index:2001;
+    z-index: 2001;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(#01350B, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
-  
+
+  .popup__section{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+
+  .popup-label{
+    text-align: start;
+    @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-dark));
+  }
+.popup__text {
+  padding: 15px 40px;
+  cursor: pointer;
+  color: #000000; /* Измените на нужный цвет */
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.popup__logo-button {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: relative; /* Для позиционирования внутренних элементов */
+}
+
+.icon_normal,
+.icon_hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain; /* Чтобы изображение scale */
+    background-repeat: no-repeat; /* Избегает повторения фона */
+    transition: opacity 0.3s ease; /* Плавный переход для opacity */
+}
+
+.icon_normal {
+    background-image: url("/images/headers/icon_LK.svg");
+    opacity: 1; /* По умолчанию показываем первую иконку */
+}
+
+.icon_hover {
+    background-image: url("/images/headers/icon_LK-green.svg");
+    opacity: 0; /* Изначально скрываем вторую иконку */
+}
+
+/* При наведении изменяем opacity */
+.popup__logo-button:hover .icon_normal {
+    opacity: 0; /* Скрываем первую иконку */
+}
+
+.popup__logo-button:hover .icon_hover {
+    opacity: 1; /* Показываем вторую иконку */
+}
+
+.popup__forget-button-block{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0 0 0;
+}
+.popup__text-forget{
+  padding: 15px 0px;
+  cursor: pointer;
+  color: #000000; /* Измените на нужный цвет */
+  border-radius: 10px;
+  text-align: left;
+}
+
+.popup__text-forget-label{
+  padding: 15px 0px;
+  cursor: pointer;
+  color: #FF991F; /* Измените на нужный цвет */
+  border-radius: 10px;
+  text-align: end;
+}
+.popup__button{
+  padding: 14px 36px 14px 36px;
+  background-color: #FF991F;
+  color: white;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.popup__close{
+flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.popup__text.active {
+  background-color: white; /* Измените на нужный цвет */
+   text-align: center;
+}
+
+.popup__choose-block{
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  display: flex;
+  padding: 5px;
+  text-align: center;
+  margin: 30px 0;
+  justify-content: center;
+
+}
+  .popup-overlay {
+    position: fixed;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#01350B, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .error-message {
+    color: red; // Цвет текста ошибки
+    font-size: 12px; // Размер шрифта 
+    text-align: left;
+}
+
   .popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    min-width: 300px;
+    background: var(--pure-white);
+    background-image: url("/images/headers/pattern.svg");
+    padding: 90px 20px;
+    border-radius: 0px;
+    overflow-y: auto;
+    width: 100%;
+    position: fixed;
+    height: 100%;
+
   }
   
   .close-button {
+
+    color: var(--description-dark);
+
+  }
+
+@media (min-width:#{$br-tablet}px) {
+    .forget__password{
+    position: fixed;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#01350B, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .popup-overlay {
+    position: fixed;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#01350B, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .popup-content {
+    background: var(--pure-white);
+    background-image: url("/images/headers/pattern.svg");
+    padding: 2rem 2.5rem;
+    border-radius: 24px;
+    width: 480px;
+    height: fit-content;
+  }
+    .close-button {
     background: transparent;
-    border: none;
-    font-size: 20px;
+    color: var(--description-dark);
     cursor: pointer;
-    top: 10px;
-    right: 10px;
+
+  }
+
+  }
+  @media (min-width:#{$br-desktop}px) {
+  .popup-overlay {
+    background-color: rgba(#01350B, 0.8);
   }
   
-  
-  @media(min-width:#{$br-tablet}px){
-    .popup-overlay {
-        background-color: #030b27;
-    }
 
-    .popup {
-
-  
-      .popup__title-text{
-        @include font-styles('Poppins',700, 3.4375rem, 4.6875rem, var(--description-dark));
-        
-      }
-    
-      .popup__text{
-        @include font-styles('Poppins',400, 1.25rem, 2rem, var(--description-dark));
-        margin-top: 0.5rem;
-    
-      }
-    
-      .popup__form-text{
-        @include font-styles('Poppins',700, 1rem,1.5rem, var(--blue));
-      }
-    
-      .modal__email-name-container {
-        width: 560px;
-        height: 2.75rem;
-        margin-bottom:2.2rem;
-        padding-left: 1.5rem;
-  
-        background-color: var(--bk-color);
-  
-        border: 1px solid var(--light-blue);
-        border-radius: 24px;
-  
-        @include font-styles('Poppins',700, 1rem, 1.5rem, var(--description-dark));
-     }
-  
-     .modal__email-name-container:hover {
-      background-color: var(--bk-color);
-  
-      border: 1px solid var(--blue);
-   }
-  
-   .modal__email-name-container:active {
-  
-    border: 1px solid var(--description-dark);
   }
-     
-     .modal__email-name-container::placeholder {
-         color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
-
-     }
-     
-     .modal__message-container {
-      width:560px;
-      height: 7.75rem;
-      margin-top: 0.5rem;
-      margin-bottom: 2.5rem;
-      padding-left: 1.5rem;
-  
-      background-color: var(--bk-color);
-  
-      border: 1px solid var(--light-blue);
-      border-radius: 24px;
-  
-      @include font-styles('Poppins',700, 1rem, 1.5rem, var(--light-blue));
-  
-     }
-     
-     .modal__message-container::placeholder {
-         color: var(--light-blue); /* Задаем синий цвет для плейсхолдера */
-  
-
-     }
-    
-    
-    .modal__email-message-text{
-      @include font-styles('Poppins',500, 1rem, 1.5rem, var(--description-light));
-    }
-    }
-    }
-
-      @media(min-width:#{$br-desktop}px){
-      .popup-overlay {
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-    }

@@ -1,13 +1,21 @@
 import UiButton from '@shared/ui/uiButton/UiButton.vue';
 import UiModal from '@shared/ui/uiModal/UiModal.vue';
 
+import customButton from './customButton/customButton.vue';
 import CFormField from './formFields/FormField.vue';
+import inputCheckbox from './inputCheckbox/inputCheckbox.vue';
+import inputRadiobutton from './inputRadiobutton/inputRadiobutton.vue';
+import inputText from './inputText/inputText.vue';
+import inputTextarea from './inputTextarea/inputTextarea.vue';
 import MainLoader from './mainLoader/MainLoader.vue';
-import i18n from '@widgets/mainHeader/headerLang/HeaderLang';
-
 export {
+  customButton,
   UiButton,
   MainLoader,
   UiModal,
-  CFormField
+  CFormField,
+  inputText,
+  inputCheckbox,
+  inputRadiobutton,
+  inputTextarea
 }
