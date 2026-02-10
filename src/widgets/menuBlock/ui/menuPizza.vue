@@ -4,7 +4,7 @@
     
     <MenuSection 
       :menuItems="pizza"
-      menuLabel="Пицца"
+      menuLabel="Пиццаfqwfqwf"
       menuLabelId="Pizza"
     />
     <MenuSection 
